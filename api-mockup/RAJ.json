@@ -29,63 +29,10 @@
         },
         {
           "uuid": "4583666b-6b56-4836-86c2-a1917ad183d3",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error...\"\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        }
-      ],
-      "enabled": true,
-      "randomResponse": false,
-      "sequentialResponse": false
-    },
-    {
-      "uuid": "32d9ff39-73e2-4cd4-9a2b-a47b9edf5161",
-      "documentation": "",
-      "method": "post",
-      "endpoint": "gambling-companies/login/",
-      "responses": [
-        {
-          "uuid": "513a3164-b502-4ca1-9524-2d95c05d5dbc",
-          "body": "{\n  \"token\": \"sdfsdf.sdfsdfs.sdfsdf\"\n}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "Correct authentication",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        },
-        {
-          "uuid": "cec0063b-0c8b-483a-a021-e7dae3d63938",
-          "body": "",
-          "latency": 0,
-          "statusCode": 500,
-          "label": "Server error",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        },
-        {
-          "uuid": "f06083ee-f104-47cc-b08c-f06e71600bd5",
-          "body": "",
-          "latency": 0,
-          "statusCode": 401,
-          "label": "Authentication error",
           "headers": [],
           "filePath": "",
           "sendFileAsBody": false,
@@ -101,13 +48,13 @@
     },
     {
       "uuid": "14487bae-cceb-43c3-85cb-505d2101b85e",
-      "documentation": "Start affected enrollment process",
+      "documentation": "Start enrollment process",
       "method": "post",
-      "endpoint": "affecteds/register/",
+      "endpoint": "register/",
       "responses": [
         {
           "uuid": "f5587c04-0a58-4576-bf56-7a5a2dd2f9f1",
-          "body": "",
+          "body": "{\n  \"message\": \"Succesfully registration. Confirmation pending\",\n  \"data\": {\n    \"regCompleted\": false\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Enrollment process started",
@@ -121,7 +68,7 @@
         },
         {
           "uuid": "f17531d2-d47f-4d3c-a4dd-0d457bf65410",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": [],\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -135,7 +82,7 @@
         },
         {
           "uuid": "73d5345e-c054-45d0-88d4-1836eec97a7d",
-          "body": "{\n  \"message\": \"TODO: define signup data\"\n}",
+          "body": "{\n  \"message\": \"TODO: define signup data\"\n  \"data\": [\n    {\n      \"fieldname\": \"Nombre de campo\",\n      \"errorDescription\": \"Texto del error\"\n    },\n    {\n      \"fieldname\": \"Nombre de campo\",\n      \"errorDescription\": \"Texto del error\"\n    },\n  ]\n}",
           "latency": 0,
           "statusCode": 400,
           "label": "Invalid data provided",
@@ -154,13 +101,13 @@
     },
     {
       "uuid": "5125afcc-68a3-4347-b256-21a3754ad8fc",
-      "documentation": "Complete affected enrollment process - Request body: { \"confirmationToken\": \"string\" }",
+      "documentation": "Enrollment process confirmation",
       "method": "patch",
-      "endpoint": "affecteds/register/",
+      "endpoint": "confirmation/{confirmationToken}",
       "responses": [
         {
           "uuid": "f8806d62-17c4-4c0e-bcfd-84dc6d59ff30",
-          "body": "{\n  \"token\": \"sdfsdf.sdfsdfs.sdfsdf\"\n}",
+          "body": "{\n  \"message\": \"Registration completed succesfully\",\n  \"data\": {\n    \"regCompleted\": true,\n    \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Enrollment process finished",
@@ -174,7 +121,7 @@
         },
         {
           "uuid": "f7167668-521b-44d7-90da-10f7c7f2d61a",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": [],\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -188,7 +135,7 @@
         },
         {
           "uuid": "b47641e9-dd78-4df9-b32a-a6636a08f1a3",
-          "body": "{\n  \"message\": \"TODO: define signup data\"\n}",
+          "body": "{\n  \"message\": \"Invalid confirmation data\",\n  \"data\": {\n    \"error\": \"Expired token\"\n  }\n}",
           "latency": 0,
           "statusCode": 400,
           "label": "Invalid data provided",
@@ -209,11 +156,11 @@
       "uuid": "a1cd4663-26e3-4c62-be0e-c1366010e849",
       "documentation": "Provides JWT if valid authentication - Request body: {\"username\": \"\", \"password\": \"\"}",
       "method": "post",
-      "endpoint": "affecteds/login/",
+      "endpoint": "login/",
       "responses": [
         {
           "uuid": "786cdbf8-1d21-4073-942b-8aa4d6a00075",
-          "body": "{\n  \"token\": \"sdfsdf.sdfsdfs.sdfsdf\"\n}",
+          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": {\n      \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Correct authentication",
@@ -227,7 +174,7 @@
         },
         {
           "uuid": "ee2ca7d6-5f35-4d18-9477-6ba8edd45db0",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": [],\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -241,7 +188,7 @@
         },
         {
           "uuid": "1f8a3e2a-1b14-4bd2-8135-8d4437e542b8",
-          "body": "",
+          "body": "{\n  \"message\": \"Invalid authentication\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 401,
           "label": "Authentication error",
@@ -262,14 +209,14 @@
       "uuid": "b77904e9-22ad-4f9e-98e6-f7b9d4aea170",
       "documentation": "Access to affected profile - protected",
       "method": "get",
-      "endpoint": "affecteds/profile/",
+      "endpoint": "profile/",
       "responses": [
         {
           "uuid": "76958814-4e40-4ab1-ae2f-b0cfd30167f1",
-          "body": "{\n  \"message\": \"TODO: define affected profile data\"\n}",
+          "body": "{\n  \"message\": \"Your profile\",\n  \"data\": {\n    \"username\": \"nombre de usuario\",\n    \"name\": \"Nombre Fulanito\",\n    \"entity\": \"Apuestas De Estas S.L.\",\n    \"entityId\": \"33333333J\",\n    \"contactName\": \"Lolo Manolo\",\n    \"contactId\": \"44444444M\",\n    \"contactCharge\": \"President\",\n    \"email\": \"blabla@pumbpumb.com\",\n    \"telephon\": \"66666666\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
-          "label": "Affected profile",
+          "label": "Owned profile",
           "headers": [],
           "filePath": "",
           "sendFileAsBody": false,
@@ -280,7 +227,7 @@
         },
         {
           "uuid": "d0f93e85-2655-4b92-88c0-57c5a5e0b00e",
-          "body": "",
+          "body": "{\n  \"message\": \"Access denied\"\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 403,
           "label": "Access denied",
@@ -294,7 +241,7 @@
         },
         {
           "uuid": "00e999f6-56f7-43cc-a1d8-f3384d962191",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": [],\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -347,7 +294,7 @@
         },
         {
           "uuid": "5e4e9335-c15d-40c0-9aa0-016277d93109",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": [],\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -374,7 +321,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -414,7 +361,7 @@
         },
         {
           "uuid": "db1de8aa-6783-401a-8d31-f480a467afef",
-          "body": "",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": [],\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -427,7 +374,60 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "32d9ff39-73e2-4cd4-9a2b-a47b9edf5161",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "gambling-companies/login/",
+      "responses": [
+        {
+          "uuid": "513a3164-b502-4ca1-9524-2d95c05d5dbc",
+          "body": "{\n  \"token\": \"sdfsdf.sdfsdfs.sdfsdf\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Correct authentication",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "cec0063b-0c8b-483a-a021-e7dae3d63938",
+          "body": "{\n  \"message\": \"Internal server error...\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "f06083ee-f104-47cc-b08c-f06e71600bd5",
+          "body": "{\n  \"message\": \"Invalid login atempt\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Authentication error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     }
