@@ -1,5 +1,5 @@
-# ignore all files starting with .
-.*
+# vscode preferences
+.vscode
 
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
