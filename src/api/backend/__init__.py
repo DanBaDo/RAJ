@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 # Local imports
-from api.models import db
+from backend.models import db
 
 # Configure Flask app
 app = Flask(__name__)
@@ -16,10 +16,10 @@ db.init_app(app)
 CORS(app)
 
 # Add access control
-from api import access_control
+from backend import access_control
 
 # Add app endpoints
-from api import endpoints
+from backend import endpoints
 
 # Run app
 if __name__ == '__main__':

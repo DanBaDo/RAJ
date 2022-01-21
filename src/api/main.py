@@ -1,5 +1,5 @@
 from os import environ
-from api import app
+from backend import app
 
 # Run app
 if __name__ == '__main__':

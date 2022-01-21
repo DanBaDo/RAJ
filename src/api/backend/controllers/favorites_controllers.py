@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_jwt_extended import jwt_required, current_user
-from api.models import Character, Planet, User
-from api import db
+from backend.models import Character, Planet, User
+from backend import db
 
 @jwt_required()
 def add_favorite_planet(planet_id):

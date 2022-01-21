@@ -1,5 +1,5 @@
-from api import app
-from api.controllers.favorites_controllers import *
+from backend import app
+from backend.controllers.favorites_controllers import *
 
 app.add_url_rule("/users/planets/<int:planet_id>", methods=["POST"], view_func=add_favorite_planet)
 app.add_url_rule("/users/<int:user_id>/planets/", methods=["GET"], view_func=get_favorite_planets)
