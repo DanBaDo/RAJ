@@ -1,7 +1,7 @@
 from email import message
 from flask import jsonify, request
 from flask_jwt_extended import create_access_token
-from api.models import User
+from backend.models import User
 from werkzeug.security import check_password_hash
 
 def login():

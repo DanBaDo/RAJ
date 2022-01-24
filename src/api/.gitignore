@@ -1,5 +1,0 @@
-venv/
-**/__pycache__/
-migrations/
-sqlite/star_wars.db
-NOTES.md

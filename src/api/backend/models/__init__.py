@@ -2,4 +2,4 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-from api.models.ORMobjects import *
+from backend.models.ORMobjects import *

@@ -1,3 +1,9 @@
+#custom
+venv/
+**/__pycache__/
+migrations/
+sqlite/*.db
+
 # vscode preferences
 .vscode
 

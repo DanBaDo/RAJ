@@ -1,5 +1,5 @@
-from api.models import Character
-from api.models import db
+from backend.models import Character
+from backend.models import db
 from flask import request, jsonify
 
 def add_character():
