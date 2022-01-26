@@ -82,7 +82,7 @@
         },
         {
           "uuid": "73d5345e-c054-45d0-88d4-1836eec97a7d",
-          "body": "{\n  \"message\": \"TODO: define signup data\"\n  \"data\": [\n    {\n      \"fieldname\": \"Nombre de campo\",\n      \"errorDescription\": \"Texto del error\"\n    },\n    {\n      \"fieldname\": \"Nombre de campo\",\n      \"errorDescription\": \"Texto del error\"\n    },\n  ]\n}",
+          "body": "{\n  \"message\": \"Invalid data provided\"\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 400,
           "label": "Invalid data provided",
