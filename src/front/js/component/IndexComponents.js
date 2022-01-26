@@ -5,3 +5,5 @@ export {default as Gallery} from "./GallerySection/Gallery.jsx";
 export {default as NavbarTop} from "./NavbarSection/NavbarTop.jsx";
 export {default as InfoSection } from "./InfoSection/InfoSection.jsx" ;
 export {default as Rajinfo} from "./RajInfoSection/Rajinfo.jsx";
+export {default as ButtonGradients} from "./Commoncomponents/ButtonGradients.jsx";
+

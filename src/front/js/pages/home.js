@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { Baner, Forms, Gallery, InfoSection, Rajinfo, NavbarTop, Footer} from "../component/IndexComponents";
+import { Baner, Forms, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradients} from "../component/IndexComponents";
 
 
 export const Home = () => {
@@ -15,6 +15,7 @@ export const Home = () => {
 			<Baner/>
 			<Forms/>
 			<Footer/>
+			<ButtonGradients name="click me"/>
 		</div>
 	);
 };
