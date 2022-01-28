@@ -15,8 +15,8 @@ export const Home = () => {
 			<Footer/>
 			<ButtonGradients name="click me"/>
 			<Message content="Hola, como estamos?"/>
-			
-	
+			<Message content="Hola, como estamos?" type="warning"/>
+			<Message content="Hola, como estamos?" type="error"/>
 		</div>
 	);
 };
