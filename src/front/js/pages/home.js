@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { Baner, Forms, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradients} from "../component/IndexComponents";
+import { Baner, Forms, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradients, Message} from "../component/IndexComponents";
 
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-
 	return (
 		<div className="text-center mt-5">
 			<NavbarTop/>
@@ -16,6 +15,7 @@ export const Home = () => {
 			<Forms/>
 			<Footer/>
 			<ButtonGradients name="click me"/>
+			<Message content="Hola, como estamos?"/>
 		</div>
 	);
 };
