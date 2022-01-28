@@ -8,3 +8,5 @@ export {default as Rajinfo} from "./RajInfoSection/Rajinfo.jsx";
 export {default as ButtonGradients} from "./Commoncomponents/ButtonGradients.jsx";
 export {default as SocialButtons} from "./Commoncomponents/SocialButtons.jsx";
 export {default as Jumbotron } from "./Jumbotron/Jumbotron.jsx";
+export {default as Message} from "./Commoncomponents/Message.jsx";
+
