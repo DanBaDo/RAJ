@@ -3,7 +3,7 @@ import { Carousel, Container, Row } from "react-bootstrap";
 const Gallery = () => {
   return (
     <>
-      <Container className="mt-4">
+      <Container className="mt-4" fluid>
         <Row>
           <Carousel fade>
             <Carousel.Item interval={1000}>

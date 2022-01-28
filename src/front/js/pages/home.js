@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { Baner, Forms, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradients} from "../component/IndexComponents";
+import { Baner, InfoSection, Rajinfo, NavbarTop, Footer, Gallery } from "../component/IndexComponents";
 
 
 export const Home = () => {
@@ -10,12 +10,10 @@ export const Home = () => {
 		<div className="text-center mt-5">
 			<NavbarTop/>
 			<Gallery/>
-			<InfoSection/>
 			<Rajinfo/>
+			<InfoSection/>
 			<Baner/>
-			<Forms/>
 			<Footer/>
-			<ButtonGradients name="click me"/>
 		</div>
 	);
 };
