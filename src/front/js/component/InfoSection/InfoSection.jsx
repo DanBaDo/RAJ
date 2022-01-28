@@ -3,12 +3,12 @@ import { Accordion, Container, Row, Col } from "react-bootstrap";
 const InfoSection = () => {
   return (
     <>
-      <Container className="mt-4">
-        <Row>
+      <Container className="my-4 p-5">
+        <Row className="my-3">
           <h2>La adiccion al juego, nuestro Enemigo</h2>
         </Row>
         <Row>
-          <Col xl={6}>
+          <Col xl={12}>
             <Accordion defaultActiveKey="0" flush>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Accordion Item #1</Accordion.Header>
