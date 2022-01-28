@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { Baner, InfoSection, Rajinfo, NavbarTop, Footer, Gallery } from "../component/IndexComponents";
 import { Baner, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradients, Message} from "../component/IndexComponents";
 
 
@@ -16,6 +15,8 @@ export const Home = () => {
 			<Footer/>
 			<ButtonGradients name="click me"/>
 			<Message content="Hola, como estamos?"/>
+			
+	
 		</div>
 	);
 };

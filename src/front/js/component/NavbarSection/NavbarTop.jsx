@@ -1,17 +1,18 @@
 import React from "react";
 import { Container, Navbar,NavDropdown, Nav } from "react-bootstrap";
+import { BrowserRouter,Link } from "react-router-dom/cjs/react-router-dom.min";
 const NavbarTop = () => {
   return (
     <>
+      <BrowserRouter>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">
-                </Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Link to="/">Home</Link>
+              <Link to="/FormAffected">Formulario Usuario</Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
@@ -27,7 +28,7 @@ const NavbarTop = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link to="./home">More deets</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
                 Dank memes
               </Nav.Link>
@@ -35,6 +36,9 @@ const NavbarTop = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      
+      </BrowserRouter>
+      
     </>
   );
 };
