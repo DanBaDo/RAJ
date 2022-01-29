@@ -54,7 +54,7 @@
       "responses": [
         {
           "uuid": "f5587c04-0a58-4576-bf56-7a5a2dd2f9f1",
-          "body": "{\n  \"message\": \"Succesfully registration. Confirmation pending\",\n  \"data\": {\n    \"regCompleted\": false\n  }\n}",
+          "body": "{\n  \"message\": \"Succesfully registration. Confirmation pending\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Enrollment process started",
@@ -68,7 +68,7 @@
         },
         {
           "uuid": "f17531d2-d47f-4d3c-a4dd-0d457bf65410",
-          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null,\n}",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -82,7 +82,7 @@
         },
         {
           "uuid": "73d5345e-c054-45d0-88d4-1836eec97a7d",
-          "body": "{\n  \"message\": \"TODO: define signup data\"\n  \"data\": [\n    {\n      \"fieldname\": \"Nombre de campo\",\n      \"errorDescription\": \"Texto del error\"\n    },\n    {\n      \"fieldname\": \"Nombre de campo\",\n      \"errorDescription\": \"Texto del error\"\n    },\n  ]\n}",
+          "body": "{\n  \"message\": \"Invalid data provided\",\n  \"data\":  [\n    {\n      \"field\": \"name\",\n      \"message\": \"Name must be longer than 4 characters\"\n    },\n    {\n      \"field\": \"phone\",\n      \"message\": \"Phone can contains only numbers\"\n    }\n  ]\n}",
           "latency": 0,
           "statusCode": 400,
           "label": "Invalid data provided",
@@ -107,7 +107,7 @@
       "responses": [
         {
           "uuid": "f8806d62-17c4-4c0e-bcfd-84dc6d59ff30",
-          "body": "{\n  \"message\": \"Registration completed succesfully\",\n  \"data\": {\n    \"regCompleted\": true,\n    \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
+          "body": "{\n  \"message\": \"Registration completed succesfully\",\n  \"data\": {\n    \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Enrollment process finished",
@@ -121,7 +121,7 @@
         },
         {
           "uuid": "f7167668-521b-44d7-90da-10f7c7f2d61a",
-          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null,\n}",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -135,7 +135,7 @@
         },
         {
           "uuid": "b47641e9-dd78-4df9-b32a-a6636a08f1a3",
-          "body": "{\n  \"message\": \"Invalid confirmation data\",\n  \"data\": {\n    \"error\": \"Expired token\"\n  }\n}",
+          "body": "{\n  \"message\": \"Invalid confirmation data\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 400,
           "label": "Invalid data provided",
@@ -227,7 +227,7 @@
         },
         {
           "uuid": "d0f93e85-2655-4b92-88c0-57c5a5e0b00e",
-          "body": "{\n  \"message\": \"Access denied\"\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 403,
           "label": "Access denied",
@@ -241,7 +241,7 @@
         },
         {
           "uuid": "00e999f6-56f7-43cc-a1d8-f3384d962191",
-          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null,\n}",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -400,7 +400,7 @@
         },
         {
           "uuid": "3a18a755-f255-4f6f-9ecd-fdb05ed1a126",
-          "body": "{\n  \"message\": \"Access denied\"\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 403,
           "label": "Access denied",
@@ -414,7 +414,7 @@
         },
         {
           "uuid": "3b6085db-5b47-486a-bf01-859be4f369dc",
-          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null,\n}",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 500,
           "label": "Server error",
@@ -453,7 +453,7 @@
         },
         {
           "uuid": "d01ac581-9189-43a1-8613-2d9fb53f3585",
-          "body": "{\n  \"message\": \"Access denied\"\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 403,
           "label": "Access denied",
@@ -506,7 +506,7 @@
         },
         {
           "uuid": "54bf78a2-e408-4852-bd4e-0ae33d001f8b",
-          "body": "{\n  \"message\": \"Access denied\"\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 403,
           "label": "Access denied",
@@ -559,7 +559,7 @@
         },
         {
           "uuid": "1f1bc607-089e-41a6-b104-b4ab9ea0dcdf",
-          "body": "{\n  \"message\": \"Invalid key provided\"\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Invalid key provided\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 401,
           "label": "Bad key",
@@ -612,7 +612,7 @@
         },
         {
           "uuid": "7273d813-d57d-4749-9aa8-2dac1adaf6ae",
-          "body": "{\n  \"message\": \"Bad url key\"\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Bad url key\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 401,
           "label": "Access denied",
