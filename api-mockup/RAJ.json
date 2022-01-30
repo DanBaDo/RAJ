@@ -101,9 +101,9 @@
     },
     {
       "uuid": "5125afcc-68a3-4347-b256-21a3754ad8fc",
-      "documentation": "Enrollment process confirmation",
+      "documentation": "Enrollment process confirmation - Request body: {\"token\": \"confirmationTokenString\"}",
       "method": "patch",
-      "endpoint": "confirmation/{confirmationToken}",
+      "endpoint": "confirmation/",
       "responses": [
         {
           "uuid": "f8806d62-17c4-4c0e-bcfd-84dc6d59ff30",
@@ -486,9 +486,9 @@
     },
     {
       "uuid": "c624e55d-8087-4e87-9623-4c3753a77528",
-      "documentation": "API keys list - protected: logged in entities",
+      "documentation": "API keys list - protected: logged in entities - Request body: {\"id\": \"apiKeyId\"}",
       "method": "delete",
-      "endpoint": "apikey/{apiKeyId}",
+      "endpoint": "apikey/",
       "responses": [
         {
           "uuid": "0587719f-105b-47a6-ac7b-d7e875fd71af",
