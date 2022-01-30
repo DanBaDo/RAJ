@@ -155,7 +155,7 @@
     {
       "uuid": "a1cd4663-26e3-4c62-be0e-c1366010e849",
       "documentation": "Provides JWT if valid authentication - Request body: {\"username\": \"\", \"password\": \"\"}",
-      "method": "post",
+      "method": "get",
       "endpoint": "login/",
       "responses": [
         {
