@@ -1,3 +1,5 @@
+import { login as loginRequest } from "../libraries/request/APIRequests";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -41,6 +43,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			// Login example action
+			login: (data) => {
+				loginRequest.data = data;
+				loginRequest.onError = (error)=>{
+					console.error(error);
+				}
+				loginRequest.onResponse = (response)=>{
+					if (response.data.token) {
+						sessionStorage.setItem("JWToken",response.data.token)
+					}
+				}
 			}
 		}
 	};
