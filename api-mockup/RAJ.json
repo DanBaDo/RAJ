@@ -1,0 +1,731 @@
+{
+  "uuid": "958d1832-1254-4dd5-b1df-b7ba5430a4e4",
+  "lastMigration": 19,
+  "name": "RAJ",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "765b3121-76b6-4774-84a4-343075b6fbdb",
+      "documentation": "Main web site page",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "8671012a-02cc-4c29-8f6d-d37624b728ae",
+          "body": "<h1>Registro de Autoexclusión del Juego</h1>\n<p>Página principal</p>",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Home page",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "4583666b-6b56-4836-86c2-a1917ad183d3",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "14487bae-cceb-43c3-85cb-505d2101b85e",
+      "documentation": "Start enrollment process",
+      "method": "post",
+      "endpoint": "register/",
+      "responses": [
+        {
+          "uuid": "f5587c04-0a58-4576-bf56-7a5a2dd2f9f1",
+          "body": "{\n  \"message\": \"Succesfully registration. Confirmation pending\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Enrollment process started",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "f17531d2-d47f-4d3c-a4dd-0d457bf65410",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "73d5345e-c054-45d0-88d4-1836eec97a7d",
+          "body": "{\n  \"message\": \"Invalid data provided\",\n  \"data\":  [\n    {\n      \"field\": \"name\",\n      \"message\": \"Name must be longer than 4 characters\"\n    },\n    {\n      \"field\": \"phone\",\n      \"message\": \"Phone can contains only numbers\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid data provided",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "5125afcc-68a3-4347-b256-21a3754ad8fc",
+      "documentation": "Enrollment process confirmation",
+      "method": "patch",
+      "endpoint": "confirmation/{confirmationToken}",
+      "responses": [
+        {
+          "uuid": "f8806d62-17c4-4c0e-bcfd-84dc6d59ff30",
+          "body": "{\n  \"message\": \"Registration completed succesfully\",\n  \"data\": {\n    \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Enrollment process finished",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "f7167668-521b-44d7-90da-10f7c7f2d61a",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "b47641e9-dd78-4df9-b32a-a6636a08f1a3",
+          "body": "{\n  \"message\": \"Invalid confirmation data\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid data provided",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "a1cd4663-26e3-4c62-be0e-c1366010e849",
+      "documentation": "Provides JWT if valid authentication - Request body: {\"username\": \"\", \"password\": \"\"}",
+      "method": "post",
+      "endpoint": "login/",
+      "responses": [
+        {
+          "uuid": "786cdbf8-1d21-4073-942b-8aa4d6a00075",
+          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": {\n      \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Correct authentication",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "ee2ca7d6-5f35-4d18-9477-6ba8edd45db0",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "1f8a3e2a-1b14-4bd2-8135-8d4437e542b8",
+          "body": "{\n  \"message\": \"Invalid authentication\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Authentication error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "b77904e9-22ad-4f9e-98e6-f7b9d4aea170",
+      "documentation": "Access to profile - protected",
+      "method": "get",
+      "endpoint": "profile/",
+      "responses": [
+        {
+          "uuid": "76958814-4e40-4ab1-ae2f-b0cfd30167f1",
+          "body": "{\n  \"message\": \"Your profile\",\n  \"data\": {\n    \"username\": \"nombre de usuario\",\n    \"name\": \"Nombre Fulanito\",\n    \"entity\": \"Apuestas De Estas S.L.\",\n    \"entityId\": \"33333333J\",\n    \"contactName\": \"Lolo Manolo\",\n    \"contactId\": \"44444444M\",\n    \"contactCharge\": \"President\",\n    \"email\": \"blabla@pumbpumb.com\",\n    \"telephon\": \"66666666\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Owned profile",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "d0f93e85-2655-4b92-88c0-57c5a5e0b00e",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "00e999f6-56f7-43cc-a1d8-f3384d962191",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "a0d65c2e-6c7b-4ebb-ba01-eef4e9531c41",
+      "documentation": "Profile modification - protected",
+      "method": "put",
+      "endpoint": "profile/",
+      "responses": [
+        {
+          "uuid": "e0b91b91-aff3-452c-9f18-94631586f7a2",
+          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Profile updated",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "7496538f-b678-4092-af0b-d1d3d161a663",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "5e4e9335-c15d-40c0-9aa0-016277d93109",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "c589a91e-80bc-4225-8d81-083e00f11c76",
+          "body": "{\n  \"message\": \"Invalidad data provided\",\n  \"data\": [\n    {\n      \"field\": \"name\",\n      \"message\": \"Name must be longer than 4 characters\"\n    },\n    {\n      \"field\": \"phone\",\n      \"message\": \"Phone can contains only numbers\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid data provided",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "6343f17c-e842-4772-8ada-abff02102692",
+      "documentation": "Deregister - protected",
+      "method": "delete",
+      "endpoint": "profile/",
+      "responses": [
+        {
+          "uuid": "3761eaa1-d8c4-4741-89a9-1e3569c85048",
+          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Starting deregistering process",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "604d63a0-1b60-45f4-8d9a-0ec87863e214",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "db1de8aa-6783-401a-8d31-f480a467afef",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "65fed6af-c0aa-480a-9cbd-5437d8b9d7b8",
+      "documentation": "API keys list - protected: logged in entities",
+      "method": "get",
+      "endpoint": "apikey/",
+      "responses": [
+        {
+          "uuid": "4f1caee7-d517-470d-beac-b446a5c151ce",
+          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 2,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 3,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "API keys list",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "3a18a755-f255-4f6f-9ecd-fdb05ed1a126",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "3b6085db-5b47-486a-bf01-859be4f369dc",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "da0061ef-bd67-4849-982b-b590b641d8c4",
+      "documentation": "API keys list - protected: logged in entities",
+      "method": "post",
+      "endpoint": "apikey/",
+      "responses": [
+        {
+          "uuid": "203f467d-0d51-462d-b546-e1afa97ff586",
+          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": {\n    \"newApiKey\": {\n      \"id\": 4,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    \"apiKeys\": [\n      {\n        \"id\": 1,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      },\n      {\n        \"id\": 2,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      },\n      {\n        \"id\": 3,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      }\n    ]\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "New API key provided",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "d01ac581-9189-43a1-8613-2d9fb53f3585",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "051950bf-e8a4-4e66-b8df-3c58779e8748",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "c624e55d-8087-4e87-9623-4c3753a77528",
+      "documentation": "API keys list - protected: logged in entities",
+      "method": "delete",
+      "endpoint": "apikey/{apiKeyId}",
+      "responses": [
+        {
+          "uuid": "0587719f-105b-47a6-ac7b-d7e875fd71af",
+          "body": "{\n  \"message\": \"API key deleted\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "API key removed",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "54bf78a2-e408-4852-bd4e-0ae33d001f8b",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "5d2bddc5-d24b-406a-a076-b6a3138a1eae",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "a1e79a6a-7b79-4ee9-97e0-097687cc990a",
+      "documentation": "Device login - body: {apikey: \"\"}",
+      "method": "get",
+      "endpoint": "login/device/",
+      "responses": [
+        {
+          "uuid": "101a1637-3495-45e3-8efe-07398f81ba5b",
+          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": {\n      \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Authentication succesfull",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "1f1bc607-089e-41a6-b104-b4ab9ea0dcdf",
+          "body": "{\n  \"message\": \"Invalid key provided\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Bad key",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "c139423e-80fa-47ec-8625-fbfd319cd71f",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "26542697-d4d3-4a90-bf2e-7bed91e2638e",
+      "documentation": "Device login",
+      "method": "get",
+      "endpoint": "login/device/{urlKey}",
+      "responses": [
+        {
+          "uuid": "39d31121-f60b-42ef-9fa9-fb3b9db04637",
+          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": {\n      \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Authentication succesfull",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "7273d813-d57d-4749-9aa8-2dac1adaf6ae",
+          "body": "{\n  \"message\": \"Bad url key\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "6eaf3125-106c-4ed0-832f-f65a5edfa587",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "10c2ed8f-c46c-44ba-9dda-c2ebd894e7ab",
+      "documentation": "Check if excluded - protected: Logged in devices - body: [{docID: \"\"}]",
+      "method": "get",
+      "endpoint": "exclusion",
+      "responses": [
+        {
+          "uuid": "ad88cb40-8b41-418a-b14a-90a83c95dc49",
+          "body": "{\n  \"message\": \"Checks results\",\n  \"excluded\": [\n    {\n      \"docID\": \"3322322J\",\n      \"result\": False\n    },\n    {\n      \"docID\": \"3322322J\",\n      \"result\": True\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Check result",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "cab449b9-6c55-4da8-8a29-8a1b555603a4",
+          "body": "{\n  \"message\": \"Access denied\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "Access denied",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "dbe4bf33-954d-48a9-935e-6628a0742f3b",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Internal server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
