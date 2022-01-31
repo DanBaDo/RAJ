@@ -6,8 +6,9 @@ import { Baner, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradient
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div className="text-center mt-5">
-			<NavbarTop/>
+		<>
+		<NavbarTop/>
+		<div className="text-center mt-5">	
 			<Gallery/>
 			<Rajinfo/>
 			<InfoSection/>
@@ -18,5 +19,6 @@ export const Home = () => {
 			<Message content="Hola, como estamos?" type="warning"/>
 			<Message content="Hola, como estamos?" type="error"/>
 		</div>
+		</>
 	);
 };

@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import { Home } from "./pages/home";
-import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import {FormAffected} from "./pages/FormAffected";
+import { FormEmpresa } from "./pages/FormEmpresa";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -17,8 +17,8 @@ const Layout = () => {
 						<Route exact path="/FormAffected/">
 							<FormAffected/>
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/FormEmpresa/">
+							<FormEmpresa/>
 						</Route>
 						<Route exact path="/">
 							<Home />
