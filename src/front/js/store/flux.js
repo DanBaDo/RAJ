@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
+			token: null,
 			demo: [
 				{
 					title: "FIRST",
@@ -22,14 +23,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -45,17 +38,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			// Login example action
-			login: (data) => {
-				loginRequest.data = data;
+			login: (username, password) => {
+				const store = getStore();
+				// Provides body data
+				loginRequest.data = {username, password};
+				// Provides callback for error
 				loginRequest.onError = (error)=>{
 					console.error(error);
 				}
+				// Provides callback for response
 				loginRequest.onResponse = (response)=>{
 					console.log(response);
 					if (response.data.token) {
-						sessionStorage.setItem("JWToken",response.data.token)
+						setStore({token: response.data.token});
+						sessionStorage.setItem("JWToken",response.data.token);
 					}
 				}
+				loginRequest.call();
 			}
 		}
 	};
