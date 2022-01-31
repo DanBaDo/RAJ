@@ -51,6 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error);
 				}
 				loginRequest.onResponse = (response)=>{
+					console.log(response);
 					if (response.data.token) {
 						sessionStorage.setItem("JWToken",response.data.token)
 					}
