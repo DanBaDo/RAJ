@@ -1,9 +1,9 @@
-import Request from "./requestFactory";
+import { Request } from "./requestFactory";
 
 // Account management methods
-export const signup = new Request("/register/","POST", False);
-export const confirmationSignup = new Request("/confirmation/","PATCH", False);
-export const login = new Request("/login/","GET", False);
+export const signup = new Request("/register/","POST", false);
+export const confirmationSignup = new Request("/confirmation/","PATCH", false);
+export const login = new Request("/login/","GET", false);
 
 // Profile management methods
 export const getProfile = new Request("/profile/","GET");

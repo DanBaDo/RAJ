@@ -1,6 +1,3 @@
-import ('dotenv').config()
-process.env
-
 const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env.PORT}${process.env.BASENAME}`;
 
 /**
@@ -18,7 +15,7 @@ const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env
  *    @method onError - On error callback
  *      @param {Object} - Fetch error response
  */
-export function Request (path, method, requireAuthentication=True) {
+export function Request (path, method, requireAuthentication=true) {
   return {
       // Optional reques body data, onResponse callback and onError callback
       data: null,
