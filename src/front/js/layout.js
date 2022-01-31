@@ -14,14 +14,14 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/FormAffected">
+						<Route exact path="/FormAffected/">
 							<FormAffected/>
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
+						</Route>
+						<Route exact path="/">
+							<Home />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
