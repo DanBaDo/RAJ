@@ -14,6 +14,7 @@ const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env
  *        @property {string} data - HTTP response content
  *    @method onError - On error callback
  *      @param {Object} - Fetch error response
+ *    @method call - Run request
  */
 export function Request (path, method, requireAuthentication=true) {
   return {
@@ -22,12 +23,14 @@ export function Request (path, method, requireAuthentication=true) {
       onResponse: ()=>{},
       onError: ()=>{},
       requesOptions: {
+        mode: process.env.CORS,
         method,
+        body: null,
         headers: {
             'Content-Type': 'application/json',
         },
       },
-      call: ()=> {
+      call: function () {
         this.requesOptions.body = JSON.stringify(this.data);
         if (requireAuthentication) {
           token = sessionStorage.getItem(JWToken);
