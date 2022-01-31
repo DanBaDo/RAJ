@@ -11,9 +11,9 @@ export const updateProfile = new Request("/profile/","PUT");
 export const deleteProfile = new Request("/profile", "DELETE");
 
 // API keys management methods
-export const getAPIKeis = new Request("/apikeys/","GET");
-export const getAPIKeis = new Request("/apikeys/","POST");
-export const getAPIKeis = new Request("/apikeys/","DELETE");
+export const getAPIKeys = new Request("/apikeys/","GET");
+export const createAPIKeys = new Request("/apikeys/","POST");
+export const deleteAPIKeys = new Request("/apikeys/","DELETE");
 
 // Exclusion verification method
 export const verifyExclusione = new Request("/exclusions/","GET");
