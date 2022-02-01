@@ -11,6 +11,8 @@ const NavbarTop = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link to="/">Home</Link>
+            <Link to="/tests/">Component tests</Link>
+            <Link to="/networkLayer/">Network Layer</Link>
             <Link to="/FormAffected">Formulario Usuario</Link>
             <Link to="/FormEmpresa">Formulario Empresa</Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

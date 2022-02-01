@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
+import { Tests } from "./pages/Tests";
+import { NetworkLayer } from "./pages/NetworkLayerTest";
 import {FormAffected} from "./pages/FormAffected";
 import { FormEmpresa } from "./pages/FormEmpresa";
 
@@ -20,9 +22,16 @@ const Layout = () => {
 						<Route exact path="/FormEmpresa/">
 							<FormEmpresa/>
 						</Route>
+						<Route exact path="/tests/">
+							<Tests />
+						</Route>
+						<Route exact path="/networkLayer/">
+							<NetworkLayer />
+						</Route>
 						<Route exact path="/">
 							<Home />
 						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
