@@ -11,7 +11,7 @@ const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env
  *      @param {Object} - Response data
  *        @property {string} code - HTTP response status code
  *        @property {string} message - HTTP response status string
- *        @property {string} data - HTTP response content
+ *        @property {string} contents - HTTP response content
  *    @method onError - On error callback
  *      @param {Object} - Fetch error response
  *    @method call - Run request
@@ -38,17 +38,24 @@ export function Request (path, method, requireAuthentication=true) {
           this.requesOptions.headers.Authentication = 'Bearer ' + token;
         }
         fetch(
-          `${baseURL}/${path}`,
+          `${baseURL}${path}`,
           this.requesOptions
         )
-        .then((response)=>response.json()
-            .then((data)=>this.onResponse(
-              {
-                code: response.status,
-                message: response.statusText,
-                data: data
+        .then(
+          (response)=>{
+            response.json()
+            .then(
+              (data)=>{
+                this.onResponse(
+                  {
+                    code: response.status,
+                    message: response.statusText,
+                    contents: data
+                  }
+                )
               }
-            ))
+            )
+          }
         )
         .catch((error)=>this.onError(error))
       }
