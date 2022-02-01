@@ -540,7 +540,7 @@
     {
       "uuid": "a1e79a6a-7b79-4ee9-97e0-097687cc990a",
       "documentation": "Device login - body: {apikey: \"\"}",
-      "method": "get",
+      "method": "post",
       "endpoint": "login/device/",
       "responses": [
         {
@@ -646,7 +646,7 @@
     {
       "uuid": "10c2ed8f-c46c-44ba-9dda-c2ebd894e7ab",
       "documentation": "Check if excluded - protected: Logged in devices - body: [{docID: \"\"}]",
-      "method": "get",
+      "method": "post",
       "endpoint": "exclusion",
       "responses": [
         {
