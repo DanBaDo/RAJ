@@ -1,7 +1,10 @@
+import { login as loginRequest } from "../libraries/request/APIRequests";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
+			token: null,
 			demo: [
 				{
 					title: "FIRST",
@@ -20,14 +23,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -41,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
 		}
 	};
 };

@@ -3,12 +3,11 @@ import { Context } from "../store/appContext";
 import { Baner, Gallery, InfoSection, Rajinfo, NavbarTop, Footer, ButtonGradients, Message} from "../component/IndexComponents";
 
 
-export const Home = () => {
+export const Tests = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<>
-		<NavbarTop/>
-		<div className="text-center mt-5">	
+		<div className="text-center mt-5">
+			<NavbarTop/>
 			<Gallery/>
 			<Rajinfo/>
 			<InfoSection/>
@@ -19,6 +18,5 @@ export const Home = () => {
 			<Message content="Hola, como estamos?" type="warning"/>
 			<Message content="Hola, como estamos?" type="error"/>
 		</div>
-		</>
 	);
 };
