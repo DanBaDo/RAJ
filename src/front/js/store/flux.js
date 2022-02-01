@@ -37,25 +37,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			// Login example action
-			login: (username, password) => {
-				const store = getStore();
-				// Provides body data
-				loginRequest.data = {username, password};
-				// Provides callback for error
-				loginRequest.onError = (error)=>{
-					console.error(error);
-				}
-				// Provides callback for response
-				loginRequest.onResponse = (response)=>{
-					console.log(response);
-					if (response.data.token) {
-						setStore({token: response.data.token});
-						sessionStorage.setItem("JWToken",response.data.token);
-					}
-				}
-				loginRequest.call();
-			}
 		}
 	};
 };
