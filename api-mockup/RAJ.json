@@ -4,48 +4,9 @@
   "name": "RAJ",
   "endpointPrefix": "",
   "latency": 0,
-  "port": 3000,
+  "port": 8000,
   "hostname": "0.0.0.0",
   "routes": [
-    {
-      "uuid": "765b3121-76b6-4774-84a4-343075b6fbdb",
-      "documentation": "Main web site page",
-      "method": "get",
-      "endpoint": "",
-      "responses": [
-        {
-          "uuid": "8671012a-02cc-4c29-8f6d-d37624b728ae",
-          "body": "<h1>Registro de Autoexclusión del Juego</h1>\n<p>Página principal</p>",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "Home page",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        },
-        {
-          "uuid": "4583666b-6b56-4836-86c2-a1917ad183d3",
-          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
-          "latency": 0,
-          "statusCode": 500,
-          "label": "Server error",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        }
-      ],
-      "enabled": true,
-      "randomResponse": false,
-      "sequentialResponse": false
-    },
     {
       "uuid": "14487bae-cceb-43c3-85cb-505d2101b85e",
       "documentation": "Start enrollment process",
@@ -101,9 +62,9 @@
     },
     {
       "uuid": "5125afcc-68a3-4347-b256-21a3754ad8fc",
-      "documentation": "Enrollment process confirmation - Request body: {\"token\": \"confirmationTokenString\"}",
+      "documentation": "Enrollment process confirmation",
       "method": "patch",
-      "endpoint": "confirmation/",
+      "endpoint": "confirmation/{confirmationToken}",
       "responses": [
         {
           "uuid": "f8806d62-17c4-4c0e-bcfd-84dc6d59ff30",
@@ -155,7 +116,7 @@
     {
       "uuid": "a1cd4663-26e3-4c62-be0e-c1366010e849",
       "documentation": "Provides JWT if valid authentication - Request body: {\"username\": \"\", \"password\": \"\"}",
-      "method": "get",
+      "method": "post",
       "endpoint": "login/",
       "responses": [
         {
@@ -163,7 +124,7 @@
           "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": {\n      \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
           "latency": 0,
           "statusCode": 200,
-          "label": "Correct authentication",
+          "label": "Authentication sucessfull ",
           "headers": [],
           "filePath": "",
           "sendFileAsBody": false,
@@ -382,11 +343,11 @@
       "uuid": "65fed6af-c0aa-480a-9cbd-5437d8b9d7b8",
       "documentation": "API keys list - protected: logged in entities",
       "method": "get",
-      "endpoint": "apikeys/",
+      "endpoint": "apikey/",
       "responses": [
         {
           "uuid": "4f1caee7-d517-470d-beac-b446a5c151ce",
-          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 2,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 3,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n  ]\n}",
+          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 2,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 3,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "API keys list",
@@ -435,11 +396,11 @@
       "uuid": "da0061ef-bd67-4849-982b-b590b641d8c4",
       "documentation": "API keys list - protected: logged in entities",
       "method": "post",
-      "endpoint": "apikeys/",
+      "endpoint": "apikey/",
       "responses": [
         {
           "uuid": "203f467d-0d51-462d-b546-e1afa97ff586",
-          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": {\n    \"newApiKey\": {\n      \"id\": 4,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    \"apiKeys\": [\n      {\n        \"id\": 1,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      },\n      {\n        \"id\": 2,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      },\n      {\n        \"id\": 3,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikeys/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      }\n    ]\n  }\n}",
+          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": {\n    \"newApiKey\": {\n      \"id\": 4,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    \"apiKeys\": [\n      {\n        \"id\": 1,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      },\n      {\n        \"id\": 2,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      },\n      {\n        \"id\": 3,\n        \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n        \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n      }\n    ]\n  }\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "New API key provided",
@@ -486,9 +447,9 @@
     },
     {
       "uuid": "c624e55d-8087-4e87-9623-4c3753a77528",
-      "documentation": "API keys list - protected: logged in entities - Request body: {\"id\": \"apiKeyId\"}",
+      "documentation": "API keys list - protected: logged in entities",
       "method": "delete",
-      "endpoint": "apikeys/",
+      "endpoint": "apikey/{apiKeyId}",
       "responses": [
         {
           "uuid": "0587719f-105b-47a6-ac7b-d7e875fd71af",
@@ -695,6 +656,45 @@
       "enabled": true,
       "randomResponse": false,
       "sequentialResponse": false
+    },
+    {
+      "uuid": "765b3121-76b6-4774-84a4-343075b6fbdb",
+      "documentation": "Main web site page",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "8671012a-02cc-4c29-8f6d-d37624b728ae",
+          "body": "<h1>Registro de Autoexclusión del Juego</h1>\n<p>Página principal</p>",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Home page",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "4583666b-6b56-4836-86c2-a1917ad183d3",
+          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
     }
   ],
   "proxyMode": false,
@@ -714,6 +714,18 @@
     {
       "key": "Content-Type",
       "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
     }
   ],
   "proxyReqHeaders": [
