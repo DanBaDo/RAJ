@@ -1,5 +1,8 @@
-from flask import request
-from werkzeug.security import generate_password_hash
+from telnetlib import STATUS
+from flask import request, jsonify
+from itsdangerous import json
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import create_access_token
 
 from backend.models import Account, Company, ROLES, Response
 from backend.models import db
@@ -31,5 +34,26 @@ def register():
         return response, 201
     except Exception as err:
         print(err)
+        response.message = "Internal server error"
+        return response, 500
+
+def confirm(confirmationToken):
+    #TODO:
+    pass
+
+def login():
+    response = Response()
+    try:
+        username = request.json.get("username")
+        password = request.json.get("password")
+        account = Account.query.filter_by(username = username, status = True).first()
+        if account and check_password_hash(account.password_hash, password):
+            response.message = "Authentication successfull"
+            response.data = jsonify(create_access_token(account))
+            return response, 200
+        else:
+            response.message = "Invalid authentication"
+            return response, 401
+    except Exception as err:
         response.message = "Internal server error"
         return response, 500
