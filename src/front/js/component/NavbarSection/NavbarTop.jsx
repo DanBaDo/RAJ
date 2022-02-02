@@ -16,7 +16,8 @@ const NavbarTop = () => {
             <Link className="nav-link" to="/FormAffected/">Usuario</Link>
             <Link className="nav-link" to="/FormEmpresa/">Empresa</Link>
             <Link className="nav-link" to="/GetApiKey/">Get Api</Link>
-          </Nav>
+            <Link className="nav-link" to="/DropOutRequest/">DropOut</Link>          
+            </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
