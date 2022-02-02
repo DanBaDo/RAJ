@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import jwt_required, current_user
 
-from backend.models import Account, Company, ROLES, Response
+from backend.models import Account, Company, ROLES, STATUS, Response
 from backend.models import db
 
 def register():
@@ -46,7 +46,7 @@ def login():
     try:
         username = request.json.get("username")
         password = request.json.get("password")
-        account = Account.query.filter_by(username = username, status = True).first()
+        account = Account.query.filter_by(username = username, status = STATUS["ACTIVE"]).first()
         if account and check_password_hash(account.password_hash, password):
             response.message = "Authentication successfull"
             response.data = jsonify(create_access_token(account))
@@ -80,6 +80,17 @@ def modifyProfile():
         if "phone" in request.json: current_user.phone = request.json.phone
         db.session.commit()
         response.message = "Authentication succesfull"
+        return response, 200
+    except:
+        response.message = "Internal server error"
+        return response, 500
+
+@jwt_required
+def requestForRemoveAccount():
+    response = Response()
+    try:
+        current_user.status = STATUS["DELETION_REQUESTED"]
+        response.message = "Deletion requested"
         return response, 200
     except:
         response.message = "Internal server error"
