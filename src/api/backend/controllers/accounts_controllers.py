@@ -33,7 +33,7 @@ def register():
         response.message = "Succesfully registration. Confirmation pending"
         response.data = { "regCompleted": False }
         return response, 201
-    except Exception:
+    except:
         response.message = "Internal server error"
         return response, 500
 
@@ -54,7 +54,7 @@ def login():
         else:
             response.message = "Invalid authentication"
             return response, 401
-    except Exception:
+    except:
         response.message = "Internal server error"
         return response, 500
 
@@ -65,7 +65,7 @@ def getProfile():
         response.message = "Your profile"
         response.data = current_user.serialize()
         return response, 200
-    except Exception:
+    except:
         response.message = "Internal server error"
         return response, 500
 
