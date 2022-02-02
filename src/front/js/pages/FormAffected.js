@@ -4,8 +4,6 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
 
-
-
 export const FormAffected = () => {
   const [validated, setValidated] = useState(false);
 
