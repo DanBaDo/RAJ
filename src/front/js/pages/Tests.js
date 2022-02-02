@@ -5,7 +5,6 @@ import {
   Gallery,
   InfoSection,
   Rajinfo,
-  NavbarTop,
   Footer,
   ButtonGradients,
   Message,
@@ -15,7 +14,6 @@ export const Tests = () => {
   const { store, actions } = useContext(Context);
   return (
     <>
-      <NavbarTop />
       <div className="text-center mt-5">
         <Gallery />
         <Rajinfo />

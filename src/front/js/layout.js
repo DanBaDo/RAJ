@@ -8,6 +8,8 @@ import { Tests } from "./pages/Tests";
 import { NetworkLayer } from "./pages/NetworkLayerTest";
 import {FormAffected} from "./pages/FormAffected";
 import { FormEmpresa } from "./pages/FormEmpresa";
+import GetApiKey from "./pages/GetApiKey";
+import { NavbarTop } from "./component/IndexComponents";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -15,9 +17,13 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
+				<NavbarTop/>
 					<Switch>
 						<Route exact path="/FormAffected/">
 							<FormAffected/>
+						</Route>
+						<Route exact path="/GetApiKey/">
+							<GetApiKey/>
 						</Route>
 						<Route exact path="/FormEmpresa/">
 							<FormEmpresa/>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap";
-import { NavbarTop } from "../component/IndexComponents";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
@@ -22,7 +21,6 @@ export const FormAffected = () => {
 
   return (
     <>
-      <NavbarTop />
       <Container className="justify-content-center">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100">
