@@ -333,7 +333,7 @@
       "responses": [
         {
           "uuid": "3761eaa1-d8c4-4741-89a9-1e3569c85048",
-          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Deletion requested\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Starting deregistering process",
