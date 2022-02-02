@@ -3,6 +3,7 @@ from flask import request, jsonify
 from itsdangerous import json
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
+from flask_jwt_extended import jwt_required, current_user
 
 from backend.models import Account, Company, ROLES, Response
 from backend.models import db
@@ -57,3 +58,11 @@ def login():
     except Exception as err:
         response.message = "Internal server error"
         return response, 500
+
+@jwt_required
+def getProfile():
+    response = Response()
+    response.message = "Your profile"
+    response.data = current_user.serialize()
+    return response, 200
+
