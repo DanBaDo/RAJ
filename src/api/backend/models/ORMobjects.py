@@ -9,7 +9,7 @@ class Account(db.Model):
     phone = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(250), nullable=False, unique=True)
     password_hash = db.Column(db.String(250), nullable=False)
-    status = db.Column(db.Boolean, nullable=False, default=False)
+    status = db.Column(db.Integer, nullable=False, default=0)
     role = db.Column(db.String(3), nullable=False)
     companies = db.relationship('Company', secondary="account_company_relationship", lazy='subquery',
         backref = db.backref('accounts', lazy=True))
