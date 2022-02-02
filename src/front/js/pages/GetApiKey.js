@@ -15,7 +15,6 @@ const GetApiKey = () => {
   // };
   // getAPIKeys.call()
   const UlistContainer = styled.ul`
-    background-color: yellow;
     width: 100%;
     height: auto;
     list-style: none;
