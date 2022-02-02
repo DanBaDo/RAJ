@@ -38,7 +38,7 @@ def register():
         return response, 500
 
 def confirm(confirmationToken):
-    #TODO:
+    # TODO
     pass
 
 def login():
@@ -66,5 +66,21 @@ def getProfile():
         response.data = current_user.serialize()
         return response, 200
     except Exception:
+        response.message = "Internal server error"
+        return response, 500
+
+@jwt_required
+def modifyProfile():
+    response = Response()
+    try:
+        # TODO: Data validation
+        if "name" in request.json: current_user.name = request.json.name
+        if "last_name" in request.json: current_user.last_name = request.json.last_name
+        if "email" in request.json: current_user.email = request.json.email
+        if "phone" in request.json: current_user.phone = request.json.phone
+        db.session.commit()
+        response.message = "Authentication succesfull"
+        return response, 200
+    except:
         response.message = "Internal server error"
         return response, 500
