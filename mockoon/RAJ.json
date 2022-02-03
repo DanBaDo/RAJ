@@ -1,0 +1,170 @@
+{
+  "uuid": "50ebcd71-eed7-4ceb-b1cb-136dcafec07e",
+  "lastMigration": 19,
+  "name": "RAJ",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "7df53fa9-b4cb-44a9-a2db-bc381c0b880d",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "login/",
+      "responses": [
+        {
+          "uuid": "1c4701cf-afc6-4ab8-b77b-beb0d0f97b18",
+          "body": "{\n  code: 200,\n  message: \"Login correct\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "180c1266-3e8d-4020-9bc8-6c450b8c81a1",
+          "body": "{\n  code: 401,\n  messsage: \"Loggin incorrect\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "4fe79b68-1258-418e-ad84-4e71fc29b52a",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "logout/",
+      "responses": [
+        {
+          "uuid": "5600f872-8caf-4da7-9c89-50567350f8fd",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "103e24a7-4391-40cb-9ba2-623802a4ddba",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "verify-exclusion/",
+      "responses": [
+        {
+          "uuid": "b82c8e2f-4750-4f14-8919-fe5c207bf62b",
+          "body": "{\n  excluded: true\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "f6420b0e-e280-40ff-87ec-03d4d4034c57",
+          "body": "{\n excluded: false \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": true
+    },
+    {
+      "uuid": "a2596a69-2fcd-4f31-b836-ece9b8893402",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "signon",
+      "responses": [
+        {
+          "uuid": "8e76229d-723b-46c0-831d-2ee92bd2b090",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
