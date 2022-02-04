@@ -11,13 +11,12 @@ const NavbarTop = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="navbar">
             <Link className="nav-link" to="/">Home</Link>
-            <Link className="nav-link" to="/tests/">Component tests</Link>
-            <Link className="nav-link" to="/networkLayer/">Network</Link>
-            <Link className="nav-link" to="/FormAffected/">Usuario</Link>
-            <Link className="nav-link" to="/FormEmpresa/">Empresa</Link>
-            <Link className="nav-link" to="/GetApiKey/">Get Api</Link>
-            <Link className="nav-link" to="/DropOutRequest/">DropOut</Link>          
-            </Nav>
+            <Link className="nav-link" to="/FormAffected/">Registro usuario</Link>
+            <Link className="nav-link" to="/FormEmpresa/">Registro empresa</Link>
+            <Link className="nav-link" to="/GetApiKey/">Llaves API</Link>
+            <Link className="nav-link" to="/DropOutRequest/">Baja</Link>
+            <Link className="nav-link" to="/tests/">Tests</Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

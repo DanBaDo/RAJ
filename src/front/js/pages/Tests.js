@@ -8,6 +8,7 @@ import {
   Footer,
   ButtonGradients,
   Message,
+  Login
 } from "../component/IndexComponents";
 
 export const Tests = () => {
@@ -15,15 +16,15 @@ export const Tests = () => {
   return (
     <>
       <div className="text-center mt-5">
-        <Gallery />
+        <Login/>
+        <ButtonGradients name="click me" />
+        <Message content="Hola, como estamos?" />
+        <Message content="Hola, como estamos?" type="warning" />
+        <Message content="Hola, como estamos?" type="error" />        <Gallery />
         <Rajinfo />
         <InfoSection />
         <Baner />
         <Footer />
-        <ButtonGradients name="click me" />
-        <Message content="Hola, como estamos?" />
-        <Message content="Hola, como estamos?" type="warning" />
-        <Message content="Hola, como estamos?" type="error" />
       </div>
     </>
   );
