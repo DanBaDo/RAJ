@@ -1,5 +1,3 @@
-import { login as loginRequest } from "../libraries/request/APIRequests";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
