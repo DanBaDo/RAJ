@@ -9,20 +9,20 @@ const Gallery = () => {
             <Carousel.Item interval={1000}>
               <img
                 className="d-block w-100"
-                src="https://via.placeholder.com/300x150"
+                src="https://www.bienestarcolsanitas.com/images/2-SECCIONES/VIDA/CRONICA/LUDOPAT%C3%8DA/Ludopat%C3%ADa-SLIDE.jpg"
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h3>First slide label</h3>
+                <h1 className="fs-1">Tranqui ¡Que Yo controlo!</h1>
                 <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                  La frase que mas pronunciada cuando empiezas a ser esclavo del juego.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={500}>
-              <img className="d-block w-100" src="https://via.placeholder.com/300x150" alt="Second slide" />
+              <img className="d-block w-400" src="https://via.placeholder.com/300x150" alt="Second slide" />
               <Carousel.Caption>
-                <h3>Second slide label</h3>
+                <h3>Pide ayuda </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </Carousel.Caption>
             </Carousel.Item>
