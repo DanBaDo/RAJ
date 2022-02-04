@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Login from "../Login.jsx";
 import "./NavbarTop.scss"
 const NavbarTop = () => {
   return (
@@ -16,6 +17,7 @@ const NavbarTop = () => {
             <Link className="nav-link" to="/GetApiKey/">Llaves API</Link>
             <Link className="nav-link" to="/DropOutRequest/">Baja</Link>
             <Link className="nav-link" to="/tests/">Tests</Link>
+            <Login />
           </Nav>
         </Navbar.Collapse>
       </Container>
