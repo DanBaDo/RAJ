@@ -78,6 +78,7 @@
 		"react": "^16.8.4",
 		"react-bootstrap": "^2.1.1",
 		"react-dom": "^16.8.4",
+		"react-icons": "^4.3.1",
 		"react-phone-input-2": "^2.14.0",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^5.2.0",
