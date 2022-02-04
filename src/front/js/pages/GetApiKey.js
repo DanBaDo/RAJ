@@ -1,32 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import { getAPIKeys } from "../libraries/request/APIRequests";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa"
-const GetApiKey = () => {
-  //     const {elements, setElements} = useState([]);
-  // //getAPIKeys.data = ""
-  // getAPIKeys.onErrror = (error)=>console.error(error);
-  // getAPIKeys.onResponse = (response)=>{
-  //     if (response.code === 200 ) {
-  //         const elem = response.contents.data.map(
-  //             (key) => <li>id: ${key.id}</li>
-  //         );
-  //         setElements(elem);
-  //     }
-  // };
-  // getAPIKeys.call()
-  const UlistContainer = styled.ul`
-    width: 100%;
-    height: auto;
-    list-style: none;
-  `;
-  const ItemList = styled.li`
-    border: 1px solid black;
-    margin-bottom: 1em;
-    padding:1em;
-    
 
-  `
+const GetApiKey = () => {
+  const {elements, setElements} = useState([]);
+  getAPIKeys.onErrror = (error)=>console.error(error);
+  getAPIKeys.onResponse = (response)=>{
+    switch (response.code) {
+      case 200:
+        const elem = response.contents.data.map(
+          (key) => <li key={key.id}>API key ${key.id}<FaRegCopy/><FaQrcode/><FaTrash/></li>
+        );
+        setElements(elem);
+        break;
+      case 403:
+        console.error('Autentication error getting API keys list');
+        break;
+      default:
+        console.error('Unexpected error getting API keys list');
+        break;
+    };
+  };
+  getAPIKeys.call()
 
   return (
     <>
@@ -34,11 +31,9 @@ const GetApiKey = () => {
         <Row className="m-0 vh-100 justify-content-center align-items-center">
           <Col>
             <h1>Lista de dispositivos con acceso</h1>
-            <UlistContainer>
-                <ItemList>Api key 1<FaRegCopy/><FaQrcode/><FaTrash/></ItemList>
-                <ItemList>Api key 2<FaRegCopy/><FaQrcode/><FaTrash/></ItemList>
-                
-            </UlistContainer>
+            <ul>
+                { elements }
+            </ul>
           </Col>
         </Row>
       </Container>
