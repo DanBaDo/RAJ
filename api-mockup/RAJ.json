@@ -42,7 +42,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -148,7 +148,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -382,7 +382,7 @@
       "uuid": "65fed6af-c0aa-480a-9cbd-5437d8b9d7b8",
       "documentation": "API keys list - protected: logged in entities",
       "method": "get",
-      "endpoint": "apikey/",
+      "endpoint": "apikeys/",
       "responses": [
         {
           "uuid": "4f1caee7-d517-470d-beac-b446a5c151ce",
@@ -427,7 +427,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -435,7 +435,7 @@
       "uuid": "da0061ef-bd67-4849-982b-b590b641d8c4",
       "documentation": "API keys list - protected: logged in entities",
       "method": "post",
-      "endpoint": "apikey/",
+      "endpoint": "apikeys/",
       "responses": [
         {
           "uuid": "203f467d-0d51-462d-b546-e1afa97ff586",
@@ -480,7 +480,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -488,7 +488,7 @@
       "uuid": "c624e55d-8087-4e87-9623-4c3753a77528",
       "documentation": "API keys list - protected: logged in entities",
       "method": "delete",
-      "endpoint": "apikey/{apiKeyId}",
+      "endpoint": "apikeys/{apiKeyId}",
       "responses": [
         {
           "uuid": "0587719f-105b-47a6-ac7b-d7e875fd71af",
@@ -533,7 +533,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -586,7 +586,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -639,7 +639,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     },
@@ -692,7 +692,7 @@
           "fallbackTo404": false
         }
       ],
-      "enabled": true,
+      "enabled": false,
       "randomResponse": false,
       "sequentialResponse": false
     }
