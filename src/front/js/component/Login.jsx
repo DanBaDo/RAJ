@@ -12,11 +12,12 @@ const Login = () => {
 
     const formSubmitHandler = (ev) => {
         ev.preventDefault()
+        // TODO: Eliminar siguiente linea. Es para logear sin backend
+        actions.setLoggedIn('fake token');
         // Configure body content and callbacks and run query
         login.data = { username, password };
         login.onError = (error) => console.error(error);
         login.onResponse = (response) => {
-            console.log(response)
             switch (response.code) {
                 case 200:
                     actions.setLoggedIn(response.contents.data.token);
