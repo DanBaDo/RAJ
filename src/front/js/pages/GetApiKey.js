@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
+import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa"
 const GetApiKey = () => {
   //     const {elements, setElements} = useState([]);
   // //getAPIKeys.data = ""
@@ -34,8 +35,8 @@ const GetApiKey = () => {
           <Col>
             <h1>Lista de dispositivos con acceso</h1>
             <UlistContainer>
-                <ItemList>get Api key 1</ItemList>
-                <ItemList>get Api key 2</ItemList>
+                <ItemList>Api key 1<FaRegCopy/><FaQrcode/><FaTrash/></ItemList>
+                <ItemList>Api key 2<FaRegCopy/><FaQrcode/><FaTrash/></ItemList>
                 
             </UlistContainer>
           </Col>
