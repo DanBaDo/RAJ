@@ -1,8 +1,7 @@
-import { login as loginRequest } from "../libraries/request/APIRequests";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			logged: false,
 			message: null,
 			token: null,
 			demo: [
@@ -37,6 +36,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+			setLoggedIn: (token) => {
+				sessionStorage.setItem('JWT', token);
+				setStore({logged: true});
+			},
+			setLoggedOut: () => {
+				sessionStorage.removeItem('JWT');
+				setStore({logged: false});
+			}
 		}
 	};
 };
