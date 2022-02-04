@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { login } from "../libraries/request/APIRequests";
-import { Message } from "./IndexComponents";
-
 
 const Login = () => {
-    const [authenticated, setAuthenticated] = useState(false)
+    const { store, actions } = useContext(Context);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,22 +17,28 @@ const Login = () => {
         login.onError = (error) => console.error(error);
         login.onResponse = (response) => {
             console.log(response)
-            if (response.code === 200) {
-                setAuthenticated(true);
-                sessionStorage.setItem('JWT', response.contents.data.token);
+            switch (response.code) {
+                case 200:
+                    actions.setLoggedIn(response.contents.data.token);
+                    break;
+                case 401:
+                    actions.setLoggedOut();
+                    break;
+                default:
+                    console.error("Unespected login response");
+                    break;
             }
         }
         login.call();
     }
 
     const logout = (ev) => {
-        setAuthenticated(false);
-        sessionStorage.removeItem('JWT');
+        actions.setLoggedOut();
     }
 
     return (
         <>
-            {authenticated === true
+            {store.logged === true
                 ?
                 <button onClick={logout}>Cerrar sesión</button>
                 :
