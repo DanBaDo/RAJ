@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <>
             {authenticated === true
                 ?
                 <button onClick={logout}>Cerrar sesión</button>
@@ -44,7 +44,7 @@ const Login = () => {
                 </form>
             }
 
-        </div>
+        </>
     );
 };
 
