@@ -19,23 +19,22 @@ const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env
 export function Request (path, method, requireAuthentication=true) {
   return {
       // Optional reques body data, onResponse callback and onError callback
-      data: "",
+      data: null,
       onResponse: ()=>{},
       onError: ()=>{},
       requesOptions: {
         mode: process.env.CORS,
         method,
-        body: null,
         headers: {
             'Content-Type': 'application/json',
         },
       },
       call: function () {
-        this.requesOptions.body = JSON.stringify(this.data);
+        if (this.data) this.requesOptions.body = JSON.stringify(this.data);
         if (requireAuthentication) {
           const token = sessionStorage.getItem("JWT");
           if (! token) throw "Authentication: lack of JWT and authentication required.";
-          this.requesOptions.headers.Authentication = 'Bearer ' + token;
+          this.requesOptions.headers.Authorization = 'Bearer ' + token;
         }
         fetch(
           `${baseURL}${path}`,
