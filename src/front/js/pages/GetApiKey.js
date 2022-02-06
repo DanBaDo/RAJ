@@ -5,13 +5,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa"
 
 const GetApiKey = () => {
-  const {elements, setElements} = useState([]);
+  const [elements, setElements] = useState([]);
   getAPIKeys.onErrror = (error)=>console.error(error);
-  getAPIKeys.onResponse = (response)=>{
+  getAPIKeys.onResponse = (response) => {
     switch (response.code) {
       case 200:
         const elem = response.contents.data.map(
-          (key) => <li key={key.id}>API key ${key.id}<FaRegCopy/><FaQrcode/><FaTrash/></li>
+          (key) => <li key={key.id}>API key {key.id} <FaRegCopy/><FaQrcode/><FaTrash/></li>
         );
         setElements(elem);
         break;
