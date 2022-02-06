@@ -2,40 +2,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			logged: false,
-			message: null,
 			token: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			errors: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
 			setLoggedIn: (token) => {
 				sessionStorage.setItem('JWT', token);
 				setStore({logged: true});
@@ -43,6 +13,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setLoggedOut: () => {
 				sessionStorage.removeItem('JWT');
 				setStore({logged: false});
+			},
+			addError: (error) => {
+				setStore({errors: [...getStore().errors , error]});
+			},
+			cleanErrors: () => {
+				setStore({errors: []});
 			}
 		}
 	};

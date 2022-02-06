@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
@@ -10,40 +10,50 @@ import { FormEmpresa } from "./pages/FormEmpresa";
 import GetApiKey from "./pages/GetApiKey";
 import { NavbarTop } from "./component/IndexComponents";
 import DropOutRequest from "./pages/DropOutRequest";
+import { Message } from "./component/IndexComponents";
 
 
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
-
+	const { store, actions } = useContext(Context);
+	const errors = store.errors.map(
+		error => <p>{error.toString()}</p>
+	)
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
 				<NavbarTop/>
-					<Switch>
-						<Route exact path="/FormAffected/">
-							<FormAffected/>
-						</Route>
-						<Route exact path="/DropOutRequest/">
-							<DropOutRequest/>
-						</Route>
-						<Route exact path="/GetApiKey/">
-							<GetApiKey/>
-						</Route>
-						<Route exact path="/FormEmpresa/">
-							<FormEmpresa/>
-						</Route>
-						<Route exact path="/tests/">
-							<Tests />
-						</Route>
-						<Route exact path="/">
-							<Home />
-						</Route>
+					{ store.errors.length === 0
+						?
+						<Switch>
+							<Route exact path="/FormAffected/">
+								<FormAffected/>
+							</Route>
+							<Route exact path="/DropOutRequest/">
+								<DropOutRequest/>
+							</Route>
+							<Route exact path="/GetApiKey/">
+								<GetApiKey/>
+							</Route>
+							<Route exact path="/FormEmpresa/">
+								<FormEmpresa/>
+							</Route>
+							<Route exact path="/tests/">
+								<Tests />
+							</Route>
+							<Route exact path="/">
+								<Home />
+							</Route>
 
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
+							<Route>
+								<h1>Not found!</h1>
+							</Route>
+						</Switch>
+						:
+						<Message content={errors} buttonAction={actions.cleanErrors} type="error"/>
+					}
+
 			</BrowserRouter>
 		</div>
 	);

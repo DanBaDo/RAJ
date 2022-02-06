@@ -5,6 +5,8 @@ import styled from 'styled-components';
  * Draw a info, 
  * @param {string} content - Contents
  * @param {string} [type=info] - Message type
+ * @param {string} [buttonContent="Ok"]
+ * @param {function} buttonAction - Handker for button click.
  * @returns 
  */
 const Message = (props) => {
@@ -17,7 +19,7 @@ const Message = (props) => {
     background: #99f;
     border-radius: 1em;
   `,
-    warning:`
+    warning: `
     padding: 3em;
     margin: 1em;
     font-size: x-large;
@@ -25,7 +27,7 @@ const Message = (props) => {
     background: #ff9;
     border-radius: 1em;
   `,
-    error:`
+    error: `
     padding: 3em;
     margin: 1em;
     font-size: x-large;
@@ -34,10 +36,15 @@ const Message = (props) => {
     border-radius: 1em;
   `,
   }
-  const Message =  styled.div`${styles.hasOwnProperty(props.type)?
-   styles[props.type] : styles.info}`;
+  const Message = styled.div`${styles.hasOwnProperty(props.type) ?
+    styles[props.type] : styles.info}`;
   return (
-    <Message>{props.content}</Message>
+    <Message>
+      {props.content}
+      <button onClick={props.buttonAction}>
+        {props.buttonContent ? props.buttonContent : "Ok"}
+      </button>
+    </Message>
   )
 };
 
