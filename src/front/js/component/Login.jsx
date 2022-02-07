@@ -16,18 +16,23 @@ const Login = () => {
         actions.setLoggedIn('fake token');
         // Configure body content and callbacks and run query
         login.data = { username, password };
-        login.onError = (error) => console.error(error);
+        login.onError = (error) => actions.addError(error)
         login.onResponse = (response) => {
-            switch (response.code) {
-                case 200:
-                    actions.setLoggedIn(response.contents.data.token);
-                    break;
-                case 401:
-                    actions.setLoggedOut();
-                    break;
-                default:
-                    console.error("Unespected login response");
-                    break;
+            try {
+                switch (response.code) {
+                    case 200:
+                        actions.setLoggedIn(response.contents.data.token);
+                        break;
+                    case 401:
+                        actions.setLoggedOut();
+                        throw "Nombre de usuario o contraseña incorrectos";
+                        break;
+                    default:
+                        actions.addError("Error inesperado iniciando sesión");
+                        break;
+                }
+            } catch (error) {
+                actions.addError(error);
             }
         }
         login.call();
