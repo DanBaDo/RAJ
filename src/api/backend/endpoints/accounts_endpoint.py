@@ -1,4 +1,3 @@
-from crypt import methods
 from backend import app
 from backend.controllers.accounts_controllers import *
 

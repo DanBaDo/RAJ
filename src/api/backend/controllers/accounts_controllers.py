@@ -1,9 +1,7 @@
 from telnetlib import STATUS
 from flask import request, jsonify
-from itsdangerous import json
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import jwt_required, current_user
+from flask_jwt_extended import create_access_token, jwt_required, current_user
 
 from backend.models import Account, Company, ROLES, STATUS, Response
 from backend.models import db
