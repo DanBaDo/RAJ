@@ -57,7 +57,7 @@ def login():
         return response, 500
 
 @jwt_required
-def getProfile():
+def get_profile():
     try:
         response = Response()
         response.message = "Your profile"
@@ -68,7 +68,7 @@ def getProfile():
         return response, 500
 
 @jwt_required
-def modifyProfile():
+def modify_profile():
     response = Response()
     try:
         # TODO: Data validation
@@ -84,7 +84,7 @@ def modifyProfile():
         return response, 500
 
 @jwt_required
-def requestForRemoveAccount():
+def request_for_remove_account():
     response = Response()
     try:
         current_user.status = STATUS["DELETION_REQUESTED"]
