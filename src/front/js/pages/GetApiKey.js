@@ -1,12 +1,17 @@
-import React, {useState} from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { Context } from "../store/appContext";
 import styled from "styled-components";
 import { getAPIKeys } from "../libraries/request/APIRequests";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa"
 
 const GetApiKey = () => {
+  const { store, actions } = useContext(Context)
   const [elements, setElements] = useState([]);
-  getAPIKeys.onErrror = (error)=>console.error(error);
+  getAPIKeys.onError = (error) => {
+    console.error(error);
+    actions.addError(error);
+  };
   getAPIKeys.onResponse = (response) => {
     switch (response.code) {
       case 200:
