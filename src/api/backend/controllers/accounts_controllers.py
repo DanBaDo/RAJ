@@ -1,6 +1,5 @@
 from telnetlib import STATUS
 from flask import request, jsonify
-from itsdangerous import json
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import jwt_required, current_user
@@ -9,14 +8,15 @@ from backend.models import Account, Company, ROLES, STATUS, Response
 from backend.models import db
 
 def register():
-    response = Response()
     try:
+        #TODO: Data validation
+        resp = Response()
         role_id = request.json.get("role")
         company_id = request.json.get("company")
         company = Company.query.get(company_id)
         if not company or role_id not in ROLES:
-            response.message = "Invalid data provided"
-            return response, 400
+            resp.message = "Invalid data provided"
+            return resp.json(), 400
         password_hash = generate_password_hash(request.json.get("password"))
         new_account = Account(
             name = request.json.get("name"),
@@ -30,68 +30,67 @@ def register():
         new_account.companies.append(company)
         db.session.add(new_account)
         db.session.commit()
-        response.message = "Succesfully registration. Confirmation pending"
-        response.data = { "regCompleted": False }
-        return response, 201
-    except:
-        response.message = "Internal server error"
-        return response, 500
+        resp.message = "Succesfully registration. Confirmation pending"
+        resp.data = { "regCompleted": False }
+        return resp.json(), 201
+    except Exception as err:
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
 
 def confirm(confirmationToken):
     # TODO
     pass
 
 def login():
-    response = Response()
+    resp = Response()
     try:
         username = request.json.get("username")
         password = request.json.get("password")
         account = Account.query.filter_by(username = username, status = STATUS["ACTIVE"]).first()
         if account and check_password_hash(account.password_hash, password):
-            response.message = "Authentication successfull"
-            response.data = jsonify(create_access_token(account))
-            return response, 200
+            resp.message = "Authentication successfull"
+            resp.data = jsonify(create_access_token(account))
+            return resp.json(), 200
         else:
-            response.message = "Invalid authentication"
-            return response, 401
+            resp.message = "Invalid authentication"
+            return resp.json(), 401
     except:
-        response.message = "Internal server error"
-        return response, 500
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
 
 @jwt_required
-def getProfile():
-    try:
-        response = Response()
-        response.message = "Your profile"
-        response.data = current_user.serialize()
-        return response, 200
-    except:
-        response.message = "Internal server error"
-        return response, 500
-
-@jwt_required
-def modifyProfile():
-    response = Response()
-    try:
-        # TODO: Data validation
-        if "name" in request.json: current_user.name = request.json.name
-        if "last_name" in request.json: current_user.last_name = request.json.last_name
-        if "email" in request.json: current_user.email = request.json.email
-        if "phone" in request.json: current_user.phone = request.json.phone
-        db.session.commit()
-        response.message = "Authentication succesfull"
-        return response, 200
-    except:
-        response.message = "Internal server error"
-        return response, 500
+def profile_router():
+    if request.method == "GET":
+        try:
+            resp = Response()
+            resp.message = "Your profile"
+            resp.data = current_user.serialize()
+            return resp.json(), 200
+        except:
+            resp.message = "Internal server error: %s" % err
+            return resp.json(), 500
+    if request.method == "PUT":
+        try:
+            resp = Response()
+            # TODO: Data validation
+            if "name" in request.json: current_user.name = request.json.name
+            if "last_name" in request.json: current_user.last_name = request.json.last_name
+            if "email" in request.json: current_user.email = request.json.email
+            if "phone" in request.json: current_user.phone = request.json.phone
+            db.session.commit()
+            resp.message = "Authentication succesfull"
+            return resp.json(), 200
+        except:
+            resp.message = "Internal server error: %s" % err
+            return resp.json(), 500
 
 @jwt_required
 def requestForRemoveAccount():
-    response = Response()
     try:
+        resp = Response()
         current_user.status = STATUS["DELETION_REQUESTED"]
-        response.message = "Deletion requested"
-        return response, 200
+        resp.message = "Deletion requested"
+        return resp.json(), 200
     except:
-        response.message = "Internal server error"
-        return response, 500
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
