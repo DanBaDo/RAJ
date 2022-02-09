@@ -16,7 +16,7 @@ STATUS = {
 class Response:
     message = ""
     data = None
-    def __str__(self):
+    def json(self):
         return jsonify(
             {
                 "message": self.message,
