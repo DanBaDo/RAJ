@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel, Container, Row } from "react-bootstrap";
+import styled from "styled-components";
 const Gallery = () => {
   return (
     <>
@@ -20,7 +21,7 @@ const Gallery = () => {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={500}>
-              <img className="d-block w-400" src="https://via.placeholder.com/300x150" alt="Second slide" />
+              <img className="d-block w-100" src="https://via.placeholder.com/300x150" alt="Second slide" />
               <Carousel.Caption>
                 <h3>Pide ayuda </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
