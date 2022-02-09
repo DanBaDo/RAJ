@@ -3,11 +3,26 @@ import { Context } from "../store/appContext";
 import styled from "styled-components";
 import { getAPIKeys } from "../libraries/request/APIRequests";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa"
+import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa";
+import BigQR from "../component/Commoncomponents/bigQR.jsx";
 
 const GetApiKey = () => {
   const { store, actions } = useContext(Context);
-  const [elements, setElements] = useState([]);
+  const [keys, setKeys] = useState([]);
+
+  const keysComponents = () => {
+    return keys.map(
+      (key, idx) => 
+        <li key={idx}>
+          API key {key.id}
+          <FaRegCopy/>
+          <FaQrcode/>
+          <FaTrash/>
+          <BigQR url={key.url}/>
+        </li>
+    )
+  }
+
   useEffect(
     ()=>{
       getAPIKeys.onError = (error) => {
@@ -17,10 +32,13 @@ const GetApiKey = () => {
         try {
           switch (response.code) {
             case 200:
-              const elem = response.contents.data.map(
-                (key) => <li key={key.id}>API key {key.id} <FaRegCopy/><FaQrcode/><FaTrash/></li>
+              const keys = response.contents.data.map(
+                (key, idx) => {
+                  key.show = false;
+                  return key;
+                }
               );
-              setElements(elem);
+              setKeys(keys);
               break;
             case 403:
               throw "Autentication error getting API keys list";
@@ -46,8 +64,9 @@ const GetApiKey = () => {
           <Col>
             <h1>Lista de dispositivos con acceso</h1>
             <ul>
-                { elements }
+                { keysComponents() }
             </ul>
+            {}
           </Col>
         </Row>
       </Container>

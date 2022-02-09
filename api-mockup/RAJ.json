@@ -386,7 +386,7 @@
       "responses": [
         {
           "uuid": "4f1caee7-d517-470d-beac-b446a5c151ce",
-          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 2,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 3,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    }\n  ]\n}",
+          "body": "{\n  \"message\": \"Your API keys\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb\"\n    },\n    {\n      \"id\": 2,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3\"\n    },\n    {\n      \"id\": 3,\n      \"key\": \"4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865\",\n      \"url\": \"/apikey/b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3\"\n    }\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "API keys list",
