@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 
-const Baner = () => {
+const AboutUsSection = () => {
   const ContainerImg = styled.img`
   max-width: 100%;
   heigth:auto;
@@ -32,4 +32,4 @@ const Baner = () => {
   </>);
 };
 
-export default Baner;
+export default AboutUsSection;

@@ -1,4 +1,4 @@
-export {default as Baner} from "./BannerSection/Baner.jsx";
+export {default as AboutUsSection} from "./AboutUsSection/AboutUsSection.jsx";
 export {default as Footer} from "./FooterSection/Footer.jsx";
 export {default as Gallery} from "./GallerySection/Gallery.jsx";
 export {default as NavbarTop} from "./NavbarSection/NavbarTop.jsx";
