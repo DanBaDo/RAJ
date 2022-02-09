@@ -1,12 +1,13 @@
 import React from 'react';
-import { Container, Row, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 const Baner = () => {
   return (<>
     <Container className="my-5">
       <Row className='m-0 justify-content-center align-items-center'>
         <Container className=' p-5 text-center'>
-          <h1>¿Que es RAJ?</h1>
+          <h1>Sobre Nosotros</h1>
+          <h2>¿Que es RAJ?</h2>
           <p>Raj es la  web que ayuda a personas con problemas de ludopatia ,al registro para la auto-exclusión a locales de juegos de azar. 
 
             RAJ es la plataforma encarga de hacer de intermediario entre los salones de juego y las personas.Mediante el registro de autoexclusión,  RAJ se encarga de hacer el proceso automáticamente cuando el usuario este registrado.
@@ -16,7 +17,7 @@ const Baner = () => {
 
             No tengas miedo y pide ayuda .
           </p>
-          <Button>Registrate</Button>
+          <img src="https://image.freepik.com/foto-gratis/primer-plano-mano-ofrecimiento-hombre-negocios-apreton-manos_1262-17295.jpg?w=740" alt="primer-plano-mano-ofrecimiento-hombre-negocios-apreton-manos" />
         </Container>
       </Row>
     </Container>

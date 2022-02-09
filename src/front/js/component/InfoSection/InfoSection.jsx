@@ -3,7 +3,7 @@ import { Accordion, Container, Row, Col } from "react-bootstrap";
 const InfoSection = () => {
   return (
     <>
-      <Container className="my-4 p-5">
+      <Container className="p-5">
         <Row className="my-3">
           <h2>La adiccion al juego, nuestro Enemigo</h2>
         </Row>

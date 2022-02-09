@@ -10,7 +10,7 @@ import {
   Message,
   Login
 } from "../component/IndexComponents";
-
+import AdrianComponent from "../component/Commoncomponents/AdrianComponent.jsx";
 export const Tests = () => {
   const { store, actions } = useContext(Context);
   return (
@@ -25,6 +25,7 @@ export const Tests = () => {
         <InfoSection />
         <Baner />
         <Footer />
+        <AdrianComponent/>
       </div>
     </>
   );
