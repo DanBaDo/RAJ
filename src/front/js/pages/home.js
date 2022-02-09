@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import {
-  Baner,
+  AboutUsSection,
   Gallery,
-  InfoSection,
   Rajinfo,
+  HelpSection,
   Footer,
 } from "../component/IndexComponents";
 
@@ -15,8 +15,8 @@ export const Home = () => {
       <div className="text-center mt-5">
         <Gallery />
         <Rajinfo />
-        <InfoSection />
-        <Baner />
+        <AboutUsSection/>
+        <HelpSection/>
         <Footer />
       </div>
     </>

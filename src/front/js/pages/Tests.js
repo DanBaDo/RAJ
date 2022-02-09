@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import {
-  Baner,
   Gallery,
   InfoSection,
   Rajinfo,
@@ -10,7 +9,6 @@ import {
   Message,
   Login
 } from "../component/IndexComponents";
-
 export const Tests = () => {
   const { store, actions } = useContext(Context);
   return (
@@ -23,7 +21,6 @@ export const Tests = () => {
         <Message content="Hola, como estamos?" type="error" />        <Gallery />
         <Rajinfo />
         <InfoSection />
-        <Baner />
         <Footer />
       </div>
     </>
