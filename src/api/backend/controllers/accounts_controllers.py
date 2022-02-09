@@ -1,8 +1,7 @@
 from telnetlib import STATUS
 from flask import request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import jwt_required, current_user
+from flask_jwt_extended import create_access_token, jwt_required, current_user
 
 from backend.models import Account, Company, ROLES, STATUS, Response
 from backend.models import db
@@ -54,7 +53,7 @@ def login():
         else:
             resp.message = "Invalid authentication"
             return resp.json(), 401
-    except:
+    except Exception as err:
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
 
@@ -66,7 +65,7 @@ def profile_router():
             resp.message = "Your profile"
             resp.data = current_user.serialize()
             return resp.json(), 200
-        except:
+        except Exception as err:
             resp.message = "Internal server error: %s" % err
             return resp.json(), 500
     if request.method == "PUT":
@@ -80,7 +79,7 @@ def profile_router():
             db.session.commit()
             resp.message = "Authentication succesfull"
             return resp.json(), 200
-        except:
+        except Exception as err:
             resp.message = "Internal server error: %s" % err
             return resp.json(), 500
 
@@ -91,6 +90,6 @@ def requestForRemoveAccount():
         current_user.status = STATUS["DELETION_REQUESTED"]
         resp.message = "Deletion requested"
         return resp.json(), 200
-    except:
+    except Exception as err:
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
