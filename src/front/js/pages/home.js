@@ -4,6 +4,7 @@ import {
   AboutUsSection,
   Gallery,
   Rajinfo,
+  HelpSection,
   Footer,
 } from "../component/IndexComponents";
 
@@ -15,6 +16,7 @@ export const Home = () => {
         <Gallery />
         <Rajinfo />
         <AboutUsSection/>
+        <HelpSection/>
         <Footer />
       </div>
     </>

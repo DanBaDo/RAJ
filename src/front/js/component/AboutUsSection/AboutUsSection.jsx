@@ -1,8 +1,6 @@
 import React from 'react';
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import styled from 'styled-components';
-
-
 
 const AboutUsSection = () => {
   const ContainerImg = styled.img`
@@ -11,9 +9,10 @@ const AboutUsSection = () => {
   width:auto;
   `
   return (<>
-    <Container className="my-5">
-      <Row className='m-0 justify-content-center align-items-center'>
-        <Container className=' p-5 text-center'>
+
+    <Container className="my-3">
+      <Row>
+        <Col md={6} sm={12}>
           <h1>Sobre Nosotros</h1>
           <h2>¿Que es RAJ?</h2>
           <p>Raj es la  web que ayuda a personas con problemas de ludopatia ,al registro para la auto-exclusión a locales de juegos de azar.
@@ -25,8 +24,10 @@ const AboutUsSection = () => {
 
             No tengas miedo y pide ayuda .
           </p>
+        </Col>
+        <Col md={6} xs={{ order: 'last' }}>
           <ContainerImg src="https://image.freepik.com/foto-gratis/primer-plano-mano-ofrecimiento-hombre-negocios-apreton-manos_1262-17295.jpg?w=740" alt="primer-plano-mano-ofrecimiento-hombre-negocios-apreton-manos" />
-        </Container>
+        </Col>
       </Row>
     </Container>
   </>);

@@ -8,4 +8,4 @@ export {default as ButtonGradients} from "./Commoncomponents/ButtonGradients.jsx
 export {default as SocialButtons} from "./Commoncomponents/SocialButtons.jsx";
 export {default as Message} from "./Commoncomponents/Message.jsx";
 export {default as Login} from "./Login.jsx";
-export {default as FormAffectedComp} from "./FormAffectedComp/FormAffectedComp.jsx";
+export {default as HelpSection} from "./HelpSection/HelpSection.jsx";
