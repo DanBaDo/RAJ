@@ -10,21 +10,15 @@ const GetApiKey = () => {
   const { store, actions } = useContext(Context);
   const [keys, setKeys] = useState([]);
 
-  const toggleKey = (idx) => {
-    const elem = [...keys];
-    elem[idx].show = ! elem[idx].show;
-    setKeys(elem);
-  }
-
   const keysComponents = () => {
     return keys.map(
       (key, idx) => 
-        <li key={key.idx}>
+        <li key={idx}>
           API key {key.id}
           <FaRegCopy/>
-          <FaQrcode onClick={()=>toggleKey(idx)}/>
+          <FaQrcode/>
           <FaTrash/>
-          { keys[idx].show && <BigQR url={key.url}/>}
+          <BigQR url={key.url}/>
         </li>
     )
   }
@@ -39,7 +33,10 @@ const GetApiKey = () => {
           switch (response.code) {
             case 200:
               const keys = response.contents.data.map(
-                (key, idx) => key.show = false
+                (key, idx) => {
+                  key.show = false;
+                  return key;
+                }
               );
               setKeys(keys);
               break;
