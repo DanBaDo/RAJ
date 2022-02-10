@@ -1,5 +1,5 @@
 from backend import app
-from backend.controllers.accounts_controllers import register, login, get_profile, modify_profile
+from backend.controllers.accounts_controllers import *
 
 app.add_url_rule("/register/", methods=["POST"], view_func=register)
 # TODO: app.add_url_rule("/confirmation/{confirmationToken}", view_func=confirm)
