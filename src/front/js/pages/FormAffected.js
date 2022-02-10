@@ -24,33 +24,33 @@ export const FormAffected = () => {
           <Row className="mb-3 vw-100">
             <Col>
               <Form.Group as={Col} md="4" controlId="validationCustom01">
-                <Form.Label>First name</Form.Label>
-                <Form.Control required type="text" placeholder="First name" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control required type="text" placeholder="Nombre" />
+                <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  Please write a correct Name
+                  El nombre no es correcto!
                 </Form.Control.Feedback>
               </Form.Group>
               <Form.Group as={Col} md="4" controlId="validationCustom02">
-                <Form.Label>Last name</Form.Label>
-                <Form.Control required type="text" placeholder="Last name" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Label>Apellidos</Form.Label>
+                <Form.Control required type="text" placeholder="Apellidos" />
+                <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  Please write a correct Lastname
+                  El apellido no es correcto!
                 </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group as={Col} md="4" controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control required type="text" placeholder="DNI" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  Please write a correct DNI
+                  Escriba correctamente de nuevo su DNI
                 </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group as={Col} md="4" controlId="validationPhone">
-                <Form.Label>Phone</Form.Label>
+                <Form.Label>Telefono/Movil</Form.Label>
                 <PhoneInput
                   localization={es}
                   isValid={(value, country) => {
@@ -80,7 +80,7 @@ export const FormAffected = () => {
                     required
                   />
                   <Form.Control.Feedback type="invalid">
-                    Please write a correct email
+                    Repita nuevamente su email
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
@@ -88,12 +88,12 @@ export const FormAffected = () => {
               <Form.Group className="mb-3">
                 <Form.Check
                   required
-                  label="Agree to terms and conditions"
+                  label="Acepto las condiciones"
                   feedback="You must agree before submitting."
                   feedbackType="invalid"
                 />
               </Form.Group>
-              <Button type="submit">Submit form</Button>
+              <Button type="submit">Registrarme</Button>
             </Col>
           </Row>
         </Form>
