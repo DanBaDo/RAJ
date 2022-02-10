@@ -14,8 +14,8 @@ export const Home = () => {
     <>
       <div className="text-center mt-5">
         <Gallery />
-        <Rajinfo />
         <AboutUsSection/>
+         <Rajinfo />
         <HelpSection/>
         <Footer />
       </div>

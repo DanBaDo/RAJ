@@ -13,8 +13,7 @@ const AboutUsSection = () => {
     <Container className="my-3">
       <Row>
         <Col md={6} sm={12}>
-          <h1>Sobre Nosotros</h1>
-          <h2>¿Que es RAJ?</h2>
+          <h1>¿Que es RAJ?</h1>
           <p>Raj es la  web que ayuda a personas con problemas de ludopatia ,al registro para la auto-exclusión a locales de juegos de azar.
 
             RAJ es la plataforma encarga de hacer de intermediario entre los salones de juego y las personas.Mediante el registro de autoexclusión,  RAJ se encarga de hacer el proceso automáticamente cuando el usuario este registrado.

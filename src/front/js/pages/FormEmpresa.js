@@ -4,7 +4,10 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
 
+
+
 export const FormEmpresa = () => {
+  
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -16,10 +19,12 @@ export const FormEmpresa = () => {
 
     setValidated(true);
   };
+  
+
 
   return (
     <>
-      <Container className="justify-content-center">
+      <Container className="justify-content-center fondo">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100">
             <Col>
@@ -117,7 +122,9 @@ export const FormEmpresa = () => {
             </Col>
           </Row>
         </Form>
+       
       </Container>
+      
     </>
   );
 };

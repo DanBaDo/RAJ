@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import styled from "styled-components";
+import { Container, Row, Col,Button } from "react-bootstrap";
+import "./Rajinfo.scss"
 
 const Rajinfo = () => {
 
@@ -8,13 +8,14 @@ const Rajinfo = () => {
     <>
       <Container>
         <Row>
-          <Col md={6}>
-            <h2>Número de Línea de ayuda para el abuso de drogas: 123-456-7890</h2>
-            <span>Calle Parral 123, Ciudad de México, 06140</span>
-            <span>123-456-7890</span>
-            <span>rajcontragambling@raj.es</span>
+          <Col className="Textauto" md={8} >
+            <h1><strong>¿Que es la Auto-exclusión?</strong></h1>
+            <span>La Autoexclusión es una forma de que cualquier persona que crea tener problemas con el juego pueda autoexcluirse de todas las webs de apuestas y casinos online de España.
+               De esta manera, una vez solicitada esta autoexclusión, el usuario no podrá volver acceder a estos locales.</span>
+            <Button className="Buttonauto">Registrate</Button>
           </Col>
-          <Col md={6}>
+          <Col md={4}>
+            <img className="imgauto" src="https://www.tribunasalamanca.com/uploads/imagenes/images/2020/1/28/5e30719ad86b9e22850000a9/Cartel%20ludopat%C3%ADa%20B%C3%A9jar_detail.jpg?1580233103" alt="" />
            
           </Col>
         </Row>
