@@ -5,25 +5,38 @@ import styled from "styled-components";
 
 const Rajinfo = () => {
   const StyledSpan = styled.span`
-  Font-size: 25px;
-  color:red;
+  
+  
   
   `
+  const ImgAuto = styled.img `
+  margin-top:20px ;
+  height:200px;
 
-  return (
+`
+
+
+    return (
     <>
       <Container>
         <Row>
-          <Col className="Textauto" md={8} xs={6} >
+          <Col className="Textauto" md={8} xs={12} >
             <h1><strong>¿Que es la Auto-exclusión?</strong></h1>
             <StyledSpan>La Autoexclusión es una forma de que cualquier persona que crea tener problemas con el juego pueda autoexcluirse de todas las webs de apuestas y casinos online de España.
                De esta manera, una vez solicitada esta autoexclusión, el usuario no podrá volver acceder a estos locales.</StyledSpan>
-            <Button className="Buttonauto">Registrate</Button>
+            
           </Col>
-          <Col md={4} xs={6}>
-            <img className="imgauto" src="https://www.tribunasalamanca.com/uploads/imagenes/images/2020/1/28/5e30719ad86b9e22850000a9/Cartel%20ludopat%C3%ADa%20B%C3%A9jar_detail.jpg?1580233103" alt="" />
+          <Col md={4} xs={12}>
+            <ImgAuto src="https://www.tribunasalamanca.com/uploads/imagenes/images/2020/1/28/5e30719ad86b9e22850000a9/Cartel%20ludopat%C3%ADa%20B%C3%A9jar_detail.jpg?1580233103" alt="" />
            
           </Col>
+          <div>
+    <Button variant="primary" size="sm">
+      Registrate
+    </Button>{' '}
+    
+  </div>
+          
         </Row>
       </Container>
     </>
