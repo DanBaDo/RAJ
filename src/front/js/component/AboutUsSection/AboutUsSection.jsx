@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
+import logo from "../../../img/logo.png"
 import styled from 'styled-components';
 
 const AboutUsSection = () => {
@@ -25,7 +26,7 @@ const AboutUsSection = () => {
           </p>
         </Col>
         <Col md={6} xs={{ order: 'last' }}>
-          <ContainerImg src="https://image.freepik.com/foto-gratis/primer-plano-mano-ofrecimiento-hombre-negocios-apreton-manos_1262-17295.jpg?w=740" alt="primer-plano-mano-ofrecimiento-hombre-negocios-apreton-manos" />
+          <ContainerImg src={logo} alt="logo RAJ" />
         </Col>
       </Row>
     </Container>

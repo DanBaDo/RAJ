@@ -1,8 +1,14 @@
 import React from "react";
 import { Container, Row, Col,Button } from "react-bootstrap";
-import "./Rajinfo.scss"
+
+import styled from "styled-components";
 
 const Rajinfo = () => {
+  const StyledSpan = styled.span`
+  Font-size: 25px;
+  color:red;
+  
+  `
 
   return (
     <>
@@ -10,8 +16,8 @@ const Rajinfo = () => {
         <Row>
           <Col className="Textauto" md={8} xs={6} >
             <h1><strong>¿Que es la Auto-exclusión?</strong></h1>
-            <span>La Autoexclusión es una forma de que cualquier persona que crea tener problemas con el juego pueda autoexcluirse de todas las webs de apuestas y casinos online de España.
-               De esta manera, una vez solicitada esta autoexclusión, el usuario no podrá volver acceder a estos locales.</span>
+            <StyledSpan>La Autoexclusión es una forma de que cualquier persona que crea tener problemas con el juego pueda autoexcluirse de todas las webs de apuestas y casinos online de España.
+               De esta manera, una vez solicitada esta autoexclusión, el usuario no podrá volver acceder a estos locales.</StyledSpan>
             <Button className="Buttonauto">Registrate</Button>
           </Col>
           <Col md={4} xs={6}>

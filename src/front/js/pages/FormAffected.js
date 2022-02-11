@@ -4,6 +4,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
 
+
 export const FormAffected = () => {
   const [validated, setValidated] = useState(false);
 
@@ -20,10 +21,10 @@ export const FormAffected = () => {
   return (
     <>
       <Container className="justify-content-center">
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form  noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100">
-            <Col>
-              <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Col >
+              <Form.Group  as={Col} md="4" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control required type="text" placeholder="Nombre" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
