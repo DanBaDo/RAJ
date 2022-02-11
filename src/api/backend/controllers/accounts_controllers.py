@@ -41,8 +41,8 @@ def confirm(confirmationToken):
     pass
 
 def login():
-    resp = Response()
     try:
+        resp = Response()
         username = request.json.get("username")
         password = request.json.get("password")
         account = Account.query.filter_by(username = username, status = STATUS["ACTIVE"]).first()
@@ -57,7 +57,7 @@ def login():
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
 
-@jwt_required
+@jwt_required()
 def profile_router():
     if request.method == "GET":
         try:
@@ -83,7 +83,7 @@ def profile_router():
             resp.message = "Internal server error: %s" % err
             return resp.json(), 500
 
-@jwt_required
+@jwt_required()
 def requestForRemoveAccount():
     try:
         resp = Response()
