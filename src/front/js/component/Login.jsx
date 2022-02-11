@@ -49,8 +49,8 @@ const Login = () => {
                 <button onClick={logout}>Cerrar sesión</button>
                 :
                 <form onSubmit={formSubmitHandler}>
-                    <input placeholder="username" onChange={formToUsername} value={username} type="text" />
-                    <input placeholder="password" onChange={formToPassword} value={password} type="password" />
+                    <input placeholder="Usuario" onChange={formToUsername} value={username} type="text" />
+                    <input placeholder="Contraseña" onChange={formToPassword} value={password} type="password" />
                     <input type="submit" />
                 </form>
             }
