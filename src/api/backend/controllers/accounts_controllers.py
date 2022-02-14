@@ -103,7 +103,7 @@ def profile_router():
             return resp.json(), 500
 
 @jwt_required()
-def requestForRemoveAccount():
+def request_for_remove_account():
     try:
         resp = Response()
         current_user.status = STATUS["DELETION_REQUESTED"]
