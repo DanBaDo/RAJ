@@ -266,7 +266,7 @@
       "responses": [
         {
           "uuid": "e0b91b91-aff3-452c-9f18-94631586f7a2",
-          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Profile updated succesfull\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Profile updated",
