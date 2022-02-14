@@ -1,9 +1,8 @@
-from telnetlib import STATUS
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, current_user
 
-from backend.models import Account, Company, ROLES, STATUS, Response
+from backend.models import Account, Company, ROLES, STATUS, Response, TOKEN_PURPOSES
 from backend.models import db
 
 def register():
@@ -29,6 +28,9 @@ def register():
         new_account.companies.append(company)
         db.session.add(new_account)
         db.session.commit()
+        confirmation_token = create_access_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
+        # TODO: Send confirmarion toke by e-mail
+        print(confirmation_token)
         resp.message = "Succesfully registration. Confirmation pending"
         resp.data = { "regCompleted": False }
         return resp.json(), 201
