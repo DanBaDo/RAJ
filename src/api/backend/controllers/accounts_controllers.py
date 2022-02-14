@@ -39,13 +39,21 @@ def register():
         return resp.json(), 500
 
 def confirm(confirmationToken):
-    resp = Response()
-    token_data = decode_token(confirmationToken)
-    if token_data.claims.purpose == TOKEN_PURPOSES["CONFIRMATION"]:
-    
-        resp.message = "Invalid token"
-        return resp.json(), 401
-    
+    try:
+        resp = Response()
+        token_data = decode_token(confirmationToken)
+        if token_data["purpose"] != TOKEN_PURPOSES["CONFIRMATION"]:
+            resp.message = "Invalid data provided"
+            return resp.json(), 400
+        user = Account.query.get(token_data["sub"])
+        user.state = STATUS["ACTIVE"]
+        db.session.commit()
+        resp.message = "Registration completed succesfully"
+        resp.data = {"token": create_access_token(user)}
+        return resp.json(), 200
+    except Exception as err:
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
 
 def login():
     try:
