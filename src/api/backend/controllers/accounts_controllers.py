@@ -107,6 +107,7 @@ def requestForRemoveAccount():
     try:
         resp = Response()
         current_user.status = STATUS["DELETION_REQUESTED"]
+        db.session.commit()
         resp.message = "Deletion requested"
         return resp.json(), 200
     except Exception as err:
