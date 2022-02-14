@@ -1,5 +1,5 @@
 from telnetlib import STATUS
-from flask import request, jsonify
+from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, current_user
 
