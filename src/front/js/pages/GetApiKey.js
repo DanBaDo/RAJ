@@ -9,6 +9,7 @@ import BigQR from "../component/Commoncomponents/bigQR.jsx";
 const GetApiKey = () => {
   const { store, actions } = useContext(Context);
   const [keys, setKeys] = useState([]);
+  const [QRData, setQRData] = useState(null);
 
   const keysComponents = () => {
     return keys.map(
@@ -16,16 +17,15 @@ const GetApiKey = () => {
         <li key={idx}>
           API key {key.id}
           <FaRegCopy/>
-          <FaQrcode/>
+          <FaQrcode onClick={()=>{setQRData(key.url)}}/>
           <FaTrash/>
-          <BigQR url={key.url}/>
         </li>
     )
   }
 
   useEffect(
     ()=>{
-      getAPIKeys.onError = (error) => {
+      /*getAPIKeys.onError = (error) => {
         actions.addError(error);
       }
       getAPIKeys.onResponse = (response) => {
@@ -51,7 +51,26 @@ const GetApiKey = () => {
           actions.addError(error);
         }
       };
-      getAPIKeys.call()
+      getAPIKeys.call()*/
+      setKeys(
+        [
+          {
+            "id": 1,
+            "key": "8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
+            "url": "/apikey/8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb"
+          },
+          {
+            "id": 2,
+            "key": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+            "url": "/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+          },
+          {
+            "id": 3,
+            "key": "b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
+            "url": "/apikey/b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3"
+          }
+        ]
+      )
     },
     []
   );
@@ -66,7 +85,7 @@ const GetApiKey = () => {
             <ul>
                 { keysComponents() }
             </ul>
-            {}
+            { QRData && <BigQR url={QRData} close={()=>{setQRData(null)}}/> }
           </Col>
         </Row>
       </Container>

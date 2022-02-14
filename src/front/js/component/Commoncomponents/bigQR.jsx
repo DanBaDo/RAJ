@@ -8,10 +8,12 @@ const BigQR = (props) => {
         width: 80vw;
         height: 80vh;
         z-index: 100;
+        top: 50px;
     `
     return (
         <BigQR>
             <QRCode value={props.url} />
+            <button onClick={props.close}>Cerrar</button>
         </BigQR>
     )
 }
