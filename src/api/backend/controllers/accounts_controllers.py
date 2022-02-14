@@ -1,6 +1,6 @@
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import decode_token , create_access_token, jwt_required, current_user
+from flask_jwt_extended import decode_token , create_access_token, create_refresh_token, jwt_required, current_user
 
 from backend.models import Account, Company, ROLES, STATUS, Response, TOKEN_PURPOSES
 from backend.models import db
@@ -28,7 +28,7 @@ def register():
         new_account.companies.append(company)
         db.session.add(new_account)
         db.session.commit()
-        confirmation_token = create_access_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
+        confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
         # TODO: Send confirmarion toke by e-mail
         print(confirmation_token)
         resp.message = "Succesfully registration. Confirmation pending"
@@ -41,9 +41,13 @@ def register():
 def confirm(confirmationToken):
     try:
         resp = Response()
-        token_data = decode_token(confirmationToken)
+        try: 
+            token_data = decode_token(confirmationToken)
+        except Exception as err:
+            resp.message = "Error decoding token: %s" % err
+            return resp.json(), 400
         if token_data["purpose"] != TOKEN_PURPOSES["CONFIRMATION"]:
-            resp.message = "Invalid data provided"
+            resp.message = "Invalid token type provided"
             return resp.json(), 400
         user = Account.query.get(token_data["sub"])
         user.state = STATUS["ACTIVE"]
@@ -52,7 +56,7 @@ def confirm(confirmationToken):
         resp.data = {"token": create_access_token(user)}
         return resp.json(), 200
     except Exception as err:
-        resp.message = "Internal server error: %s" % err
+        resp.message = "General conf error: %s" % err
         return resp.json(), 500
 
 def login():
@@ -87,12 +91,12 @@ def profile_router():
         try:
             resp = Response()
             # TODO: Data validation
-            if "name" in request.json: current_user.name = request.json.name
-            if "last_name" in request.json: current_user.last_name = request.json.last_name
-            if "email" in request.json: current_user.email = request.json.email
-            if "phone" in request.json: current_user.phone = request.json.phone
+            if "name" in request.json: current_user.name = request.json["name"]
+            if "last_name" in request.json: current_user.last_name = request.json["last_name"]
+            if "email" in request.json: current_user.email = request.json["email"]
+            if "phone" in request.json: current_user.phone = request.json["phone"]
             db.session.commit()
-            resp.message = "Authentication succesfull"
+            resp.message = "Profile updated succesfull"
             return resp.json(), 200
         except Exception as err:
             resp.message = "Internal server error: %s" % err
