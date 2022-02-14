@@ -1,6 +1,6 @@
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import create_access_token, jwt_required, current_user
+from flask_jwt_extended import decode_token , create_access_token, jwt_required, current_user
 
 from backend.models import Account, Company, ROLES, STATUS, Response, TOKEN_PURPOSES
 from backend.models import db
@@ -39,8 +39,13 @@ def register():
         return resp.json(), 500
 
 def confirm(confirmationToken):
-    # TODO
-    pass
+    resp = Response()
+    token_data = decode_token(confirmationToken)
+    if token_data.claims.purpose == TOKEN_PURPOSES["CONFIRMATION"]:
+    
+        resp.message = "Invalid token"
+        return resp.json(), 401
+    
 
 def login():
     try:
