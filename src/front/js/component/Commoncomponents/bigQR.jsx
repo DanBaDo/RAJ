@@ -8,7 +8,7 @@ const BigQR = (props) => {
         width: 80vw;
         height: 80vh;
         z-index: 100;
-        top: 50px;
+        top: 200px;
     `
     return (
         <BigQR>
