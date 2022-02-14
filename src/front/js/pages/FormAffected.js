@@ -3,7 +3,8 @@ import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
-
+import "./FormAffected.scss";
+import logo from "../../img/logo.png"
 
 export const FormAffected = () => {
   const [validated, setValidated] = useState(false);
@@ -22,9 +23,10 @@ export const FormAffected = () => {
     <>
       <Container className="justify-content-center">
         <Form  noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-3 vw-100">
+          <Row className="mb-3 vw-100 ">
+            <Col></Col>
             <Col >
-              <Form.Group  as={Col} md="4" controlId="validationCustom01">
+              <Form.Group  as={Col} md="10" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control required type="text" placeholder="Nombre" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -32,7 +34,7 @@ export const FormAffected = () => {
                   El nombre no es correcto!
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4" controlId="validationCustom02">
+              <Form.Group as={Col} md="10" controlId="validationCustom02">
                 <Form.Label>Apellidos</Form.Label>
                 <Form.Control required type="text" placeholder="Apellidos" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -41,7 +43,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationDNI">
+              <Form.Group as={Col} md="10" controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control required type="text" placeholder="DNI" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -50,7 +52,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationPhone">
+              <Form.Group as={Col} md="10" controlId="validationPhone">
                 <Form.Label>Telefono/Movil</Form.Label>
                 <PhoneInput
                   localization={es}
@@ -70,7 +72,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationCustomEmail">
+              <Form.Group as={Col} md="10" controlId="validationCustomEmail">
                 <Form.Label>Email</Form.Label>
                 <InputGroup hasValidation>
                   <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -96,8 +98,14 @@ export const FormAffected = () => {
               </Form.Group>
               <Button type="submit">Registrarme</Button>
             </Col>
+            <Col>
+            
+            
+            </Col>
           </Row>
         </Form>
+        
+        
       </Container>
     </>
   );

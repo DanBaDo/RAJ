@@ -47,7 +47,7 @@ const Login = () => {
         <>
             {store.logged === true
                 ?
-                <button onClick={logout}>Cerrar sesión</button>
+                <button onClick={logout}>Cerrar sesióngit</button>
                 :
                 <form onSubmit={formSubmitHandler}>
                     <input placeholder="Usuario" onChange={formToUsername} value={username} type="text" />
