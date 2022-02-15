@@ -31,9 +31,7 @@ const Rajinfo = () => {
            
           </Col>
           <div>
-    <Button variant="primary" size="sm">
-      Registrate
-    </Button>{' '}
+          <Button className="button" type="submit">Registrarme</Button>
     
   </div>
           
