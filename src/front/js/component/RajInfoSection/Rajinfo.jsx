@@ -5,13 +5,14 @@ import styled from "styled-components";
 
 const Rajinfo = () => {
   const StyledSpan = styled.span`
-  
+  font-size:20px;
   
   
   `
   const ImgAuto = styled.img `
   margin-top:20px ;
   height:200px;
+  
 
 `
 
@@ -27,7 +28,7 @@ const Rajinfo = () => {
             
           </Col>
           <Col md={4} xs={12}>
-            <ImgAuto src="https://www.tribunasalamanca.com/uploads/imagenes/images/2020/1/28/5e30719ad86b9e22850000a9/Cartel%20ludopat%C3%ADa%20B%C3%A9jar_detail.jpg?1580233103" alt="" />
+            <ImgAuto src="https://amasapoyosocial.org/wp-content/uploads/2020/09/ludopatia-online-amas-4.jpg" alt="" />
            
           </Col>
           <div>

@@ -25,6 +25,7 @@ const Footer = () => {
             </ListGroup>
           </Col>
           <Col>
+          
             <h4>SUBSCRIBE</h4>
             <Stack direction="horizontal" gap={3}>
               <Form.Control className="me-auto" placeholder="Add your item here..." />

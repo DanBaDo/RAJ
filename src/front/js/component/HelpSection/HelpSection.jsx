@@ -14,7 +14,7 @@ const HelpSection = () => {
         <Container className="my-3">
             <Row>
                 <Col md={{order:"first"}} xs={{ order: 'last' }}>
-                    <ContainerImg src="https://orbiumadicciones.com/wp-content/uploads/2020/01/man-sitting-on-red-ground-1688506-1024x696.jpg" alt="Ludopatia" />
+                    <ContainerImg src="https://juegoresponsable.eu/wp-content/uploads/2015/01/slots_online-1078x516.jpg" alt="Ludopatia" />
                 </Col>
                 <Col md={6} xs={12}>
                     <h1>¿Que es la ludopatia?</h1>
