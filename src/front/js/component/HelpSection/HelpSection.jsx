@@ -6,12 +6,15 @@ const HelpSection = () => {
     max-width: 100%;
     heigth:auto;
     width:auto;
+    
+   
+      
     `
     return (<>
         <Container className="my-3">
             <Row>
                 <Col md={{order:"first"}} xs={{ order: 'last' }}>
-                    <ContainerImg src="https://okdiario.com/img/2020/10/19/tratamiento-de-la-ludopatia-en-los-mas-jovenes.jpg" alt="Hombre lamentandose " />
+                    <ContainerImg src="https://orbiumadicciones.com/wp-content/uploads/2020/01/man-sitting-on-red-ground-1688506-1024x696.jpg" alt="Ludopatia" />
                 </Col>
                 <Col md={6} xs={12}>
                     <h1>¿Que es la ludopatia?</h1>
