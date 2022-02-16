@@ -3,6 +3,7 @@ import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
+import "./FormEmpresa.scss";
 
 
 
@@ -24,11 +25,12 @@ export const FormEmpresa = () => {
 
   return (
     <>
-      <Container className="justify-content-center fondo">
+      <Container className="justify-content-center ">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100">
+            <Col></Col>
             <Col>
-              <Form.Group as={Col} md="4" controlId="validationCustom01">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
                 <Form.Label>Razon Social</Form.Label>
                 <Form.Control required type="text" placeholder="Razon Social" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -37,7 +39,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationDNI">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control required type="text" placeholder="DNI" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -47,7 +49,7 @@ export const FormEmpresa = () => {
               </Form.Group>
 
 
-              <Form.Group as={Col} md="4" controlId="validationCustom02">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom02">
                 <Form.Label>Persona Contacto</Form.Label>
                 <Form.Control required type="text" placeholder="Persona Contacto" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -56,7 +58,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationDNI">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control required type="text" placeholder="DNI" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -65,7 +67,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationDNI">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
                 <Form.Label>Cargo</Form.Label>
                 <Form.Control required type="text" placeholder="Cargo" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -74,7 +76,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationPhone">
+              <Form.Group as={Col} md="10" xs="8"controlId="validationPhone">
                 <Form.Label>Phone</Form.Label>
                 <PhoneInput
                   localization={es}
@@ -94,7 +96,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="4" controlId="validationCustomEmail">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationCustomEmail">
                 <Form.Label>Email</Form.Label>
                 <InputGroup hasValidation>
                   <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -118,8 +120,9 @@ export const FormEmpresa = () => {
                   feedbackType="invalid"
                 />
               </Form.Group>
-              <Button type="submit">Submit form</Button>
+              <Button className="button" type="submit">Registrarme</Button>
             </Col>
+            <Col></Col>
           </Row>
         </Form>
        
