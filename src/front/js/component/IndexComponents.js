@@ -11,3 +11,4 @@ export {default as Login} from "./Login.jsx";
 export {default as HelpSection} from "./HelpSection/HelpSection.jsx";
 export {default as ImgLogo} from "./NavbarSection/NavbarTop.jsx";
 export {default as ButtonAuto} from "./RajInfoSection/Rajinfo.jsx"
+export {default as ApiKey} from "./ApiKey/Apikey.jsx"

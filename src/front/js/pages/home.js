@@ -6,6 +6,7 @@ import {
   Rajinfo,
   HelpSection,
   Footer,
+  ApiKey,
 } from "../component/IndexComponents";
 
 export const Home = () => {
@@ -18,6 +19,7 @@ export const Home = () => {
          <Rajinfo />
         <HelpSection/>
         <Footer />
+        <ApiKey/>
       </div>
     </>
   );

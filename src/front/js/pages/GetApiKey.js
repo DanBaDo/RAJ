@@ -1,10 +1,11 @@
-import React, {useEffect, useState, useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import styled from "styled-components";
 import { getAPIKeys } from "../libraries/request/APIRequests";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa";
-import BigQR from "../component/Commoncomponents/bigQR.jsx";
+
+import Apikey from "../component/ApiKey/Apikey.jsx";
+import "./GetApiKey.scss";
 
 const GetApiKey = () => {
   const { store, actions } = useContext(Context);
@@ -12,20 +13,13 @@ const GetApiKey = () => {
   const [QRData, setQRData] = useState(null);
 
   const keysComponents = () => {
-    return keys.map(
-      (key, idx) => 
-        <li key={idx}>
-          API key {key.id}
-          <FaRegCopy/>
-          <FaQrcode onClick={()=>{setQRData(key.url)}}/>
-          <FaTrash/>
-        </li>
-    )
-  }
+    return keys.map((key, idx) => (
+      <Apikey id={key.id} url={key.url} key={idx}></Apikey>
+    ));
+  };
 
-  useEffect(
-    ()=>{
-      /*getAPIKeys.onError = (error) => {
+  useEffect(() => {
+    /*getAPIKeys.onError = (error) => {
         actions.addError(error);
       }
       getAPIKeys.onResponse = (response) => {
@@ -52,44 +46,37 @@ const GetApiKey = () => {
         }
       };
       getAPIKeys.call()*/
-      setKeys(
-        [
-          {
-            "id": 1,
-            "key": "8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
-            "url": "/apikey/8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb"
-          },
-          {
-            "id": 2,
-            "key": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
-            "url": "/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
-          },
-          {
-            "id": 3,
-            "key": "b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
-            "url": "/apikey/b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3"
-          }
-        ]
-      )
-    },
-    []
-  );
-
+    setKeys([
+      {
+        id: 1,
+        key: "8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
+        url: "/apikey/8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
+      },
+      {
+        id: 2,
+        key: "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+        url: "/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      },
+      {
+        id: 3,
+        key: "b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
+        url: "/apikey/b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
+      },
+    ]);
+  }, []);
 
   return (
     <>
       <Container>
-        <Row className="m-0 vh-100 justify-content-center align-items-center">
+        <Row className="m-0 vh-100 justify-content-center">
+          <Col></Col>
           <Col>
-            <h1>Lista de dispositivos con acceso</h1>
-            <ul>
-                { keysComponents() }
-            </ul>
-            { QRData && <BigQR url={QRData} close={()=>{setQRData(null)}}/> }
+            <h1 className="TitleApi">Dispositivos Permitidos</h1>
+            <ul>{keysComponents()}</ul>
           </Col>
+          <Col></Col>
         </Row>
       </Container>
-      
     </>
   );
 };
