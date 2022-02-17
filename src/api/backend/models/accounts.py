@@ -1,4 +1,4 @@
-from backend.models import db
+from backend.models import db, API_key
 
 class Account(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -29,6 +29,11 @@ class Company(db.Model):
     name = db.Column(db.String(250), nullable=False, unique=True)
     NIF = db.Column(db.String(15), nullable=False)
     address = db.Column(db.String(256))
+    api_keys = db.relationship(
+        'API_key',
+        lazy='subquery',
+        backref = db.backref('company', lazy=True)
+    )
     def __repr__(self):
         return '<Company id: %r - %s>' % (self.id, self.name)
     def serialize(self):
