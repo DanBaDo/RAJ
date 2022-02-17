@@ -1,4 +1,3 @@
-from email.policy import default
 from backend.models import db
 
 class Account(db.Model):
