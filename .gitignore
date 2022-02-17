@@ -1,5 +1,11 @@
-# ignore all files starting with .
-.*
+#custom
+venv/
+**/__pycache__/
+migrations/
+sqlite/*.db
+
+# vscode preferences
+.vscode
 
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
