@@ -2,7 +2,7 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 svg{margin: 3px;
-font-size: 15px;
+font-size: 14px;
 };
 
 .justify-content-center{
@@ -31,6 +31,7 @@ font-size: 15px;
     width: 250px;
     height: 40px;
     text-align: center;
+    margin: 30px 30px 60px 50px;
     
   }
 .button:hover {
