@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import "./Message.scss"
+import { Col, Row } from 'react-bootstrap';
 
 /**
  * Draw a info, 
@@ -16,15 +18,14 @@ const Message = (props) => {
     margin: 1em;
     font-size: x-large;
     text-align: left;
-    background: #99f;
     border-radius: 1em;
+    color:white;
   `,
     warning: `
     padding: 3em;
     margin: 1em;
     font-size: x-large;
     text-align: left;
-    background: #ff9;
     border-radius: 1em;
   `,
     error: `
@@ -32,7 +33,6 @@ const Message = (props) => {
     margin: 1em;
     font-size: x-large;
     text-align: left;
-    background: #f99;
     border-radius: 1em;
   `,
   }
@@ -40,10 +40,20 @@ const Message = (props) => {
     styles[props.type] : styles.info}`;
   return (
     <Message>
-      {props.content}
-      <button onClick={props.buttonAction}>
-        {props.buttonContent ? props.buttonContent : "Ok"}
-      </button>
+      <Row className="alert alert-danger d-flex align-items-center" role="alert">
+
+        <Col>
+
+          {props.content}
+        </Col>
+        <Col></Col>
+        <Col></Col>
+        <Col > <button onClick={props.buttonAction} className="button" type="submit">
+          {props.buttonContent ? props.buttonContent : "Ok"}
+        </button>
+        </Col>
+
+      </Row>
     </Message>
   )
 };
