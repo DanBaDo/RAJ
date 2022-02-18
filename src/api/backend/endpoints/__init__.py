@@ -1,2 +1,2 @@
-from api.backend.endpoints import public_api_endpoints
-from api.backend.endpoints import accounts_endpoints
+from backend.endpoints import public_api_endpoints
+from backend.endpoints import accounts_endpoints
