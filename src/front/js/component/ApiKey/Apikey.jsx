@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa";
 import BigQR from "../Commoncomponents/bigQR.jsx";
-import { ListGroup, Col, Row, CloseButton, } from 'react-bootstrap';
+import { ListGroup, Col, Row, } from 'react-bootstrap';
 
 const ApiKey = (props) => {
     const [QRData, setQRData] = useState(null);
@@ -10,15 +10,12 @@ const ApiKey = (props) => {
     return (
         <ListGroup>
             <ListGroup.Item>
+                
                 <Row>
-                    <Col xs={4} md={8} >{props.id}.Dispositivo activo</Col>
-                    <Col xs={2} md={1}><FaRegCopy /></Col>
-                    <Col xs={2} md={1}><FaQrcode onClick={() => { setQRData(props.url) }} /></Col>
-                    <Col xs={2} md={1}><FaTrash /></Col>
-                    <Col xs={2} md={1}><CloseButton onClick={handleClose} /></Col>
-                </Row>
-
-
+                    <Col sm={6} lg={10} >{props.id}.Dispositivo activo</Col>
+                    <Col sm={2} lg={1}></Col>
+                    <Col sm={4} lg={1}><FaRegCopy /><FaQrcode onClick={() => { setQRData(props.url) }} /><FaTrash /></Col>
+                 </Row>   
 
             </ListGroup.Item>
             {QRData && <BigQR url={QRData} close={() => { setQRData(null) }} />}

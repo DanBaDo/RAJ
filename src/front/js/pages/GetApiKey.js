@@ -69,12 +69,13 @@ const GetApiKey = () => {
     <>
       <Container>
         <Row className="m-0 vh-100 justify-content-center">
-          <Col></Col>
           <Col>
+          <Col >
             <h1 className="TitleApi">Dispositivos Permitidos</h1>
             <ul>{keysComponents()}</ul>
           </Col>
           <Col></Col>
+          </Col>
         </Row>
       </Container>
     </>

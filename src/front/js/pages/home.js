@@ -19,7 +19,7 @@ export const Home = () => {
          <Rajinfo />
         <HelpSection/>
         <Footer />
-        <ApiKey/>
+        
       </div>
     </>
   );
