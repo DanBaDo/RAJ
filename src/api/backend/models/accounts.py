@@ -31,7 +31,7 @@ class Company(db.Model):
     address = db.Column(db.String(256))
     api_keys = db.relationship(
         'API_key',
-        lazy='subquery',
+        lazy=True,
         backref = db.backref('company', lazy=True)
     )
     def __repr__(self):
