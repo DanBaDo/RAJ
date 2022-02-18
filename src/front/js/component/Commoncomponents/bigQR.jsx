@@ -17,7 +17,7 @@ const BigQR = (props) => {
     return (
         <BigQR>
             <QRCode value={props.url} />
-            <button onClick={props.close}>Cerrar</button>
+            <button className="button" onClick={props.close}>Cerrar</button>
            
     
     
