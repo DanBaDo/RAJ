@@ -67,8 +67,8 @@ const GetApiKey = () => {
 
   return (
     <>
-      <Container>
-        <Row className="m-0 vh-100 justify-content-center">
+      <Container >
+        <Row className="justify-content-center">
           <Col>
           <Col >
             <h1 className="TitleApi">Dispositivos Permitidos</h1>
