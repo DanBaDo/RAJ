@@ -50,7 +50,7 @@ def confirm(confirmationToken):
             resp.message = "Invalid token type provided"
             return resp.json(), 400
         user = Account.query.get(token_data["sub"])
-        user.state = STATUS["ACTIVE"]
+        user.status = STATUS["ACTIVE"]
         db.session.commit()
         resp.message = "Registration completed succesfully"
         resp.data = {"token": create_access_token(user)}
