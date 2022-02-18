@@ -5,6 +5,9 @@ from flask_jwt_extended import decode_token , create_access_token, create_refres
 from backend.models import Account, Company, ROLES, STATUS, Response, TOKEN_PURPOSES
 from backend.models import db
 
+def new_api_key():
+    return "...", 200
+
 '''
 def register():
     try:
