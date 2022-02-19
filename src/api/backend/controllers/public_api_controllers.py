@@ -1,12 +1,38 @@
+from urllib import response
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import decode_token , create_access_token, create_refresh_token, jwt_required, current_user
 
-from backend.models import Account, Company, ROLES, STATUS, Response, TOKEN_PURPOSES
-from backend.models import db
+from backend.models import db, ROLES, STATUS, Response, TOKEN_PURPOSES, API_key
 
+@jwt_required()
 def new_api_key():
-    return "...", 200
+    try:
+        resp = Response()
+        user_companies = current_user.companies
+        companies_ids = [company.id for company in user_companies]
+        current_keys = API_key.query.filter(API_key.company_id.in_(companies_ids)).all()
+        key = API_key()
+        key.key = create_refresh_token(
+            current_user,
+            additional_claims={
+                "purpose": TOKEN_PURPOSES["API_KEY"],
+                "company_id": request.json.company_id
+            }
+        )
+        key.description = request.json.description
+        key.company_id = request.json.company_id
+        db.session.add(key)
+        db.session.commit()
+        resp.message = "Your API keys"
+        resp.data = {
+            "newApiKey": key.serialize(),
+            "apiKeys": [key.serialize() for key in current_keys]
+        }
+        return "...", 200
+    except Exception as err:
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
 
 '''
 def register():
