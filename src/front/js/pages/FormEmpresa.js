@@ -28,7 +28,14 @@ export const FormEmpresa = () => {
       <Container className="justify-content-center ">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100">
-            <Col></Col>
+            <Col >
+            <h2 className="stylempresa">Registra tu empresa </h2>
+            
+            <p className="stylempresatext">Con el registro de tu empresa nos ayudas a tener  controlados a todos los registrados en <strong>RAJ</strong> para coloborar con su recuperacion.
+            <p>¡Ayudanos a Ayudar!</p>
+            <p>GRACIAS!</p>
+            </p>
+            </Col>
             <Col>
               <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
                 <Form.Label>Razon Social</Form.Label>
