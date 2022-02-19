@@ -1,4 +1,4 @@
-from backend.models import db, API_key
+from backend.models import db
 
 class Account(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -51,6 +51,18 @@ class Roll(db.Model):
         return '<Roll id: %r - %s>' % (self.id, self.description)
     def serialize(self):
         return { "id": self.id, "description": self.description }
+
+
+class API_key(db.Model):
+    key = db.Column(db.String(262), primary_key=True)
+    description = db.Column(db.String(100), nullable=False)
+    installed = db.Column(db.String(5), nullable=False, default=False)
+    company_id = db.Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
+    def __repr__(self):
+        return '<API key : %s >' % (self.description)
+    def serialize(self):
+        return { "key": self.key, "description": self.description, "installed": self.installed }
+
 
 account_company_relationship = db.Table('account_company_relationship',
     db.Column('account_id', db.Integer, db.ForeignKey(Account.id), primary_key=True),
