@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Context } from "../store/appContext";
-import { login } from "../libraries/request/APIRequests";
+import { Context } from "../../store/appContext";
+import { login } from "../../libraries/request/APIRequests";
 import "./Login.scss";
 
 const Login = () => {

@@ -3,7 +3,7 @@ import { Context } from "../../store/appContext";
 import { Container, Navbar, Nav ,ContainerImg } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import logo from "../../../img/logo.png"
-import Login from "../Login.jsx";
+import Login from "../../pages/LoginPage.js";
 import "./NavbarTop.scss"
 
 

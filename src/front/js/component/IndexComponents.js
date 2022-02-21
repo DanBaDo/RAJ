@@ -7,7 +7,7 @@ export {default as Rajinfo} from "./RajInfoSection/Rajinfo.jsx";
 export {default as ButtonGradients} from "./Commoncomponents/ButtonGradients.jsx";
 export {default as SocialButtons} from "./Commoncomponents/SocialButtons.jsx";
 export {default as Message} from "./Commoncomponents/Message.jsx";
-export {default as Login} from "./Login.jsx";
+export {default as Login} from "./Login/Login.jsx";
 export {default as HelpSection} from "./HelpSection/HelpSection.jsx";
 export {default as ImgLogo} from "./NavbarSection/NavbarTop.jsx";
 export {default as ButtonAuto} from "./RajInfoSection/Rajinfo.jsx"
