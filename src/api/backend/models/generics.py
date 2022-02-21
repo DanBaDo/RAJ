@@ -4,6 +4,7 @@ ROLES = {
     "AFT": "Affected",
     "RPR": "Company representative",
     "BTM": "Best man",
+    "STF": "Staff",
 }
 
 STATUS = {
