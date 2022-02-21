@@ -1,46 +1,25 @@
-import React from 'react';
-import { Container, Row, Col, ListGroup, Form, Button, Stack } from 'react-bootstrap';
-
+import React from "react";
+import { BsFacebook, BsInstagram } from 'react-icons/bs';
+import styled from "styled-components";
 const Footer = () => {
+  const ContainerFooterSection = styled.div`
+    background-color: #1f2b5b;
+    width: 100%;
+    height: 40vh;
+    color: white;
+    text-align: center;
+    padding-top:5%;
+  `;
   return (
     <>
-      <Container className="bg-secondary p-4" xs={12} md={12} fluid>
-        <Row>
-          <Col >
-            <h4>CONTACT US</h4>
-            <ListGroup variant="flush" className="text-left">
-              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            </ListGroup>
-          </Col>
-          <Col>
-            <h4>CONNECT WITH US</h4>
-            <ListGroup className="text-left" horizontal variant="flush">
-              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-              <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            </ListGroup>
-          </Col>
-          <Col>
-          
-            <h4>SUBSCRIBE</h4>
-            <Stack direction="horizontal" gap={3}>
-              <Form.Control className="me-auto" placeholder="Add your item here..." />
-              <Button variant="secondary">Submit</Button>
-            </Stack>
-          </Col>
-        </Row>
-      </Container>
-      <Container className="bg-info p-2 text-center" fluid>
-        <h4>Informacion legal</h4>
-        <p>Numero de registro legal : 123456789</p>
-      </Container>
-      <Container className="bg-dark p-2 text-center text-white" fluid>
-        2023 by 4geekAcademy. Proudley created by BigBitDev, DanBaDo, Adrian
-      </Container>
+      <ContainerFooterSection>
+          <h4>Informacion legal</h4>
+          <p>Numero de registro legal : 123456789</p>
+          <h5>Siguenos en nuestras redes</h5>
+          <BsFacebook/>
+          <BsInstagram/>
+          <h6>Proudly created by Adrian, DanBoDo, Bigbitdev, 2022</h6>
+      </ContainerFooterSection>
     </>
   );
 };
