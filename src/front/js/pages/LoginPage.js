@@ -12,7 +12,7 @@ function LoginPage() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+        Login
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -22,7 +22,7 @@ function LoginPage() {
         <Login />
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Enviar
           </Button>
         </Modal.Footer>
       </Modal>
