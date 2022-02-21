@@ -37,97 +37,100 @@ export const FormEmpresa = () => {
             </p>
             </Col>
             <Col>
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
-                <Form.Label>Razon Social</Form.Label>
-                <Form.Control required type="text" placeholder="Razon Social" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please write a correct text
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
-                <Form.Label>DNI</Form.Label>
-                <Form.Control required type="text" placeholder="DNI" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please write a correct DNI
-                </Form.Control.Feedback>
-              </Form.Group>
-
-
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom02">
-                <Form.Label>Persona Contacto</Form.Label>
-                <Form.Control required type="text" placeholder="Persona Contacto" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please write a correct Persona de Contacto
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
-                <Form.Label>DNI</Form.Label>
-                <Form.Control required type="text" placeholder="DNI" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please write a correct DNI
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
-                <Form.Label>Cargo</Form.Label>
-                <Form.Control required type="text" placeholder="Cargo" />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please write a correct Cargo
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group as={Col} md="10" xs="8"controlId="validationPhone">
-                <Form.Label>Phone</Form.Label>
-                <PhoneInput
-                  localization={es}
-                  isValid={(value, country) => {
-                    if (value.match(/12345/)) {
-                      return "Invalid value: " + value + ", " + country.name;
-                    } else if (value.match(/1234/)) {
-                      return false;
-                    } else {
-                      return true;
-                    }
-                  }}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please write a correct phone number
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustomEmail">
-                <Form.Label>Email</Form.Label>
-                <InputGroup hasValidation>
-                  <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                  <Form.Control
-                    type="email"
-                    placeholder="your email"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                  />
+              <Form>
+                <h3>Datos de la empresa</h3>
+                <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
+                  <Form.Label>Razon Social</Form.Label>
+                  <Form.Control required type="text" placeholder="Razon Social" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   <Form.Control.Feedback type="invalid">
-                    Please write a correct email
+                    Please write a correct text
                   </Form.Control.Feedback>
-                </InputGroup>
-              </Form.Group>
+                </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Check
-                  required
-                  label="Agree to terms and conditions"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-              </Form.Group>
-              <Button className="button" type="submit">Registrarme</Button>
+                <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
+                  <Form.Label>NIF</Form.Label>
+                  <Form.Control required type="text" placeholder="NIF" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Please write a correct NIF
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <hr/>
+                <h3>Persona de contacto</h3>
+                <Form.Group as={Col} md="10" xs="8" controlId="validationCustom02">
+                  <Form.Label>Nombre</Form.Label>
+                  <Form.Control required type="text" placeholder="Nombre" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Please write a correct name
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
+                  <Form.Label>DNI</Form.Label>
+                  <Form.Control required type="text" placeholder="DNI" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Please write a correct DNI
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
+                  <Form.Label>Cargo en la compañía</Form.Label>
+                  <Form.Control required type="text" placeholder="Cargo" />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Please write a correct Cargo
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="10" xs="8"controlId="validationPhone">
+                  <Form.Label>Phone</Form.Label>
+                  <PhoneInput
+                    localization={es}
+                    isValid={(value, country) => {
+                      if (value.match(/12345/)) {
+                        return "Invalid value: " + value + ", " + country.name;
+                      } else if (value.match(/1234/)) {
+                        return false;
+                      } else {
+                        return true;
+                      }
+                    }}
+                  />
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Please write a correct phone number
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group as={Col} md="10" xs="8" controlId="validationCustomEmail">
+                  <Form.Label>Email</Form.Label>
+                  <InputGroup hasValidation>
+                    <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                    <Form.Control
+                      type="email"
+                      placeholder="your email"
+                      aria-describedby="inputGroupPrepend"
+                      required
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Please write a correct email
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Check
+                    required
+                    label="Agree to terms and conditions"
+                    feedback="You must agree before submitting."
+                    feedbackType="invalid"
+                  />
+                </Form.Group>
+                <Button className="button" type="submit">Registrar empresa</Button>
+              </Form>
             </Col>
             <Col></Col>
           </Row>
