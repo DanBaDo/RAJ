@@ -63,7 +63,6 @@ class API_key(db.Model):
     def serialize(self):
         return { "key": self.key, "description": self.description, "installed": self.installed }
 
-
 account_company_relationship = db.Table('account_company_relationship',
     db.Column('account_id', db.Integer, db.ForeignKey(Account.id), primary_key=True),
     db.Column('company_id', db.Integer, db.ForeignKey(Company.id), primary_key=True)
