@@ -25,9 +25,9 @@ export const FormAffected = () => {
       <Container className="justify-content-center">
         <Form  noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100 ">
-            <Col md={4} xs={4}></Col>
+            <Col md={3} xs={2}></Col>
             <Col md={4} xs={4}>
-              <Form.Group  as={Col} md="10" xs="6" controlId="validationCustom01">
+              <Form.Group  as={Col} md="10" xs="8" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control required type="text" placeholder="Nombre" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -35,7 +35,7 @@ export const FormAffected = () => {
                   El nombre no es correcto!
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="10" xs="6" controlId="validationCustom02">
+              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom02">
                 <Form.Label>Apellidos</Form.Label>
                 <Form.Control required type="text" placeholder="Apellidos" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -44,7 +44,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10"  xs="6"  controlId="validationDNI">
+              <Form.Group as={Col} md="10"  xs="8"  controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control required type="text" placeholder="DNI" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -53,7 +53,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10"  xs="6"  controlId="validationPhone">
+              <Form.Group as={Col} md="10"  xs="8"  controlId="validationPhone">
                 <Form.Label>Telefono/Movil</Form.Label>
                 <PhoneInput 
                   localization={es}
@@ -73,7 +73,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10"  xs="6"  controlId="validationCustomEmail">
+              <Form.Group as={Col} md="10"  xs="8"  controlId="validationCustomEmail">
                 <Form.Label>Email</Form.Label>
                 <InputGroup hasValidation>
                   <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -99,7 +99,7 @@ export const FormAffected = () => {
               </Form.Group>
               <Button className="button" type="submit">Registrarme</Button>
             </Col>
-            <Col md={6} xs={4}>
+            <Col md={3} xs={2}>
             
             
             </Col>
