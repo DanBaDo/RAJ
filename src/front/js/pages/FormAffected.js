@@ -25,7 +25,13 @@ export const FormAffected = () => {
       <Container className="justify-content-center">
         <Form  noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3 vw-100 ">
-            <Col md={3} xs={2}></Col>
+            <Col md={4} xs={2}>
+            <h2 className="stylempresa">Registrate en <strong>RAJ</strong> </h2>
+            
+            <p className="stylempresatext"> “Los grandes cambios no tienen que ser difíciles pero tienen que comenzar con una elección. Aquí es donde comienza el verdadero cambio; aquí es donde comienzas a tomar el control de tu vida y cómo eliges vivirla; aquí es donde comienza todo.”
+            
+            </p>
+            </Col>
             <Col md={4} xs={4}>
               <Form.Group  as={Col} md="10" xs="8" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
