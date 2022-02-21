@@ -19,7 +19,7 @@ const GetApiKey = () => {
   };
 
   useEffect(() => {
-    /*getAPIKeys.onError = (error) => {
+    getAPIKeys.onError = (error) => {
         actions.addError(error);
       }
       getAPIKeys.onResponse = (response) => {
@@ -45,25 +45,8 @@ const GetApiKey = () => {
           actions.addError(error);
         }
       };
-      getAPIKeys.call()*/
-    setKeys([
-      {
-        id: 1,
-        key: "8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
-        url: "/apikey/8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
-      },
-      {
-        id: 2,
-        key: "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
-        url: "/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
-      },
-      {
-        id: 3,
-        key: "b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
-        url: "/apikey/b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
-      },
-    ]);
-  }, []);
+      getAPIKeys.call()
+    }, []);
 
   return (
     <>
