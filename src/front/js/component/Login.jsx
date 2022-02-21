@@ -13,9 +13,6 @@ const Login = () => {
 
     const formSubmitHandler = (ev) => {
         ev.preventDefault()
-        // TODO: Eliminar siguiente linea. Es para logear sin backend
-        actions.setLoggedIn('fake token');
-        // Configure body content and callbacks and run query
         login.data = { username, password };
         login.onError = (error) => actions.addError(error)
         login.onResponse = (response) => {
@@ -55,7 +52,7 @@ const Login = () => {
                     <input type="submit" />
                 </form>
             }
-           
+
 
         </>
     );
