@@ -19,9 +19,9 @@ const Rajinfo = () => {
 
     return (
     <>
-      <Container>
+      <Container className="my-3">
         <Row>
-          <Col className="Textauto" md={8} xs={12} >
+          <Col className="Textauto" md={{order:"first"}} xs={{ order: 'last' }}>
             <h1><strong>¿Que es la Auto-exclusión?</strong></h1>
             <StyledSpan>La Autoexclusión es una forma de que cualquier persona que crea tener problemas con el juego pueda autoexcluirse de todas las webs de apuestas y casinos online de España.
                De esta manera, una vez solicitada esta autoexclusión, el usuario no podrá volver acceder a estos locales.</StyledSpan>
@@ -41,5 +41,7 @@ const Rajinfo = () => {
     </>
   );
 };
+
+
 
 export default Rajinfo;
