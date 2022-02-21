@@ -9,8 +9,10 @@ def register():
     try:
         #TODO: Data validation
         resp = Response()
-        role_id = request.json.get("role")
-        company_id = request.json.get("company")
+        role_id = request.json.get("role_id")
+        if role_id == ROLES["AFT"]
+        company_name = request.json.get("company_name")
+        nif = request.json.get("nif")
         company = Company.query.get(company_id)
         if not company or role_id not in ROLES:
             resp.message = "Invalid data provided"
@@ -19,6 +21,7 @@ def register():
         new_account = Account(
             name = request.json.get("name"),
             last_name = request.json.get("last_name"),
+            dni = request.json.get("dni"),
             email = request.json.get("email"),
             phone = request.json.get("phone"),
             username = request.json.get("username"),
