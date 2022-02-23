@@ -17,7 +17,6 @@ const Login = () => {
 
   const formSubmitHandler = (ev) => {
     ev.preventDefault();
-    console.log("Buh!");
     setShow(false);
     login.data = { username, password };
     login.onError = (error) => actions.addError(error);
