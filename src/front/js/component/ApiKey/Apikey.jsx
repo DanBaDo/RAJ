@@ -12,9 +12,9 @@ const ApiKey = (props) => {
             <ListGroup.Item>
                 
                 <Row>
-                    <Col sm={6} lg={10} >{props.id}.Dispositivo activo</Col>
+                    <Col sm={4} lg={10} >{props.id}.Dispositivo activo</Col>
                     <Col sm={2} lg={1}></Col>
-                    <Col sm={4} lg={1}><FaRegCopy /><FaQrcode onClick={() => { setQRData(props.url) }} /><FaTrash /></Col>
+                    <Col sm={2} lg={1}><FaRegCopy /><FaQrcode onClick={() => { setQRData(props.url) }} /><FaTrash /></Col>
                  </Row>   
 
             </ListGroup.Item>

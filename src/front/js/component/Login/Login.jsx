@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <>
-      <Button C variant="primary" onClick={handleShow}>
+      <Button variant="primary" onClick={handleShow}>
         Login
       </Button>
       
@@ -68,18 +68,18 @@ const Login = () => {
          <Container className="main">
            <Col className="signup">
              <img src={logo} alt="logo " className="img"></img>
-          <Form className="input" onSubmit={formSubmitHandler}>
-            <Form.Group as={Col} md="8" xs="8" controlId="validationCustom01">
-              <Form.Control
+          <Form onSubmit={formSubmitHandler}>
+            <Form.Group className="inputlogin" as={Col} md="10" xs="8" controlId="validationCustom01">
+              <Form.Control 
                 required
                 type="text"
                 onChange={formToUsername}
                 value={username}
                 placeholder="Usuario"
               />
-               <br />
+               
             </Form.Group>
-            <Form.Group as={Col} md="8" xs="8" controlId="validationCustom01">
+            <Form.Group className="inputlogin" as={Col} md="10" xs="8" controlId="validationCustom01">
               <Form.Control
                 required
                 type="password"
@@ -89,7 +89,7 @@ const Login = () => {
               />
             </Form.Group>
             <Modal.Footer>
-              <Button type="submit" variant="primary">
+              <Button className="buttonlogin" type="submit" variant="primary">
                 Enviar
               </Button>
             </Modal.Footer>

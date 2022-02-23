@@ -1,25 +1,29 @@
 import React from "react";
-import { Button, Col, Container, Form, Check } from "react-bootstrap";
+import { Button, Col, Container, Form, Check, Row } from "react-bootstrap";
 
 const DropOutRequest = () => {
   return (
     <>
-      <Container className="text-center mt-5">
-        <h1>Baja </h1>
-        <p>
-          Estas apunto de darte de baja!
-          <p>
-            <span>
-              Darse de baja de <strong>RAJ</strong> no es tan facil.{" "}
-            </span>
-          </p>
-          Nuestro equipo se pondra en contacto contigo despues de{" "}
-          <strong>72h</strong>.
-          <p>
-            La Ludopatia no se cura , solo se trata y por eso queremos estar
-            seguros de que tomas la decisión correcta.
-          </p>
-          <span>Estas seguro que quieres darte de baja </span>
+      {" "}
+      <Container className="container">
+        <Container className="justify-content-center">
+          <Row>
+          <Col>
+            <h1>Baja </h1>
+            Estas apunto de darte de baja!
+            <p>
+              <span>
+                Darse de baja de <strong>RAJ</strong> no es tan facil.{" "}
+              </span>
+            </p>
+            Nuestro equipo se pondra en contacto contigo despues de{" "}
+            <strong>72h</strong>.
+            <p>
+              La Ludopatia no se cura , solo se trata y por eso queremos estar
+              seguros de que tomas la decisión correcta.
+            </p>
+            <span>Estas seguro que quieres darte de baja </span>
+          </Col>
           <Col class="form-check form-check-inline">
             <input
               class="form-check-input"
@@ -30,7 +34,8 @@ const DropOutRequest = () => {
             ></input>
             <label class="form-check-label" for="inlineRadio1">
               Si
-            </label>&nbsp;&nbsp;&nbsp;
+            </label>
+            &nbsp;&nbsp;&nbsp;
             <input
               class="form-check-input"
               type="radio"
@@ -42,8 +47,11 @@ const DropOutRequest = () => {
               NO
             </label>
           </Col>
-        </p>
-        <Button className="button">Darme de baja</Button>
+          <Col>
+            <Button className="button">Darme de baja</Button>
+          </Col>
+          </Row>
+        </Container>
       </Container>
     </>
   );
