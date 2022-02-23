@@ -1,10 +1,10 @@
 from flask import jsonify
 
 ROLES = {
-    "AFT": "Affected",
-    "RPR": "Company representative",
-    "BTM": "Best man",
-    "STF": "Staff",
+    "AFFECTED": "AFT",
+    "COMPANY_REPRESENTATIVE": "RPR",
+    "BEST_MAN": "BTM",
+    "STAFF": "STF",
 }
 
 STATUS = {
