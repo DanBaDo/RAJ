@@ -9,34 +9,39 @@ def register():
     try:
         #TODO: Data validation
         resp = Response()
-        role_id = request.json.get("role_id")
-        if role_id == ROLES["AFT"]
-        company_name = request.json.get("company_name")
-        nif = request.json.get("nif")
-        company = Company.query.get(company_id)
-        if not company or role_id not in ROLES:
-            resp.message = "Invalid data provided"
+        role_id = request.json.get("role")
+        if role_id == ROLES["AFT"]:
+            password_hash = generate_password_hash(request.json.get("password"))
+            new_account = Account(
+                name = request.json.get("name"),
+                last_name = request.json.get("last_name"),
+                dni = request.json.get("id_doc"),
+                email = request.json.get("email"),
+                phone = request.json.get("phone"),
+                username = request.json.get("username"),
+                password_hash = password_hash,
+                role = role_id,
+            )
+            db.session.add(new_account)
+            db.session.commit()
+            confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
+            # TODO: Send confirmarion toke by e-mail
+            print(confirmation_token)
+            resp.message = "Succesfully registration. Confirmation pending"
+            resp.data = { "regCompleted": False }
+            return resp.json(), 201
+        elif role_id == ROLES["RPR"]:
+            #company_name = request.json.get("company_name")
+            #nif = request.json.get("nif")
+            #company = Company.query.get(company_id)
+            #if not company or role_id not in ROLES:
+            #    resp.message = "Invalid data provided"
+            #    return resp.json(), 400
+            #new_account.companies.append(company)
+            pass
+        else:
+            resp.message = "Temporary error: invalid role id: %s" % role_id
             return resp.json(), 400
-        password_hash = generate_password_hash(request.json.get("password"))
-        new_account = Account(
-            name = request.json.get("name"),
-            last_name = request.json.get("last_name"),
-            dni = request.json.get("dni"),
-            email = request.json.get("email"),
-            phone = request.json.get("phone"),
-            username = request.json.get("username"),
-            password_hash = password_hash,
-            role = role_id,
-        )
-        new_account.companies.append(company)
-        db.session.add(new_account)
-        db.session.commit()
-        confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
-        # TODO: Send confirmarion toke by e-mail
-        print(confirmation_token)
-        resp.message = "Succesfully registration. Confirmation pending"
-        resp.data = { "regCompleted": False }
-        return resp.json(), 201
     except Exception as err:
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
