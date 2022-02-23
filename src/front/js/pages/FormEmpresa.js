@@ -25,9 +25,10 @@ export const FormEmpresa = () => {
 
   return (
     <>
+    <Container className="container">
       <Container className="justify-content-center ">
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-3 vw-100">
+          <Row className="mb-3">
             <Col >
             <h2 className="stylempresa">Registra tu empresa </h2>
             
@@ -36,9 +37,10 @@ export const FormEmpresa = () => {
             <p>GRACIAS!</p>
             </p>
             </Col>
+            <Col md={1} xs={1}></Col>
             <Col>
               <h3>Datos de la empresa</h3>
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
+              <Form.Group as={Col} md="8" xs="10" controlId="validationCustom01">
                 <Form.Label>Razon Social</Form.Label>
                 <Form.Control required type="text" placeholder="Razon Social" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -47,7 +49,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
+              <Form.Group as={Col} md="8" xs="10" controlId="validationDNI">
                 <Form.Label>NIF</Form.Label>
                 <Form.Control required type="text" placeholder="NIF" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -57,7 +59,7 @@ export const FormEmpresa = () => {
               </Form.Group>
               <hr/>
               <h3>Persona de contacto</h3>
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom02">
+              <Form.Group as={Col} md="8" xs="10" controlId="validationCustom02">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control required type="text" placeholder="Nombre" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -66,7 +68,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
+              <Form.Group as={Col} md="8" xs="10" controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control required type="text" placeholder="DNI" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -75,7 +77,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10" xs="8" controlId="validationDNI">
+              <Form.Group as={Col} md="8" xs="10" controlId="validationDNI">
                 <Form.Label>Cargo en la compañía</Form.Label>
                 <Form.Control required type="text" placeholder="Cargo" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -84,7 +86,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10" xs="8"controlId="validationPhone">
+              <Form.Group as={Col} md="8" xs="10"controlId="validationPhone">
                 <Form.Label>Phone</Form.Label>
                 <PhoneInput
                   localization={es}
@@ -104,7 +106,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustomEmail">
+              <Form.Group as={Col} md="8" xs="10" controlId="validationCustomEmail">
                 <Form.Label>Email</Form.Label>
                 <InputGroup hasValidation>
                   <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -130,10 +132,11 @@ export const FormEmpresa = () => {
               </Form.Group>
               <Button className="button" type="submit">Registrar empresa</Button>
             </Col>
-            <Col></Col>
+            
           </Row>
         </Form>
        
+      </Container>
       </Container>
       
     </>
