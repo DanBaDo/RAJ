@@ -5,7 +5,7 @@
   "endpointPrefix": "",
   "latency": 0,
   "port": 8000,
-  "MYHOSTNAME": "0.0.0.0",
+  "hostname": "0.0.0.0",
   "routes": [
     {
       "uuid": "765b3121-76b6-4774-84a4-343075b6fbdb",
@@ -266,7 +266,7 @@
       "responses": [
         {
           "uuid": "e0b91b91-aff3-452c-9f18-94631586f7a2",
-          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Profile updated succesfull\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Profile updated",
@@ -333,7 +333,7 @@
       "responses": [
         {
           "uuid": "3761eaa1-d8c4-4741-89a9-1e3569c85048",
-          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": null\n}",
+          "body": "{\n  \"message\": \"Deletion requested\",\n  \"data\": null\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Starting deregistering process",
