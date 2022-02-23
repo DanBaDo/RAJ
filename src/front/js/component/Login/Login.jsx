@@ -17,7 +17,6 @@ const Login = () => {
 
   const formSubmitHandler = (ev) => {
     ev.preventDefault();
-    console.log("Buh!");
     setShow(false);
     login.data = { username, password };
     login.onError = (error) => actions.addError(error);
@@ -54,6 +53,7 @@ const Login = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
+          <Modal.Title>Cerrar Sesión</Modal.Title>
         </Modal.Header>
         {store.logged === true ? (
           <Modal.Footer>
@@ -62,6 +62,7 @@ const Login = () => {
             </Button>
           </Modal.Footer>
         ) : (
+          <Col>
           <Form onSubmit={formSubmitHandler}>
             <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
               <Form.Control
@@ -87,6 +88,7 @@ const Login = () => {
               </Button>
             </Modal.Footer>
           </Form>
+          </Col>
         )}
       </Modal>
     </>

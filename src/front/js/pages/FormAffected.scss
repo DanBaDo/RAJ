@@ -1,7 +1,10 @@
+.container{
+  display: flex;
+  justify-content: center;
+}
 .justify-content-center{
     background-color: #1f2b5b;
     color:#22aa99;
-    margin: 50px 30px 30px 60px;
     padding: 60px 60px 60px 60px;
     border: 2px solid #22aa99;
     border-radius: 2%;

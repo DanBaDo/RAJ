@@ -40,19 +40,21 @@ export const FormAffected = () => {
 
   return (
     <>
+      <Container className="container">
       <Container className="justify-content-center">
         <Form  onChange={handleChange} noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-3 vw-100 ">
-            <Col md={4} xs={2}>
+          <Row className="mb-3">
+            <Col md={6} xs={6}>
             <h2 className="stylempresa">Registrate en <strong>RAJ</strong> </h2>
             
             <p className="stylempresatext"> “Los grandes cambios no tienen que ser difíciles pero tienen que comenzar con una elección. Aquí es donde comienza el verdadero cambio; aquí es donde comienzas a tomar el control de tu vida y cómo eliges vivirla; aquí es donde comienza todo.”
             
             </p>
             </Col>
+            <Col md={1} xs={1}></Col>
             <Col md={4} xs={4}>
               <h3>Datos personales</h3>
-              <Form.Group  as={Col} md="10" xs="8" controlId="validationCustom01">
+              <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control name="name" required type="text" placeholder="Nombre" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -60,7 +62,7 @@ export const FormAffected = () => {
                   El nombre no es correcto!
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="10" xs="8" controlId="validationCustom02">
+              <Form.Group as={Col} md="10" xs="10" controlId="validationCustom02">
                 <Form.Label>Apellidos</Form.Label>
                 <Form.Control name="last_name" required type="text" placeholder="Apellidos" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -69,7 +71,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10"  xs="8"  controlId="validationDNI">
+              <Form.Group as={Col} md="10"  xs="10"  controlId="validationDNI">
                 <Form.Label>DNI</Form.Label>
                 <Form.Control name="id_doc" required type="text" placeholder="DNI" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -98,7 +100,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group as={Col} md="10"  xs="8"  controlId="validationCustomEmail">
+              <Form.Group as={Col} md="10"  xs="10"  controlId="validationCustomEmail">
                 <Form.Label>Email</Form.Label>
                 <InputGroup hasValidation>
                   <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -116,7 +118,7 @@ export const FormAffected = () => {
               </Form.Group>
               <hr/>
               <h3>Cuenta de usuario</h3>
-              <Form.Group  as={Col} md="10" xs="8" controlId="validationCustom01">
+              <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Nombre de usuario</Form.Label>
                 <Form.Control name="username" required type="text" placeholder="Usuario" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -125,7 +127,7 @@ export const FormAffected = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group  as={Col} md="10" xs="8" controlId="validationCustom01">
+              <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control name="password" required type="text" placeholder="Contraseña" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
@@ -146,14 +148,12 @@ export const FormAffected = () => {
 
               <Button className="button" type="submit">Registrarme</Button>
             </Col>
-            <Col md={3} xs={2}>
             
-            
-            </Col>
           </Row>
         </Form>
         
         
+      </Container>
       </Container>
     </>
   );

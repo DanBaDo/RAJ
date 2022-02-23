@@ -1,4 +1,4 @@
-const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env.PORT}${process.env.BASENAME}`;
+const baseURL = `${process.env.PROTOCOL}://${process.env.MYHOSTNAME}:${process.env.PORT}${process.env.BASENAME}`;
 
 /**
  * API request methods fabric.
@@ -16,47 +16,38 @@ const baseURL = `${process.env.PROTOCOL}://${process.env.HOSTNAME}:${process.env
  *      @param {Object} - Fetch error response
  *    @method call - Run request
  */
-export function Request (path, method, requireAuthentication=true) {
+export function Request(path, method, requireAuthentication = true) {
   return {
-      // Optional reques body data, onResponse callback and onError callback
-      data: null,
-      onResponse: ()=>{},
-      onError: ()=>{},
-      requesOptions: {
-        mode: process.env.CORS,
-        method,
-        headers: {
-            'Content-Type': 'application/json',
-        },
+    // Optional reques body data, onResponse callback and onError callback
+    data: null,
+    onResponse: () => {},
+    onError: () => {},
+    requesOptions: {
+      mode: process.env.CORS,
+      method,
+      headers: {
+        "Content-Type": "application/json",
       },
-      call: function () {
-        if (this.data) this.requesOptions.body = JSON.stringify(this.data);
-        if (requireAuthentication) {
-          const token = sessionStorage.getItem("JWT");
-          if (! token) throw "Authentication: lack of JWT and authentication required.";
-          this.requesOptions.headers.Authorization = 'Bearer ' + token;
-        }
-        fetch(
-          `${baseURL}${path}`,
-          this.requesOptions
-        )
-        .then(
-          (response)=>{
-            response.json()
-            .then(
-              (data)=>{
-                this.onResponse(
-                  {
-                    code: response.status,
-                    message: response.statusText,
-                    contents: data
-                  }
-                )
-              }
-            )
-          }
-        )
-        .catch((error)=>this.onError(error))
+    },
+    call: function () {
+      if (this.data) this.requesOptions.body = JSON.stringify(this.data);
+      if (requireAuthentication) {
+        const token = sessionStorage.getItem("JWT");
+        if (!token)
+          throw "Authentication: lack of JWT and authentication required.";
+        this.requesOptions.headers.Authorization = "Bearer " + token;
       }
-  }
+      fetch(`${baseURL}${path}`, this.requesOptions)
+        .then((response) => {
+          response.json().then((data) => {
+            this.onResponse({
+              code: response.status,
+              message: response.statusText,
+              contents: data,
+            });
+          });
+        })
+        .catch((error) => this.onError(error));
+    },
+  };
 }
