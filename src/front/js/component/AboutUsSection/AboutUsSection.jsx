@@ -24,7 +24,7 @@ const AboutUsSection = () => {
           <u>No tengas miedo y pide ayuda.</u> </p></p>
         </Col>
         <Col md={6} xs={{ order: 'last' }}>
-          <ContainerImg src={logo} alt="logo <strong>RAJ</strong>" />
+          <ContainerImg src={logo} alt="logo "/>
         </Col>
       </Row>
     </Container>

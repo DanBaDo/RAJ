@@ -1,20 +1,32 @@
-input{
-background-color:white;    
-color: #1f2b5b;
-border-radius: 10px;
-
-}
-
-input::placeholder{
-   color:#1f2b5b;
-   
-}
-
-button {
-    width: 20%;
-    margin-left: 10%;
-    background-color: #ffffff;
-    border-radius: 30px;
-    color: #1f2b5b;
+.main{
+	width: 350px;
+	height: 500px;
+	overflow: hidden;
+    background: #1f2b5b no-repeat center/ cover;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
     
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+.img {
+    max-width: 100%;
+    height:auto;
+    width:auto;
+    display: flex;
+    padding: 50px 50px 50px 50px;
+    justify-content: center;
+}
+.label{
+	color: #fff;
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
 }

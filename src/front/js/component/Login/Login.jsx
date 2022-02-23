@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
-import { Button, Modal, Form, Col } from "react-bootstrap";
+import { Button, Modal, Form, Col, Container } from "react-bootstrap";
 import { login } from "../../libraries/request/APIRequests";
+import logo from "../../../img/logo.png"
 import "./Login.scss";
 
 const Login = () => {
@@ -47,13 +48,14 @@ const Login = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button C variant="primary" onClick={handleShow}>
         Login
       </Button>
+      
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Cerrar Sesión</Modal.Title>
+          <Modal.Title>Iniciar Sesión</Modal.Title>
         </Modal.Header>
         {store.logged === true ? (
           <Modal.Footer>
@@ -62,9 +64,12 @@ const Login = () => {
             </Button>
           </Modal.Footer>
         ) : (
-          <Col>
-          <Form onSubmit={formSubmitHandler}>
-            <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
+          
+         <Container className="main">
+           <Col className="signup">
+             <img src={logo} alt="logo " className="img"></img>
+          <Form className="input" onSubmit={formSubmitHandler}>
+            <Form.Group as={Col} md="8" xs="8" controlId="validationCustom01">
               <Form.Control
                 required
                 type="text"
@@ -72,8 +77,9 @@ const Login = () => {
                 value={username}
                 placeholder="Usuario"
               />
+               <br />
             </Form.Group>
-            <Form.Group as={Col} md="10" xs="8" controlId="validationCustom01">
+            <Form.Group as={Col} md="8" xs="8" controlId="validationCustom01">
               <Form.Control
                 required
                 type="password"
@@ -89,8 +95,12 @@ const Login = () => {
             </Modal.Footer>
           </Form>
           </Col>
+        </Container>
+          
+          
         )}
       </Modal>
+      
     </>
   );
 };
