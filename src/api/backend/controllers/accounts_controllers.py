@@ -10,7 +10,7 @@ def register():
         #TODO: Data validation
         resp = Response()
         role_id = request.json.get("role")
-        if role_id == ROLES["AFT"]:
+        if role_id == ROLES["AFFECTED"]:
             password_hash = generate_password_hash(request.json.get("password"))
             new_account = Account(
                 name = request.json.get("name"),
@@ -30,7 +30,7 @@ def register():
             resp.message = "Succesfully registration. Confirmation pending"
             resp.data = { "regCompleted": False }
             return resp.json(), 201
-        elif role_id == ROLES["RPR"]:
+        elif role_id == ROLES["COMPANY_REPRESENTATIVE"]:
             #company_name = request.json.get("company_name")
             #nif = request.json.get("nif")
             #company = Company.query.get(company_id)
