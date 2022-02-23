@@ -57,7 +57,6 @@ const Login = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         {store.logged === true ? (
           <Modal.Footer>
