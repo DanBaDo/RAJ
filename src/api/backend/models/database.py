@@ -4,12 +4,13 @@ class Account(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
     last_name = db.Column(db.String(250), nullable=False)
+    id_doc = db.Column(db.String(12), nullable=False)
     email = db.Column(db.String(250), nullable=False)
     phone = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(250), nullable=False, unique=True)
     password_hash = db.Column(db.String(250), nullable=False)
     status = db.Column(db.Integer, nullable=False, default=0)
-    role = db.Column(db.String(3), nullable=False)
+    role_id = db.Column(db.String(3), nullable=False)
     companies = db.relationship('Company', secondary="account_company_relationship", lazy='subquery',
         backref = db.backref('accounts', lazy=True))
     def __repr__(self):
@@ -51,7 +52,6 @@ class Roll(db.Model):
         return '<Roll id: %r - %s>' % (self.id, self.description)
     def serialize(self):
         return { "id": self.id, "description": self.description }
-
 
 class API_key(db.Model):
     key = db.Column(db.String(262), primary_key=True)

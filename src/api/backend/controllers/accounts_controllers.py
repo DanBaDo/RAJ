@@ -15,12 +15,12 @@ def register():
             new_account = Account(
                 name = request.json.get("name"),
                 last_name = request.json.get("last_name"),
-                dni = request.json.get("id_doc"),
+                id_doc = request.json.get("id_doc"),
                 email = request.json.get("email"),
                 phone = request.json.get("phone"),
                 username = request.json.get("username"),
                 password_hash = password_hash,
-                role = role_id,
+                role_id = role_id,
             )
             db.session.add(new_account)
             db.session.commit()
