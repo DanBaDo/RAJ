@@ -1,9 +1,22 @@
-from urllib import response
 from flask import request
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import decode_token , create_access_token, create_refresh_token, jwt_required, current_user
 
 from backend.models import db, ROLES, STATUS, Response, TOKEN_PURPOSES, API_key
+
+@jwt_required()
+def get_api_keys():
+    try:
+        resp = Response()
+        if current_user.role != ROLES["COMPANY_REPRESENTATIVE"]:
+            resp.data = "Access denied. Reason: account role."
+            return resp.json(), 403
+        # TODO: Change for implements multiple representant for company
+        company = current_user.companies[0]
+        resp.data = company.api_keys
+        return resp.json(), 200
+    except Exception as err:
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
 
 @jwt_required()
 def new_api_key():
