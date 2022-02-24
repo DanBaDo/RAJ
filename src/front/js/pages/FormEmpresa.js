@@ -75,6 +75,7 @@ export const FormEmpresa = () => {
                 </Form.Control.Feedback>
               </Form.Group>
               <hr/>
+              <h3>Persona en representación de la empresa</h3>
               <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control name="name" required type="text" placeholder="Nombre" />
