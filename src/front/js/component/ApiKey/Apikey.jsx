@@ -17,7 +17,10 @@ const ApiKey = (props) => {
       <ListGroup>
         <ListGroup.Item>
           <Col sm={10} lg={10}>
-            {props.id}.Dispositivo activo
+            {props.description}
+          </Col>
+          <Col>
+            {props.installed === "0" ? "Pendiente" : "Instalado"}
           </Col>
           <Col sm={2} lg={1}>
             <FaRegCopy />
