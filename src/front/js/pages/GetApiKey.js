@@ -2,15 +2,26 @@ import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import styled from "styled-components";
 import { getAPIKeys } from "../libraries/request/APIRequests";
-import { Container, Row, Col } from "react-bootstrap";
-
+import { Container, Row, Col, Button } from "react-bootstrap";
 import Apikey from "../component/ApiKey/Apikey.jsx";
-import "./GetApiKey.scss";
+
 
 const GetApiKey = () => {
   const { store, actions } = useContext(Context);
   const [keys, setKeys] = useState([]);
   const [QRData, setQRData] = useState(null);
+
+  // Styled zone ---------------------------
+  const TitleStyled = styled.h1`
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    text-decoration: underline #22aa99;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  `;
+
+  // ---------------------------------------
 
   const keysComponents = () => {
     return keys.map((key, idx) => (
@@ -67,14 +78,18 @@ const GetApiKey = () => {
 
   return (
     <>
-      <Container >
+      <Container>
         <Row className="justify-content-center">
           <Col>
-          <Col >
-            <h1 className="TitleApi">Dispositivos Permitidos</h1>
-            <ul>{keysComponents()}</ul>
-          </Col>
-          <Col></Col>
+            <Col md={10} xl={10}>
+              <TitleStyled>Dispositivos Permitidos</TitleStyled>{" "}
+            </Col>
+            <Col md={2} xl={2}>
+              <Button className="btn btn-primary">Añadir</Button>
+            </Col>
+            <Col>
+              <ul>{keysComponents()}</ul>
+            </Col>
           </Col>
         </Row>
       </Container>

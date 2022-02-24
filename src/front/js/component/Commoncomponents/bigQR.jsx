@@ -5,22 +5,12 @@ import QRCode from "qrcode.react";
 
 const BigQR = (props) => {
     const BigQR = styled.div` 
-        width: 80vw;
-        height: 80vh;
-        z-index: 100;
-        top: 200px;
-        text-align:center ;
-
+        width: 100%;
+        height: 80vh;   
     `
-    
-
     return (
         <BigQR>
             <QRCode value={props.url} />
-            <button className="button" onClick={props.close}>Cerrar</button>
-           
-    
-    
         </BigQR>
     )
 }
