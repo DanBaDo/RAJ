@@ -21,6 +21,9 @@ def register():
                 username = request.json.get("username"),
                 password_hash = password_hash,
                 role_id = role_id,
+                #TODO: remove next line when email validation
+                status = STATUS["ACTIVE"]
+
             )
             db.session.add(new_account)
             db.session.commit()
@@ -41,6 +44,8 @@ def register():
                 username = request.json.get("username"),
                 password_hash = password_hash,
                 role_id = role_id,
+                #TODO: remove next line when email validation
+                status = STATUS["ACTIVE"]
             )
             new_company = Company(
                 company_name = request.json.get("company_name"),
