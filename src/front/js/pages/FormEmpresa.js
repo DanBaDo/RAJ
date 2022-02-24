@@ -59,23 +59,30 @@ export const FormEmpresa = () => {
               <h3>Datos de la empresa</h3>
               <Form.Group as={Col} md="8" xs="10" controlId="validationCustom01">
                 <Form.Label>Razon Social</Form.Label>
-                <Form.Control required type="text" placeholder="Razon Social" />
+                <Form.Control name="company_name" required type="text" placeholder="Razon Social" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Please write a correct text
                 </Form.Control.Feedback>
               </Form.Group>
-
+              <Form.Group as={Col} md="8" xs="10" controlId="validationCustom01">
+                <Form.Label>Dirección</Form.Label>
+                <Form.Control name="company_address" equired type="text" placeholder="Dirección" />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Please write a correct text
+                </Form.Control.Feedback>
+              </Form.Group>
               <Form.Group as={Col} md="8" xs="10" controlId="validationDNI">
                 <Form.Label>NIF</Form.Label>
-                <Form.Control required type="text" placeholder="NIF" />
+                <Form.Control company_id_doc required type="text" placeholder="NIF" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Please write a correct NIF
                 </Form.Control.Feedback>
               </Form.Group>
               <hr/>
-              <h3>Persona en representación de la empresa</h3>
+              <h3>Persona representando a la empresa</h3>
               <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control name="name" required type="text" placeholder="Nombre" />
