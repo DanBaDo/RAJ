@@ -19,7 +19,6 @@ const ApiKey = (props) => {
           <Col sm={10} lg={10}>
             {props.id}.Dispositivo activo
           </Col>
-            
           <Col sm={2} lg={1}>
             <FaRegCopy />
             <FaQrcode

@@ -2,26 +2,18 @@ import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import styled from "styled-components";
 import { getAPIKeys } from "../libraries/request/APIRequests";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import Apikey from "../component/ApiKey/Apikey.jsx";
+import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
 
+import Apikey from "../component/ApiKey/Apikey.jsx";
+import "./GetApiKey.scss";
 
 const GetApiKey = () => {
   const { store, actions } = useContext(Context);
   const [keys, setKeys] = useState([]);
   const [QRData, setQRData] = useState(null);
-
-  // Styled zone ---------------------------
-  const TitleStyled = styled.h1`
-    text-align: center;
-    font-size: 60px;
-    color: white;
-    text-decoration: underline #22aa99;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  `;
-
-  // ---------------------------------------
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const keysComponents = () => {
     return keys.map((key, idx) => (
@@ -81,17 +73,53 @@ const GetApiKey = () => {
       <Container>
         <Row className="justify-content-center">
           <Col>
-            <Col md={10} xl={10}>
-              <TitleStyled>Dispositivos Permitidos</TitleStyled>{" "}
-            </Col>
-            <Col md={2} xl={2}>
-              <Button className="btn btn-primary">Añadir</Button>
+            <Col>
+              <Button variant="primary" onClick={handleShow}>
+                Añadir
+              </Button>
             </Col>
             <Col>
+              <h1 className="TitleApi">Dispositivos Permitidos</h1>
               <ul>{keysComponents()}</ul>
             </Col>
           </Col>
         </Row>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Añadir Dispositivo</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Container>
     </>
   );
