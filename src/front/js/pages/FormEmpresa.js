@@ -33,7 +33,6 @@ export const FormEmpresa = () => {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(event)
     signup.onError = (error) => actions.addError(error);
     signup.onResponse = (resp)=>{console.log(resp)}
     signup.data = formData;
