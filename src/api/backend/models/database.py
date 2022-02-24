@@ -27,9 +27,9 @@ class Account(db.Model):
 
 class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(250), nullable=False, unique=True)
-    NIF = db.Column(db.String(15), nullable=False)
-    address = db.Column(db.String(256))
+    company_name = db.Column(db.String(250), nullable=False, unique=True)
+    company_id_doc = db.Column(db.String(15), nullable=False)
+    company_address = db.Column(db.String(256), nullable=False)
     api_keys = db.relationship(
         'API_key',
         lazy=True,
