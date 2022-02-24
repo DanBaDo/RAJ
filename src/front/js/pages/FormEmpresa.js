@@ -75,7 +75,7 @@ export const FormEmpresa = () => {
               </Form.Group>
               <Form.Group as={Col} md="8" xs="10" controlId="validationDNI">
                 <Form.Label>NIF</Form.Label>
-                <Form.Control company_id_doc required type="text" placeholder="NIF" />
+                <Form.Control name="company_id_doc" required type="text" placeholder="NIF" />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Please write a correct NIF
