@@ -1,65 +1,69 @@
+from urllib import response
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import decode_token , create_access_token, create_refresh_token, jwt_required, current_user
 
-from backend.models import Account, Company, ROLES, STATUS, Response, TOKEN_PURPOSES
-from backend.models import db
+from backend.models import db, ROLES, STATUS, Response, TOKEN_PURPOSES, API_key
 
+@jwt_required()
+def new_api_key():
+    try:
+        resp = Response()
+        user_companies = current_user.companies
+        companies_ids = [company.id for company in user_companies]
+        current_keys = API_key.query.filter(API_key.company_id.in_(companies_ids)).all()
+        key = API_key()
+        key.key = create_refresh_token(
+            current_user,
+            additional_claims={
+                "purpose": TOKEN_PURPOSES["API_KEY"],
+                "company_id": request.json.company_id
+            }
+        )
+        key.description = request.json.description
+        key.company_id = request.json.company_id
+        db.session.add(key)
+        db.session.commit()
+        resp.message = "Your API keys"
+        resp.data = {
+            "newApiKey": key.serialize(),
+            "apiKeys": [key.serialize() for key in current_keys]
+        }
+        return "...", 200
+    except Exception as err:
+        resp.message = "Internal server error: %s" % err
+        return resp.json(), 500
+
+'''
 def register():
     try:
         #TODO: Data validation
         resp = Response()
         role_id = request.json.get("role")
-        if role_id == ROLES["AFFECTED"]:
-            password_hash = generate_password_hash(request.json.get("password"))
-            new_account = Account(
-                name = request.json.get("name"),
-                last_name = request.json.get("last_name"),
-                id_doc = request.json.get("id_doc"),
-                email = request.json.get("email"),
-                phone = request.json.get("phone"),
-                username = request.json.get("username"),
-                password_hash = password_hash,
-                role_id = role_id,
-            )
-            db.session.add(new_account)
-            db.session.commit()
-            confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
-            # TODO: Send confirmarion toke by e-mail
-            print(confirmation_token)
-            resp.message = "Succesfully registration. Confirmation pending"
-            resp.data = { "regCompleted": False }
-            return resp.json(), 201
-        elif role_id == ROLES["COMPANY_REPRESENTATIVE"]:
-            password_hash = generate_password_hash(request.json.get("password"))
-            new_account = Account(
-                name = request.json.get("name"),
-                last_name = request.json.get("last_name"),
-                id_doc = request.json.get("id_doc"),
-                email = request.json.get("email"),
-                phone = request.json.get("phone"),
-                username = request.json.get("username"),
-                password_hash = password_hash,
-                role_id = role_id,
-            )
-            new_company = Company(
-                company_name = request.json.get("company_name"),
-                company_id_doc = request.json.get("company_id_doc"),
-                company_address = request.json.get("company_address")
-            )
-            db.session.add(new_company)
-            new_account.companies.append(new_company)
-            db.session.add(new_account)
-            db.session.commit()
-            confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
-            # TODO: Send confirmarion token by e-mail
-            print(confirmation_token)
-            resp.message = "Succesfully registration. Confirmation pending"
-            resp.data = { "regCompleted": False }
-            return resp.json(), 201
-        else:
-            resp.message = "Temporary error: invalid role id: %s" % role_id
+        company_id = request.json.get("company")
+        company = Company.query.get(company_id)
+        if not company or role_id not in ROLES:
+            resp.message = "Invalid data provided"
             return resp.json(), 400
+        password_hash = generate_password_hash(request.json.get("password"))
+        new_account = Account(
+            name = request.json.get("name"),
+            last_name = request.json.get("last_name"),
+            email = request.json.get("email"),
+            phone = request.json.get("phone"),
+            username = request.json.get("username"),
+            password_hash = password_hash,
+            role = role_id,
+        )
+        new_account.companies.append(company)
+        db.session.add(new_account)
+        db.session.commit()
+        confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
+        # TODO: Send confirmarion toke by e-mail
+        print(confirmation_token)
+        resp.message = "Succesfully registration. Confirmation pending"
+        resp.data = { "regCompleted": False }
+        return resp.json(), 201
     except Exception as err:
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
@@ -76,7 +80,7 @@ def confirm(confirmationToken):
             resp.message = "Invalid token type provided"
             return resp.json(), 400
         user = Account.query.get(token_data["sub"])
-        user.status = STATUS["ACTIVE"]
+        user.state = STATUS["ACTIVE"]
         db.session.commit()
         resp.message = "Registration completed succesfully"
         resp.data = {"token": create_access_token(user)}
@@ -139,3 +143,4 @@ def request_for_remove_account():
     except Exception as err:
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
+'''

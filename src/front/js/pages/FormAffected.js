@@ -11,6 +11,8 @@ export const FormAffected = () => {
 
   const { store, actions } = useContext(Context);
   const [validated, setValidated] = useState(false);
+  // Provides a object for storing form data and
+  // initializes it like a company representant form (RPR)
   const [formData, setFormData] = useState({role: "AFT"});
 
   const handleChange = (event) => {
@@ -129,7 +131,7 @@ export const FormAffected = () => {
 
               <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control name="password" required type="text" placeholder="Contraseña" />
+                <Form.Control name="password" required type="password" placeholder="Contraseña" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Es necesario proporcionar una contraseña

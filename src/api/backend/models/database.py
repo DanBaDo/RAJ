@@ -1,16 +1,16 @@
-from email.policy import default
 from backend.models import db
 
 class Account(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
     last_name = db.Column(db.String(250), nullable=False)
+    id_doc = db.Column(db.String(12), nullable=False)
     email = db.Column(db.String(250), nullable=False)
     phone = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(250), nullable=False, unique=True)
     password_hash = db.Column(db.String(250), nullable=False)
-    status = db.Column(db.Boolean, nullable=False, default=False)
-    role = db.Column(db.String(3), nullable=False)
+    status = db.Column(db.Integer, nullable=False, default=0)
+    role_id = db.Column(db.String(3), nullable=False)
     companies = db.relationship('Company', secondary="account_company_relationship", lazy='subquery',
         backref = db.backref('accounts', lazy=True))
     def __repr__(self):
@@ -27,9 +27,14 @@ class Account(db.Model):
 
 class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(250), nullable=False, unique=True)
-    NIF = db.Column(db.String(15), nullable=False)
-    address = db.Column(db.String(256))
+    company_name = db.Column(db.String(250), nullable=False, unique=True)
+    company_id_doc = db.Column(db.String(15), nullable=False)
+    company_address = db.Column(db.String(256), nullable=False)
+    api_keys = db.relationship(
+        'API_key',
+        lazy=True,
+        backref = db.backref('company', lazy=True)
+    )
     def __repr__(self):
         return '<Company id: %r - %s>' % (self.id, self.name)
     def serialize(self):
@@ -47,6 +52,16 @@ class Roll(db.Model):
         return '<Roll id: %r - %s>' % (self.id, self.description)
     def serialize(self):
         return { "id": self.id, "description": self.description }
+
+class API_key(db.Model):
+    key = db.Column(db.String(262), primary_key=True)
+    description = db.Column(db.String(100), nullable=False)
+    installed = db.Column(db.String(5), nullable=False, default=False)
+    company_id = db.Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
+    def __repr__(self):
+        return '<API key : %s >' % (self.description)
+    def serialize(self):
+        return { "key": self.key, "description": self.description, "installed": self.installed }
 
 account_company_relationship = db.Table('account_company_relationship',
     db.Column('account_id', db.Integer, db.ForeignKey(Account.id), primary_key=True),
