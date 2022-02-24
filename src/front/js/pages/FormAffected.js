@@ -11,6 +11,8 @@ export const FormAffected = () => {
 
   const { store, actions } = useContext(Context);
   const [validated, setValidated] = useState(false);
+  // Provides a object for storing form data and
+  // initializes it like a company representant form (RPR)
   const [formData, setFormData] = useState({role: "AFT"});
 
   const handleChange = (event) => {
