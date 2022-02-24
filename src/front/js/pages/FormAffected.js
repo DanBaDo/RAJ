@@ -129,7 +129,7 @@ export const FormAffected = () => {
 
               <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control name="password" required type="text" placeholder="Contraseña" />
+                <Form.Control name="password" required type="password" placeholder="Contraseña" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
                   Es necesario proporcionar una contraseña
