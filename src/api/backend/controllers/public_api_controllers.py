@@ -1,5 +1,6 @@
 from flask import request
 from flask_jwt_extended import decode_token , create_access_token, create_refresh_token, jwt_required, current_user
+from backend.models import API_KEY_PURPOSES
 
 from backend.models import db, ROLES, STATUS, Response, TOKEN_PURPOSES, API_key
 
@@ -7,12 +8,13 @@ from backend.models import db, ROLES, STATUS, Response, TOKEN_PURPOSES, API_key
 def get_api_keys():
     try:
         resp = Response()
-        if current_user.role != ROLES["COMPANY_REPRESENTATIVE"]:
+        if current_user.role_id != ROLES["COMPANY_REPRESENTATIVE"]:
             resp.data = "Access denied. Reason: account role."
             return resp.json(), 403
         # TODO: Change for implements multiple representant for company
         company = current_user.companies[0]
-        resp.data = company.api_keys
+        resp.message = "Your API keys"
+        resp.data = [key.serialize() for key in company.api_keys]
         return resp.json(), 200
     except Exception as err:
         resp.message = "Internal server error: %s" % err
@@ -22,27 +24,35 @@ def get_api_keys():
 def new_api_key():
     try:
         resp = Response()
-        user_companies = current_user.companies
-        companies_ids = [company.id for company in user_companies]
-        current_keys = API_key.query.filter(API_key.company_id.in_(companies_ids)).all()
-        key = API_key()
-        key.key = create_refresh_token(
-            current_user,
-            additional_claims={
-                "purpose": TOKEN_PURPOSES["API_KEY"],
-                "company_id": request.json.company_id
-            }
+        if current_user.role_id != ROLES["COMPANY_REPRESENTATIVE"]:
+            resp.data = "Access denied. Reason: account role."
+            return resp.json(), 403
+        if request.json.get("purpose") not in API_KEY_PURPOSES:
+            resp.data = "Invalid API key purpose."
+            return resp.json(), 400
+        # TODO: Change for implements multiple representant for company
+        company = current_user.companies[0]
+        current_keys = company.api_keys
+        new_key = API_key(
+            description = request.json.get("description"),
+            purpose = API_KEY_PURPOSES[request.json.get("purpose")],
+            company_id = company.id,
+            key = create_refresh_token(
+                current_user,
+                additional_claims={
+                    "purpose": TOKEN_PURPOSES["API_KEY"],
+                    "company_id": company.id
+                }
+            )
         )
-        key.description = request.json.description
-        key.company_id = request.json.company_id
-        db.session.add(key)
+        company.api_keys.append(new_key)
         db.session.commit()
         resp.message = "Your API keys"
         resp.data = {
-            "newApiKey": key.serialize(),
+            "newApiKey": new_key.serialize(),
             "apiKeys": [key.serialize() for key in current_keys]
         }
-        return "...", 200
+        return resp.json(), 200
     except Exception as err:
         resp.message = "Internal server error: %s" % err
         return resp.json(), 500
