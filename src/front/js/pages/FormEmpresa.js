@@ -34,7 +34,7 @@ export const FormEmpresa = () => {
     }
     setValidated(true);
     signup.onError = (error) => actions.addError(error);
-    signup.onResponse = (resp)=>{history.push("/thanks/")}
+    signup.onResponse = (resp)=>{location.href="/thanks/"}
     signup.data = formData;
     signup.call();
   };  
