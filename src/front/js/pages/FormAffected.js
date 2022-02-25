@@ -35,7 +35,7 @@ export const FormAffected = () => {
     setValidated(true);
     console.log(event)
     signup.onError = (error) => actions.addError(error);
-    signup.onResponse = (resp)=>{console.log(resp)}
+    signup.onResponse = (resp)=>{location.href="/thanks/"}
     signup.data = formData;
     signup.call();
   };
