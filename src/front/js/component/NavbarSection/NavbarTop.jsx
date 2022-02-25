@@ -14,8 +14,8 @@ const NavbarTop = () => {
       <Container>
         <Navbar.Brand> <img className="logoRaj" src={logo} alt="logo RAJ" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="navbar text-white">
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+          <Nav className="navbar">
             {!store.logged && <Link className="nav-link" to="/">Home</Link>}
             {!store.logged && <Link className="nav-link" to="/FormAffected/">Registro usuario</Link>}
             {!store.logged && <Link className="nav-link" to="/FormEmpresa/">Registro empresa</Link>}
