@@ -21,7 +21,6 @@ const NavbarTop = () => {
             {!store.logged && <Link className="nav-link" to="/FormEmpresa/">Registro empresa</Link>}
             {store.logged && <Link className="nav-link " to="/GetApiKey/">Llaves API</Link>}
             {store.logged && <Link className="nav-link " to="/DropOutRequest/">Baja</Link>}
-            <Link className="nav-link " to="/tests/">Tests</Link>
             <Login />
           </Nav>
         </Navbar.Collapse>
