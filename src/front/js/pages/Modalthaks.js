@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Container, Modal } from "react-bootstrap";
+import "./Modalthaks.scss"
 import { useHistory } from "react-router-dom";
 
 const ModalThanks = () =>{
@@ -13,12 +14,13 @@ const ModalThanks = () =>{
   
   return(
     <>
-    <Modal.Dialog>
+    <Container className="justify-content-center">
+    <Modal.Dialog  className="thanksp">
   <Modal.Header closeButton>
     <Modal.Title>Registro Completado . . .</Modal.Title>
   </Modal.Header>
       
-  <Modal.Body>
+  <Modal.Body >
     <p>¡Gracias! por Ayudarnos Ayudar.
     &nbsp;
        <strong>RAJ</strong></p>
@@ -28,6 +30,7 @@ const ModalThanks = () =>{
     <Button variant="primary" type="button" onClick={handleClick}>Home</Button>
   </Modal.Footer>
 </Modal.Dialog>
+</Container>
 </>
   )}
 
