@@ -20,6 +20,10 @@ TOKEN_PURPOSES = {
     "API_KEY": "API key"
 }
 
+API_KEY_PURPOSES = {
+    "APPLICATION": 0,
+    "IOT": 1
+}
 class Response:
     message = ""
     data = None

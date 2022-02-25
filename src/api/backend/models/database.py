@@ -4,12 +4,13 @@ class Account(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
     last_name = db.Column(db.String(250), nullable=False)
+    id_doc = db.Column(db.String(12), nullable=False)
     email = db.Column(db.String(250), nullable=False)
     phone = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(250), nullable=False, unique=True)
     password_hash = db.Column(db.String(250), nullable=False)
     status = db.Column(db.Integer, nullable=False, default=0)
-    role = db.Column(db.String(3), nullable=False)
+    role_id = db.Column(db.String(3), nullable=False)
     companies = db.relationship('Company', secondary="account_company_relationship", lazy='subquery',
         backref = db.backref('accounts', lazy=True))
     def __repr__(self):
@@ -26,9 +27,9 @@ class Account(db.Model):
 
 class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(250), nullable=False, unique=True)
-    NIF = db.Column(db.String(15), nullable=False)
-    address = db.Column(db.String(256))
+    company_name = db.Column(db.String(250), nullable=False, unique=True)
+    company_id_doc = db.Column(db.String(15), nullable=False)
+    company_address = db.Column(db.String(256), nullable=False)
     api_keys = db.relationship(
         'API_key',
         lazy=True,
@@ -52,12 +53,12 @@ class Roll(db.Model):
     def serialize(self):
         return { "id": self.id, "description": self.description }
 
-
 class API_key(db.Model):
     key = db.Column(db.String(262), primary_key=True)
     description = db.Column(db.String(100), nullable=False)
     installed = db.Column(db.String(5), nullable=False, default=False)
-    company_id = db.Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
+    purpose = db.Column(db.Integer, nullable=False)
+    company_id = db.Column(db.Integer, db.ForeignKey('company.id'), default=0 ,nullable=False)
     def __repr__(self):
         return '<API key : %s >' % (self.description)
     def serialize(self):

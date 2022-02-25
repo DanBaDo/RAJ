@@ -15,12 +15,15 @@ def register():
             new_account = Account(
                 name = request.json.get("name"),
                 last_name = request.json.get("last_name"),
-                dni = request.json.get("id_doc"),
+                id_doc = request.json.get("id_doc"),
                 email = request.json.get("email"),
                 phone = request.json.get("phone"),
                 username = request.json.get("username"),
                 password_hash = password_hash,
-                role = role_id,
+                role_id = role_id,
+                #TODO: remove next line when email validation
+                status = STATUS["ACTIVE"]
+
             )
             db.session.add(new_account)
             db.session.commit()
@@ -31,14 +34,34 @@ def register():
             resp.data = { "regCompleted": False }
             return resp.json(), 201
         elif role_id == ROLES["COMPANY_REPRESENTATIVE"]:
-            #company_name = request.json.get("company_name")
-            #nif = request.json.get("nif")
-            #company = Company.query.get(company_id)
-            #if not company or role_id not in ROLES:
-            #    resp.message = "Invalid data provided"
-            #    return resp.json(), 400
-            #new_account.companies.append(company)
-            pass
+            password_hash = generate_password_hash(request.json.get("password"))
+            new_account = Account(
+                name = request.json.get("name"),
+                last_name = request.json.get("last_name"),
+                id_doc = request.json.get("id_doc"),
+                email = request.json.get("email"),
+                phone = request.json.get("phone"),
+                username = request.json.get("username"),
+                password_hash = password_hash,
+                role_id = role_id,
+                #TODO: remove next line when email validation
+                status = STATUS["ACTIVE"]
+            )
+            new_company = Company(
+                company_name = request.json.get("company_name"),
+                company_id_doc = request.json.get("company_id_doc"),
+                company_address = request.json.get("company_address")
+            )
+            db.session.add(new_company)
+            new_account.companies.append(new_company)
+            db.session.add(new_account)
+            db.session.commit()
+            confirmation_token = create_refresh_token(new_account, additional_claims={"purpose": TOKEN_PURPOSES["CONFIRMATION"]})
+            # TODO: Send confirmarion token by e-mail
+            print(confirmation_token)
+            resp.message = "Succesfully registration. Confirmation pending"
+            resp.data = { "regCompleted": False }
+            return resp.json(), 201
         else:
             resp.message = "Temporary error: invalid role id: %s" % role_id
             return resp.json(), 400

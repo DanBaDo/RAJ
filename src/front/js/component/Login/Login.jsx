@@ -25,7 +25,7 @@ const Login = () => {
       try {
         switch (response.code) {
           case 200:
-            actions.setLoggedIn(response.contents.data.token);
+            actions.setLoggedIn(response.contents.data);
             break;
           case 401:
             actions.setLoggedOut();
