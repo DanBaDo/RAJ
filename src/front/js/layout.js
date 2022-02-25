@@ -11,7 +11,7 @@ import GetApiKey from "./pages/GetApiKey";
 import { NavbarTop } from "./component/IndexComponents";
 import DropOutRequest from "./pages/DropOutRequest";
 import { Message } from "./component/IndexComponents";
-
+import Modasthanks from "./pages/Modalthaks";
 
 
 const Layout = () => {
@@ -44,6 +44,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/">
 								<Home />
+							</Route>
+							<Route exact path="/thanks/">
+								<Modasthanks />
 							</Route>
 
 							<Route>
