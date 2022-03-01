@@ -1,5 +1,5 @@
 from backend import app
-from backend.controllers.accounts_controllers import *
+from backend.controllers.accounts_controllers import register, confirm, login, profile_router, request_for_remove_account
 
 app.add_url_rule("/register/", methods=["POST"], view_func=register)
 app.add_url_rule("/confirmation/<string:confirmationToken>", methods=["GET"], view_func=confirm)
