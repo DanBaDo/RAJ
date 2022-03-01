@@ -538,63 +538,10 @@
       "sequentialResponse": false
     },
     {
-      "uuid": "a1e79a6a-7b79-4ee9-97e0-097687cc990a",
-      "documentation": "Device login - body: {apikey: \"\"}",
-      "method": "get",
-      "endpoint": "login/device/",
-      "responses": [
-        {
-          "uuid": "101a1637-3495-45e3-8efe-07398f81ba5b",
-          "body": "{\n  \"message\": \"Authentication succesfull\",\n  \"data\": {\n      \"token\": \"thiswillbe.ajwtauthtoken.grantedtotheuser\"\n  }\n}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "Authentication succesfull",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        },
-        {
-          "uuid": "1f1bc607-089e-41a6-b104-b4ab9ea0dcdf",
-          "body": "{\n  \"message\": \"Invalid key provided\",\n  \"data\": null\n}",
-          "latency": 0,
-          "statusCode": 401,
-          "label": "Bad key",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        },
-        {
-          "uuid": "c139423e-80fa-47ec-8625-fbfd319cd71f",
-          "body": "{\n  \"message\": \"Internal server error\",\n  \"data\": null\n}",
-          "latency": 0,
-          "statusCode": 500,
-          "label": "Server error",
-          "headers": [],
-          "filePath": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false
-        }
-      ],
-      "enabled": true,
-      "randomResponse": false,
-      "sequentialResponse": false
-    },
-    {
       "uuid": "26542697-d4d3-4a90-bf2e-7bed91e2638e",
       "documentation": "Device login",
       "method": "get",
-      "endpoint": "login/device/{urlKey}",
+      "endpoint": "login/device/{api_key}",
       "responses": [
         {
           "uuid": "39d31121-f60b-42ef-9fa9-fb3b9db04637",
