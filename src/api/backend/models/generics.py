@@ -15,15 +15,16 @@ STATUS = {
 }
 
 TOKEN_PURPOSES = {
-    "CONFIRMATION": "Confirmation",
-    "AUTHENTICATION": "Authentication",
-    "API_KEY": "API key"
+    "CONFIRMATION": 0,
+    "AUTHENTICATION": 1,
+    "API_KEY": 2
 }
 
 API_KEY_PURPOSES = {
     "APPLICATION": 0,
     "IOT": 1
 }
+
 class Response:
     message = ""
     data = None
