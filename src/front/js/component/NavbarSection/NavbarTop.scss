@@ -1,15 +1,13 @@
 .navbar{
-    
-    width: 100%;
-    background-color:#1f2b5b;
-    font-size: 20px;
+    background-color:#1f2b5b;  
     
 }
 
 .nav-link {
     text-decoration: none;
     color: white !important;
-    
+    padding: 0;
+    margin: 0;
 }
 .nav-link:hover{
     color:#20aa99 !important;
