@@ -11,7 +11,7 @@ const Logo = () => {
   `;
   return (
     <>
-      <LogoRaj className="logoRaj" src={logo} alt="logo RAJ" />
+      <LogoRaj src={logo} alt="logo RAJ" />
     </>
   );
 };

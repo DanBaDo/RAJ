@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
 import { Container, Navbar, Nav , NavDropdown} from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import logo from "../../../img/logo.png"
 import "./NavbarTop.scss"
+import { Logo } from "../IndexComponents.js";
 
 
 const NavbarTop = () => {
@@ -11,7 +11,7 @@ const NavbarTop = () => {
   return (
     <Navbar collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand></Navbar.Brand>
+        <Navbar.Brand><Logo/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto"></Nav>

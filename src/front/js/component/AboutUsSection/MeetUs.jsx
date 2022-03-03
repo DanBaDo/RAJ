@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Button, Col, Row } from "react-bootstrap";
 import CompanyValue from "./CompanyValue.jsx";
+import {Logo }from "../IndexComponents.js";
 import "./AboutUsSection.scss"
 const MeetUs = () => {
   return (
@@ -8,6 +9,7 @@ const MeetUs = () => {
       <Container fluid className="py-5 slantedDivA bg-color_color">
         <Row>
           <Col xs={12} md={6} className="my-3 text-center">
+            <Logo/>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Cupiditate ad autem voluptatem eius. Exercitationem laborum
