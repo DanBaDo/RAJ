@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import {
   Gallery,
-  InfoSection,
   Rajinfo,
   Footer,
   ButtonGradients,

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Gallery = () => {
   const ContainerImg = styled.img`
-  width:auto;
+  width:100%;
   heigth:auto;
   max-width:100%;
   
