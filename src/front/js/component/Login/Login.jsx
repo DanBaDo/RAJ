@@ -2,8 +2,9 @@ import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
 import { Button, Modal, Form, Col, Container } from "react-bootstrap";
 import { login } from "../../libraries/request/APIRequests";
-import logo from "../../../img/logo.png"
+import logo from "../../../img/logo.png";
 import "./Login.scss";
+import { FaUserAlt } from "react-icons/fa";
 
 const Login = () => {
   const { store, actions } = useContext(Context);
@@ -48,10 +49,10 @@ const Login = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Login
-      </Button>
-      
+      <Container onClick={handleShow}>
+        <FaUserAlt />
+        Inicia Sesion
+      </Container>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -64,43 +65,54 @@ const Login = () => {
             </Button>
           </Modal.Footer>
         ) : (
-          
-         <Container className="main">
-           <Col className="signup">
-             <img src={logo} alt="logo " className="img"></img>
-          <Form onSubmit={formSubmitHandler}>
-            <Form.Group className="inputlogin" as={Col} md="10" xs="8" controlId="validationCustom01">
-              <Form.Control 
-                required
-                type="text"
-                onChange={formToUsername}
-                value={username}
-                placeholder="Usuario"
-              />
-               
-            </Form.Group>
-            <Form.Group className="inputlogin" as={Col} md="10" xs="8" controlId="validationCustom01">
-              <Form.Control
-                required
-                type="password"
-                onChange={formToPassword}
-                value={password}
-                placeholder="Contraseña"
-              />
-            </Form.Group>
-            <Modal.Footer>
-              <Button className="buttonlogin" type="submit" variant="primary">
-                Enviar
-              </Button>
-            </Modal.Footer>
-          </Form>
-          </Col>
-        </Container>
-          
-          
+          <Container className="main">
+            <Col className="signup">
+              <img src={logo} alt="logo " className="img"></img>
+              <Form onSubmit={formSubmitHandler}>
+                <Form.Group
+                  className="inputlogin"
+                  as={Col}
+                  md="10"
+                  xs="8"
+                  controlId="validationCustom01"
+                >
+                  <Form.Control
+                    required
+                    type="text"
+                    onChange={formToUsername}
+                    value={username}
+                    placeholder="Usuario"
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="inputlogin"
+                  as={Col}
+                  md="10"
+                  xs="8"
+                  controlId="validationCustom01"
+                >
+                  <Form.Control
+                    required
+                    type="password"
+                    onChange={formToPassword}
+                    value={password}
+                    placeholder="Contraseña"
+                  />
+                </Form.Group>
+                <Modal.Footer>
+                  <Button
+                    className="buttonlogin"
+                    type="submit"
+                    variant="primary"
+                  >
+                    Enviar
+                  </Button>
+                </Modal.Footer>
+              </Form>
+            </Col>
+          </Container>
         )}
       </Modal>
-      
     </>
   );
 };

@@ -8,7 +8,7 @@ import { Tests } from "./pages/Tests";
 import {FormAffected} from "./pages/FormAffected";
 import { FormEmpresa } from "./pages/FormEmpresa";
 import GetApiKey from "./pages/GetApiKey";
-import { NavbarTop } from "./component/IndexComponents";
+import { NavbarTop, TopMenulilNav } from "./component/IndexComponents";
 import DropOutRequest from "./pages/DropOutRequest";
 import { Message } from "./component/IndexComponents";
 import Modasthanks from "./pages/Modalthaks";
@@ -23,6 +23,7 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
+				<TopMenulilNav/>
 				<NavbarTop/>
 					{ store.errors.length === 0
 						?
