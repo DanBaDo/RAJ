@@ -53,7 +53,7 @@ const Login = () => {
       </Button>
       
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
           <Modal.Title>Iniciar Sesión</Modal.Title>
         </Modal.Header>
