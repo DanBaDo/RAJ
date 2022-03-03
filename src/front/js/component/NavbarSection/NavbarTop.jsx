@@ -11,7 +11,7 @@ const NavbarTop = () => {
   return (
     <Navbar collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand> <img className="logoRaj" src={logo} alt="logo RAJ" /></Navbar.Brand>
+        <Navbar.Brand></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto"></Nav>
