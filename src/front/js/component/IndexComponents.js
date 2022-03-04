@@ -16,9 +16,9 @@ export { default as Testimonials } from "./Commoncomponents/Testimonials.jsx";
 export { default as ButtonGradients } from "./Commoncomponents/ButtonGradients.jsx";
 export { default as SocialButtons } from "./Commoncomponents/SocialButtons.jsx";
 export { default as Message } from "./Commoncomponents/Message.jsx";
-export { default as ButtonAuto } from "./Commoncomponents/Rajinfo.jsx";
-export { default as Rajinfo } from "./Commoncomponents/Rajinfo.jsx";
-export { default as HelpSection } from "./Commoncomponents/HelpSection.jsx";
+export { default as ButtonAuto } from "./Commoncomponents/CtaBanner.jsx";
+export { default as Rajinfo } from "./Commoncomponents/CtaBanner.jsx";
+
 
 // Footer------------
 export { default as Footer } from "./FooterSection/Footer.jsx";
