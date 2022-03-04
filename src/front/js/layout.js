@@ -13,6 +13,7 @@ import DropOutRequest from "./pages/DropOutRequest";
 import { Message } from "./component/IndexComponents";
 import Modasthanks from "./pages/Modalthaks";
 import AboutUsPage from "./pages/AboutUsPage";
+import UserPageProfile from "./pages/UserPageProfile";
 
 
 const Layout = () => {
@@ -52,6 +53,9 @@ const Layout = () => {
 							</Route>
 							<Route exact path="/AboutUsPage/">
 								<AboutUsPage/>
+							</Route>
+							<Route exact path="/userpageprofile">
+								<UserPageProfile/>
 							</Route>
 							<Route>
 								<h1>Not found!</h1>

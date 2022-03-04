@@ -50,9 +50,8 @@ const Login = () => {
 
   return (
     <>
-      <StyledContainer onClick={handleShow} className="text-end">
-        <FaUserAlt />
-        Inicia Sesion
+      <StyledContainer onClick={handleShow}>
+        <p>Inicia Sesion</p>
       </StyledContainer>
 
       <Modal show={show} onHide={handleClose}>
