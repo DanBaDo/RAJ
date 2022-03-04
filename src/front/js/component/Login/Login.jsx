@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <>
-      <StyledContainer onClick={handleShow}>
+      <StyledContainer onClick={handleShow} className="text-end">
         <FaUserAlt />
         Inicia Sesion
       </StyledContainer>
@@ -120,6 +120,9 @@ const Login = () => {
 const StyledContainer = styled.div`
   margin: 0 auto;
   cursor:pointer;
+  width:10%;
+  height:2%;
+
 
 `
 

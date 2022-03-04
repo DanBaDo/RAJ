@@ -7,6 +7,7 @@ import {
   Testimonials,
   MeetUs,
   Rajinfo,
+  ModDataUserForm,
 } from "../component/IndexComponents";
 
 export const Home = () => {
@@ -18,6 +19,7 @@ export const Home = () => {
       <Rajinfo />
       <Testimonials />
       <Footer />
+    
     </>
   );
 };
