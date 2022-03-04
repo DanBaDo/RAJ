@@ -12,6 +12,7 @@ import { NavbarTop, TopMenulilNav } from "./component/IndexComponents";
 import DropOutRequest from "./pages/DropOutRequest";
 import { Message } from "./component/IndexComponents";
 import Modasthanks from "./pages/Modalthaks";
+import AboutUsPage from "./pages/AboutUsPage";
 
 
 const Layout = () => {
@@ -49,7 +50,9 @@ const Layout = () => {
 							<Route exact path="/thanks/">
 								<Modasthanks />
 							</Route>
-
+							<Route exact path="/AboutUsPage/">
+								<AboutUsPage/>
+							</Route>
 							<Route>
 								<h1>Not found!</h1>
 							</Route>

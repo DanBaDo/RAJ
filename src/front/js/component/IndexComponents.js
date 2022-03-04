@@ -7,7 +7,7 @@ export { default as HeroSection } from "./HeroSection/HeroSection.jsx";
 //About US ----------------------------
 export { default as CompanyValue } from "./AboutUsSection/CompanyValue.jsx";
 export { default as MeetUs } from "./AboutUsSection/MeetUs.jsx";
-export { default as AboutUsSection } from "./AboutUsSection/AboutUsSection.jsx";
+
 
 // --------- common components ---------
 export { default as Logo } from "./Commoncomponents/Logo.jsx";
