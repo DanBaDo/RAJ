@@ -1,22 +1,12 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import logo from "../../../img/logo.png";
-import styled from "styled-components";
-
-const AboutUsSection = () => {
-  const ContainerImg = styled.img`
-    max-width: 100%;
-    heigth: auto;
-    width: auto;
-    margin: 20px 20px 20px 20px;
-    padding: 90px 90px 90px 90px;
-  `;
+import React from 'react'
+import { Container, Row} from 'react-bootstrap'
+import {Logo} from "../component/IndexComponents.js"
+const AboutUsPage = () => {
   return (
     <>
-      <Container className="my-3">
+      <Container className="text-center">
         <Row>
-          <Col md={6} sm={12}>
-            <h1>
+        <h1>
               ¿Que es <strong>RAJ</strong>?
             </h1>
             <p>
@@ -45,14 +35,17 @@ const AboutUsSection = () => {
                 <u>No tengas miedo y pide ayuda.</u>{" "}
               </p>
             </p>
-          </Col>
-          <Col md={6} xs={{ order: "last" }}>
-            <ContainerImg src={logo} alt="logo " />
-          </Col>
+
+
+
+
         </Row>
+
+
+
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default AboutUsSection;
+export default AboutUsPage

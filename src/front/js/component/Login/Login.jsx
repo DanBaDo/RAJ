@@ -5,6 +5,7 @@ import { login } from "../../libraries/request/APIRequests";
 import logo from "../../../img/logo.png";
 import "./Login.scss";
 import { FaUserAlt } from "react-icons/fa";
+import styled from "styled-components";
 
 const Login = () => {
   const { store, actions } = useContext(Context);
@@ -49,10 +50,9 @@ const Login = () => {
 
   return (
     <>
-      <Container onClick={handleShow}>
-        <FaUserAlt />
-        Inicia Sesion
-      </Container>
+      <StyledContainer onClick={handleShow}>
+        <p>Inicia Sesion</p>
+      </StyledContainer>
 
       <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
@@ -116,5 +116,13 @@ const Login = () => {
     </>
   );
 };
+const StyledContainer = styled.div`
+  margin: 0 auto;
+  cursor:pointer;
+  width:10%;
+  height:2%;
+
+
+`
 
 export default Login;

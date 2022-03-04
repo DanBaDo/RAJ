@@ -1,27 +1,25 @@
-import React, { useState, useContext } from "react";
-import { Context } from "../store/appContext.js";
+import React, { useState, useContext, useEffect } from "react";
+import { getProfile, updateProfile } from "../../libraries/request/APIRequests";
 import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
-import "./FormAffected.scss";
-import { signup } from "../libraries/request/APIRequests.js";
+import { Context } from "../../store/appContext";
 
-export const FormAffected = () => {
+const ModDataUserForm = () => {
 
   const { store, actions } = useContext(Context);
   const [validated, setValidated] = useState(false);
-  // Provides a object for storing form data and
-  // initializes it like a company representant form (RPR)
   const [formData, setFormData] = useState({role: "AFT"});
+
+  useEffect(() => {
+		getProfile.onError = (error) => actions.addError(error);
+    getProfile.onResponse = (resp)=>{console.log(resp)}
+    getProfile.call()
+	}, []);
 
   const handleChange = (event) => {
     const currentFormData = {...formData};
-    /*
-      We need a hack for getting "phone" input name,
-      becouse PhoneInput don't provides a way for set a
-      input name.
-    */
     currentFormData[event.target.name || "phone"] = event.target.value;
     setFormData(currentFormData);
   }
@@ -34,10 +32,10 @@ export const FormAffected = () => {
     }
     setValidated(true);
     console.log(event)
-    signup.onError = (error) => actions.addError(error);
-    signup.onResponse = (resp)=>{location.href="/thanks/"}
-    signup.data = formData;
-    signup.call();
+    updateProfile.onError = (error) => actions.addError(error);
+    updateProfile.onResponse = (resp)=>{location.href="/thanks/"}
+    updateProfile.data = formData;
+    updateProfile.call();
   };
 
   return (
@@ -121,16 +119,16 @@ export const FormAffected = () => {
               <hr/>
               <h3>Cuenta de usuario</h3>
               <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
-                <Form.Label>Nombre de usuario</Form.Label>
-                <Form.Control name="username" required type="text" placeholder="Usuario" />
+                <Form.Label>Nueva Contraseña</Form.Label>
+                <Form.Control name="password" required type="password" placeholder="Contraseña" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  El nombre de usuario no es correcto!
+                  Es necesario proporcionar una contraseña
                 </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group  as={Col} md="10" xs="10" controlId="validationCustom01">
-                <Form.Label>Contraseña</Form.Label>
+                <Form.Label>Repite la Contraseña</Form.Label>
                 <Form.Control name="password" required type="password" placeholder="Contraseña" />
                 <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
@@ -160,3 +158,4 @@ export const FormAffected = () => {
     </>
   );
 };
+export default ModDataUserForm

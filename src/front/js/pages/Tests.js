@@ -17,7 +17,8 @@ export const Tests = () => {
         <ButtonGradients name="click me" />
         <Message content="Hola, como estamos?" />
         <Message content="Hola, como estamos?" type="warning" />
-        <Message content="Hola, como estamos?" type="error" />        <Gallery />
+        <Message content="Hola, como estamos?" type="error" />        
+        <Gallery />
         <Rajinfo />
         <InfoSection />
         <Footer />
