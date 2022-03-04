@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { getAPIKeys } from "../libraries/request/APIRequests";
+import { getAPIKeys, createAPIKeys } from "../libraries/request/APIRequests";
 import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
-import { createAPIKeys } from "../libraries/request/APIRequests";
 import Apikey from "../component/ApiKey/Apikey.jsx";
 import "./GetApiKey.scss";
 

@@ -16,4 +16,4 @@ export const createAPIKeys = new Request("/apikeys/","POST");
 export const deleteAPIKeys = new Request("/apikeys/","DELETE");
 
 // Exclusion verification method
-export const verifyExclusione = new Request("/exclusions/","GET");
+export const verifyExclusion = new Request("/exclusions/","GET");
