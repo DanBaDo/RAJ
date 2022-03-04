@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import {signup} from "../../libraries/request/APIRequests";
+import React, { useState, useContext, useEffect } from "react";
+import { getProfile, updateProfile } from "../../libraries/request/APIRequests";
 import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -11,6 +11,12 @@ const ModDataUserForm = () => {
   const { store, actions } = useContext(Context);
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({role: "AFT"});
+
+  useEffect(() => {
+		getProfile.onError = (error) => actions.addError(error);
+    getProfile.onResponse = (resp)=>{console.log(resp)}
+    getProfile.call()
+	}, []);
 
   const handleChange = (event) => {
     const currentFormData = {...formData};
@@ -26,10 +32,10 @@ const ModDataUserForm = () => {
     }
     setValidated(true);
     console.log(event)
-    signup.onError = (error) => actions.addError(error);
-    signup.onResponse = (resp)=>{location.href="/thanks/"}
-    signup.data = formData;
-    signup.call();
+    updateProfile.onError = (error) => actions.addError(error);
+    updateProfile.onResponse = (resp)=>{location.href="/thanks/"}
+    updateProfile.data = formData;
+    updateProfile.call();
   };
 
   return (
