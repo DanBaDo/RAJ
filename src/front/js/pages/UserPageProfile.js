@@ -1,28 +1,48 @@
-import React from "react";
-import { Button, Container, Card, Stack } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ModDataUserForm } from "../component/IndexComponents";
 
 const UserPageProfile = () => {
+  const [open, setOpen] = useState(false);
   return (
     <Container className="mt-5">
-      <Card>
-        <Card.Header as="h5">
-          Bienvenido: Aqui va el nombre del usuario
-        </Card.Header>
-        <Card.Body>
-          <Card.Title>Este es tu perfil</Card.Title>
-          <Card.Text>
-            Desde aqui podras interactuar con todas las opciones que necesites:
-          </Card.Text>
-          <Stack gap={3} className="col-md-10 mx-auto">
-            <Button variant="secondary">Modificar Perfil</Button>
-            <Button variant="outline-secondary">Cancel</Button>
-            <Link to="/DropOutRequest/">
-              <Button variant="danger">Darme de Baja</Button>
-            </Link>
-          </Stack>
-        </Card.Body>
-      </Card>
+        <Row>
+      <Col md={6} xs={12}>
+        <Card>
+          <Card.Header as="h5">
+            Bienvenido: (Aqui va el nombre del usuario)
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>Este es tu perfil</Card.Title>
+            <Card.Text>
+              Desde aqui podras interactuar con todas las opciones que
+              necesites:
+            </Card.Text>
+            <Stack gap={3} className="col-md-10 mx-auto">
+              <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-fade-text"
+                aria-expanded={open}
+              >
+               Modificar usuario
+              </Button>
+              <Button variant="outline-secondary">Cancel</Button>
+              <Link to="/DropOutRequest/">
+                <Button variant="danger">Darme de Baja</Button>
+              </Link>
+            </Stack>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={6} xs={12}>
+        <Fade in={open}>
+          <div id="example-fade-text">
+           Aqui va el formulario
+          </div>
+        </Fade>
+      </Col>
+      </Row>
     </Container>
   );
 };

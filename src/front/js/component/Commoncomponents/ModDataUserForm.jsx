@@ -44,13 +44,6 @@ const ModDataUserForm = () => {
       <Container className="justify-content-center">
         <Form  onChange={handleChange} noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3">
-            <Col>
-            <h2 className="stylempresa">Registrate en <strong>RAJ</strong> </h2>
-            
-            <p className="stylempresatext"> “Los grandes cambios no tienen que ser difíciles pero tienen que comenzar con una elección. Aquí es donde comienza el verdadero cambio; aquí es donde comienzas a tomar el control de tu vida y cómo eliges vivirla; aquí es donde comienza todo.”
-            
-            </p>
-            </Col>
             <Col md={1} xs={1}></Col>
             <Col>
               <h3>Datos personales</h3>
