@@ -11,13 +11,13 @@ export { default as MeetUs } from "./AboutUsSection/MeetUs.jsx";
 
 // --------- common components ---------
 export { default as Logo } from "./Commoncomponents/Logo.jsx";
-export { default as TopMenulilNav } from "./Commoncomponents/TopMenulilNav.jsx";
-export { default as Testimonials } from "./Commoncomponents/Testimonials.jsx";
+export { default as TopMenulilNav } from "./NavbarSection/TopMenulilNav.jsx";
+export { default as Testimonials } from "./InfoSection/Testimonials.jsx";
 export { default as ButtonGradients } from "./Commoncomponents/ButtonGradients.jsx";
 export { default as SocialButtons } from "./Commoncomponents/SocialButtons.jsx";
 export { default as Message } from "./Commoncomponents/Message.jsx";
-export { default as ButtonAuto } from "./Commoncomponents/CtaBanner.jsx";
-export { default as Rajinfo } from "./Commoncomponents/CtaBanner.jsx";
+export { default as ButtonAuto } from "./InfoSection/CtaBanner.jsx";
+export { default as Rajinfo } from "./InfoSection/CtaBanner.jsx";
 
 
 // Footer------------
