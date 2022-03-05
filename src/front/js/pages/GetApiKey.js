@@ -71,8 +71,8 @@ const GetApiKey = () => {
     setValidated(true);
     createAPIKeys.onError = (error) => actions.addError(error);
     createAPIKeys.onResponse = (resp) => {
-      console.log(resp);
       handleClose();
+      setKeys([resp.contents.data.newApiKey, ...keys]);
     };
     createAPIKeys.data = formData;
     createAPIKeys.call();
