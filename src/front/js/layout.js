@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "./store/appContext";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
@@ -25,42 +25,47 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<TopMenulilNav/>
-				<NavbarTop/>
-					{ store.errors.length === 0
-						?
-						<Switch>
-							<Route exact path="/FormAffected/">
-								<FormAffected/>
-							</Route>
-							<Route exact path="/DropOutRequest/">
-								<DropOutRequest/>
-							</Route>
-							<Route exact path="/GetApiKey/">
-								<GetApiKey/>
-							</Route>
-							<Route exact path="/FormEmpresa/">
-								<FormEmpresa/>
-							</Route>
-							<Route exact path="/tests/">
-								<Tests />
-							</Route>
-							<Route exact path="/">
-								<Home />
-							</Route>
-							<Route exact path="/thanks/">
-								<Modasthanks />
-							</Route>
-							<Route exact path="/AboutUsPage/">
-								<AboutUsPage/>
-							</Route>
-							<Route exact path="/userpageprofile">
-								<UserPageProfile/>
-							</Route>
-							<Route>
-								<h1>Not found!</h1>
-							</Route>
-						</Switch>
+				{ store.errors.length === 0 ? <TopMenulilNav/> : null }
+				{ store.errors.length === 0 ? <NavbarTop/> : null }
+					{ store.errors.length === 0 ?
+						<>
+						{ store.redirection ?
+							<Redirect to={actions.popRedirection()}/>
+							:
+							<Switch>
+								<Route exact path="/FormAffected/">
+									<FormAffected/>
+								</Route>
+								<Route exact path="/DropOutRequest/">
+									<DropOutRequest/>
+								</Route>
+								<Route exact path="/GetApiKey/">
+									<GetApiKey/>
+								</Route>
+								<Route exact path="/FormEmpresa/">
+									<FormEmpresa/>
+								</Route>
+								<Route exact path="/tests/">
+									<Tests />
+								</Route>
+								<Route exact path="/">
+									{ store.logged ? <UserPageProfile/> : <Home /> }
+								</Route>
+								<Route exact path="/thanks/">
+									<Modasthanks />
+								</Route>
+								<Route exact path="/AboutUsPage/">
+									<AboutUsPage/>
+								</Route>
+								<Route exact path="/userpageprofile">
+									<UserPageProfile/>
+								</Route>
+								<Route>
+									<h1>Not found!</h1>
+								</Route>
+							</Switch>
+						}
+						</>
 						:
 						<Message content={errors} buttonAction={actions.cleanErrors} type="error"/>
 					}

@@ -40,34 +40,16 @@ const GetApiKey = () => {
             setKeys(keys);
             break;
           case 403:
-            throw "Autentication error getting API keys list";
+            actions.addError("Autentication error getting API keys list","/");
             break;
           default:
-            throw "Unexpected error getting API keys list";
-            break;
+            actions.addError("Unexpected error getting API keys list","/");
         }
       } catch (error) {
         actions.addError(error);
       }
     };
     getAPIKeys.call();
-    /*setKeys([
-      {
-        id: 1,
-        key: "8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
-        url: "/apikey/8ebfd8977b010655bfdd3c353c234e5e8472b6ac51c1ae1cab3fe06fad053beb",
-      },
-      {
-        id: 2,
-        key: "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
-        url: "/apikey/53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
-      },
-      {
-        id: 3,
-        key: "b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
-        url: "/apikey/b6ac51c1ae1cab3fe06fad053beb8ebfd853c234e5e8472977b010655bfdd3c3",
-      },
-    ]);*/
   }, []);
 
   const handleClose = () => setShow(false);
@@ -89,8 +71,8 @@ const GetApiKey = () => {
     setValidated(true);
     createAPIKeys.onError = (error) => actions.addError(error);
     createAPIKeys.onResponse = (resp) => {
-      console.log(resp);
       handleClose();
+      setKeys([resp.contents.data.newApiKey, ...keys]);
     };
     createAPIKeys.data = formData;
     createAPIKeys.call();
