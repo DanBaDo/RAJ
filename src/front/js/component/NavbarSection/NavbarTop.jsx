@@ -19,9 +19,8 @@ const NavbarTop = () => {
             {!store.logged && <Link className="nav-link" to="/">Home</Link>}
             {!store.logged && <Link className="nav-link" to="/FormAffected/">Registro usuario</Link>}
             {!store.logged && <Link className="nav-link" to="/FormEmpresa/">Registro empresa</Link>}
-            {store.logged && <Link className="nav-link " to="/GetApiKey/">Llaves API</Link>}
+            { (store.logged && store.user.role === "RPR") && <Link className="nav-link " to="/GetApiKey/">Llaves API</Link>}
             {store.logged && <Link className="nav-link " to="/DropOutRequest/">Baja</Link>}
-           
           </Nav>
         </Navbar.Collapse>
       </Container>
