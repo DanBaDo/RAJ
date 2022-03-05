@@ -33,7 +33,7 @@ const Rajinfo = () => {
                 problemas en las relaciones familiares. Si quieres ponerle fin
                 pincha aqui:
               </p>
-              <Button>Registro</Button>
+              <Button className="button">Registro</Button>
             </StyledSpan>
           </Col>
           <Col md={4} xs={12}>

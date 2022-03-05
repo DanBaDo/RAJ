@@ -21,7 +21,7 @@ const MeetUs = () => {
               de la web, si quieres conocer mas acerca de nuestro trabajo pincha
               el boton de leer mas.
             </TextMeet>
-            <Link className="text-white" to="/AboutUsPage"><Button> Leer mas</Button></Link>
+            <Link className="text-white" to="/AboutUsPage"><Button className="button"> Leer mas</Button></Link>
           </Col>
           <Col xs={12} md={6}>
             <CompanyValue />

@@ -1,6 +1,17 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+body{
+  font-family: 'Oswald', sans-serif;
+}
+
+p{
+font-weight: 300;
+}
 .container{
     display: flex;
     justify-content: center;
@@ -39,6 +50,8 @@ font-size: 14px;
     height: 40px;
     text-align: center;
     margin: 30px 30px 60px 50px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
     
   }
 .button:hover {
