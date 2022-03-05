@@ -46,7 +46,7 @@ const Layout = () => {
 								<Tests />
 							</Route>
 							<Route exact path="/">
-								<Home />
+								{ store.logged ? <UserPageProfile/> : <Home /> }
 							</Route>
 							<Route exact path="/thanks/">
 								<Modasthanks />
