@@ -51,12 +51,22 @@ const Login = () => {
   return (
     <>
       <StyledContainer onClick={handleShow}>
-        <p>Inicia Sesion</p>
+        {store.logged === true ?
+          <p>Cerrar Sesión</p>
+        :
+          <p>Iniciar Sesión</p>
+        }
       </StyledContainer>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Iniciar Sesión</Modal.Title>
+          <Modal.Title>
+          {store.logged === true ?
+            <p>Cerrar Sesión</p>
+          :
+            <p>Iniciar Sesión</p>
+          }
+          </Modal.Title>
         </Modal.Header>
         {store.logged === true ? (
           <Modal.Footer>
