@@ -25,8 +25,8 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<TopMenulilNav/>
-				<NavbarTop/>
+				{ store.errors.length === 0 ? <TopMenulilNav/> : null }
+				{ store.errors.length === 0 ? <NavbarTop/> : null }
 					{ store.errors.length === 0
 						?
 						<Switch>
