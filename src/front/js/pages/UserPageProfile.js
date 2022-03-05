@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ModDataUserForm } from "../component/IndexComponents";
 
 const UserPageProfile = () => {
+  const { store, actions } = useContext(Context);
   const [open, setOpen] = useState(false);
   return (
     <Container className="mt-5">
@@ -11,7 +13,7 @@ const UserPageProfile = () => {
       <Col md={6} xs={12}>
         <Card>
           <Card.Header as="h5">
-            Bienvenido: (Aqui va el nombre del usuario)
+            Bienvenido: {store.user.name}
           </Card.Header>
           <Card.Body>
             <Card.Title>Este es tu perfil</Card.Title>
