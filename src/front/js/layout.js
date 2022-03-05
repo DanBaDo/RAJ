@@ -8,7 +8,7 @@ import { Tests } from "./pages/Tests";
 import {FormAffected} from "./pages/FormAffected";
 import { FormEmpresa } from "./pages/FormEmpresa";
 import GetApiKey from "./pages/GetApiKey";
-import { NavbarTop, TopMenulilNav } from "./component/IndexComponents";
+import { NavbarTop, TopMenulilNav, RestrictedAccess } from "./component/IndexComponents";
 import DropOutRequest from "./pages/DropOutRequest";
 import { Message } from "./component/IndexComponents";
 import Modasthanks from "./pages/Modalthaks";
@@ -36,14 +36,18 @@ const Layout = () => {
 								<Route exact path="/FormAffected/">
 									<FormAffected/>
 								</Route>
-								<Route exact path="/DropOutRequest/">
-									<DropOutRequest/>
-								</Route>
-								<Route exact path="/GetApiKey/">
-									<GetApiKey/>
-								</Route>
 								<Route exact path="/FormEmpresa/">
 									<FormEmpresa/>
+								</Route>
+								<Route exact path="/DropOutRequest/">
+									<RestrictedAccess>
+										<DropOutRequest/>
+									</RestrictedAccess>
+								</Route>
+								<Route exact path="/GetApiKey/">
+									<RestrictedAccess>
+										<GetApiKey/>
+									</RestrictedAccess>
 								</Route>
 								<Route exact path="/tests/">
 									<Tests />
@@ -58,7 +62,9 @@ const Layout = () => {
 									<AboutUsPage/>
 								</Route>
 								<Route exact path="/userpageprofile">
-									<UserPageProfile/>
+									<RestrictedAccess>
+										<UserPageProfile/>
+									</RestrictedAccess>
 								</Route>
 								<Route>
 									<h1>Not found!</h1>

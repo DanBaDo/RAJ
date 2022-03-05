@@ -5,9 +5,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			errors: [],
 		},
 		actions: {
-			setLoggedIn: (token) => {
-				sessionStorage.setItem('JWT', token);
-				setStore({logged: true});
+			setLoggedIn: (loginData) => {
+				sessionStorage.setItem('JWT', loginData.token);
+				setStore(
+					{
+						logged: true,
+						user: {
+							name: loginData.name,
+							role: loginData.role
+						}
+					}
+				);
 			},
 			setLoggedOut: () => {
 				sessionStorage.removeItem('JWT');

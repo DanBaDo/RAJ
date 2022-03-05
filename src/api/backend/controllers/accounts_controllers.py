@@ -98,7 +98,11 @@ def login():
         account = Account.query.filter_by(username = username, status = STATUS["ACTIVE"]).first()
         if account and check_password_hash(account.password_hash, password):
             resp.message = "Authentication successfull"
-            resp.data = create_access_token(account)
+            resp.data = {
+                "token": create_access_token(account),
+                "name": account.name,
+                "role": account.role_id
+            }
             return resp.json(), 200
         else:
             resp.message = "Invalid authentication"

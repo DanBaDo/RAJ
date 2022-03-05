@@ -19,6 +19,7 @@ export { default as Message } from "./Commoncomponents/Message.jsx";
 export { default as ButtonAuto } from "./InfoSection/CtaBanner.jsx";
 export { default as Rajinfo } from "./InfoSection/CtaBanner.jsx";
 export { default as ModDataUserForm} from "./Commoncomponents/ModDataUserForm.jsx";
+export { default as RestrictedAccess } from "./Commoncomponents/RestrictedAccess/RestrictedAccess.jsx";
 
 // Footer------------
 export { default as Footer } from "./FooterSection/Footer.jsx";
