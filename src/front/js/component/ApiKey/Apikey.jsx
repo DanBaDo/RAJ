@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { FaRegCopy, FaQrcode, FaTrash } from "react-icons/fa";
 import BigQR from "../Commoncomponents/bigQR.jsx";
-import { ListGroup, Col, Row, Modal } from "react-bootstrap";
+import { ListGroup, Col, Row, Modal, Container} from "react-bootstrap";
 
 const ApiKey = (props) => {
   const [QRData, setQRData] = useState(null);
@@ -14,25 +14,26 @@ const ApiKey = (props) => {
   };
   return (
     <>
-      <ListGroup>
-        <ListGroup.Item>
-          <Col sm={10} lg={10}>
+     <Container className="bg-white ">
+        <Row>
+          <Col xs={6} md={6} lg={6} className="text-left">
             {props.description}
           </Col>
-          <Col>
-            {props.installed === "0" ? "Pendiente" : "Instalado"}
-          </Col>
-          <Col sm={2} lg={1}>
-            <FaRegCopy />
+          <Col xs={6} md={6} lg={6}>
+            <FaRegCopy/>
+            <div className="vr mx-2" />
             <FaQrcode
               onClick={() => {
                 bothFunction();
               }}
             />
+            <div className="vr mx-2" />
             <FaTrash />
           </Col>
-        </ListGroup.Item>
-      </ListGroup>
+          <Row>{props.installed === "0" ? "Pendiente" : "Instalado"}</Row>
+        </Row>
+      </Container> 
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         {QRData && (

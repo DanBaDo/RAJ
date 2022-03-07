@@ -108,6 +108,7 @@ const GetApiKey = () => {
                   type="text"
                   name="description"
                   placeholder="Diferencie sus claves API"
+                  maxLength={12}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
