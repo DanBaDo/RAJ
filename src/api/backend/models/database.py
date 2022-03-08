@@ -1,3 +1,4 @@
+from datetime import datetime
 from backend.models import db
 
 class Account(db.Model):
@@ -54,7 +55,8 @@ class Roll(db.Model):
         return { "id": self.id, "description": self.description }
 
 class API_key(db.Model):
-    key = db.Column(db.String(262), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    key = db.Column(db.String(262))
     description = db.Column(db.String(100), nullable=False)
     installed = db.Column(db.Integer, nullable=False, default=0)
     purpose = db.Column(db.Integer, nullable=False)
@@ -63,6 +65,15 @@ class API_key(db.Model):
         return '<API key : %s >' % (self.description)
     def serialize(self):
         return { "key": self.key, "description": self.description, "installed": self.installed }
+
+class LogEvent(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date_time = db.Column(db.DateTime, default=datetime.now(), nullable = False)
+    event_type = db.Column(db.Integer, nullable = False)
+    source_type = db.Column(db.Integer, nullable = False)
+    source_id = db.Column(db.Integer, nullable = False)
+    target_type = db.Column(db.Integer, nullable = False)
+    target_id = db.Column(db.Integer, nullable = False)
 
 account_company_relationship = db.Table('account_company_relationship',
     db.Column('account_id', db.Integer, db.ForeignKey(Account.id), primary_key=True),
