@@ -35,7 +35,7 @@ const Rajinfo = () => {
                 problemas en las relaciones familiares. Si quieres ponerle fin
                 pincha aqui:
               </p>
-              <Link className="text-white" to="/FormAffected"><Button className="button">Registro</Button></Link>
+              <Link className="text-white" to="/FormAffected"><Button className="buttonlogin">Registro</Button></Link>
             </StyledSpan>
           </Col>
           <Col md={4} xs={12}>

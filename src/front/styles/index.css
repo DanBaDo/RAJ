@@ -22,18 +22,6 @@ svg{margin: 3px;
 font-size: 14px;
 };
 
-.justify-content-center{
-    background-color: #1f2b5b;
-    color:#22aa99;
-    padding: 60px 60px 60px 60px;
-    border: 2px solid #22aa99;
-    margin-top: 50px;
-}
-.container-styled{
-  background-color: #1f2b5b;
-}
-
-
 .button {
     display: inline-block;
     background: #4285f4;
@@ -57,6 +45,24 @@ font-size: 14px;
     box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
     -webkit-transform: translate(0px, -10px) scale(1.2);
             transform: translate(0px, -10px) scale(1.2);
+  }
+
+  .buttonlogin{
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #22aa99;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
   }
   
   

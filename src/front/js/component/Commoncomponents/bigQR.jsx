@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import QRCode from "qrcode.react";
-import "./bigQR.scss";
 import { Container } from "react-bootstrap";
 
 const BigQR = (props) => {

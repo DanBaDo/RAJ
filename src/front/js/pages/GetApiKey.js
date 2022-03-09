@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { getAPIKeys, createAPIKeys } from "../libraries/request/APIRequests";
 import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
 import Apikey from "../component/ApiKey/Apikey.jsx";
-import "./GetApiKey.scss";
+import styled from "styled-components";
 
 const GetApiKey = () => {
   const { store, actions } = useContext(Context);
@@ -40,10 +40,10 @@ const GetApiKey = () => {
             setKeys(keys);
             break;
           case 403:
-            actions.addError("Autentication error getting API keys list","/");
+            actions.addError("Autentication error getting API keys list", "/");
             break;
           default:
-            actions.addError("Unexpected error getting API keys list","/");
+            actions.addError("Unexpected error getting API keys list", "/");
         }
       } catch (error) {
         actions.addError(error);
@@ -80,16 +80,17 @@ const GetApiKey = () => {
 
   return (
     <>
-      <Container>
-        <Row className="justify-content-center">
-          <Col>
-            <h1 className="TitleApi">Claves API</h1>
-            <ul>{keysComponents()}</ul>
-            <Button variant="primary" onClick={handleShow}>
-              Añadir
-            </Button>
-          </Col>
-        </Row>
+      <Container className="my-5">
+
+        <StyledContainer>
+            <Col>
+                <StyledTitleApi>Claves API</StyledTitleApi>
+                <Button className="buttonlogin" onClick={handleShow}>
+                  Añadir
+                </Button>
+              <KeyList>{keysComponents()}</KeyList>
+            </Col>
+        </StyledContainer>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -142,5 +143,25 @@ const GetApiKey = () => {
     </>
   );
 };
+
+// Style-Component Css zone 
+const StyledContainer = styled.div`
+  background-color: #1f2b5b;
+  padding: 5% 0 5% 0;
+  width: 80%;
+`;
+const StyledTitleApi = styled.h1`
+  text-align: center;
+  font-size: 60px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
+
+const KeyList = styled.ul`
+  margin: 0 auto;
+  width: 80%;
+  
+`;
 
 export default GetApiKey;

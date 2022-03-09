@@ -5,8 +5,8 @@ import styled from "styled-components";
 const Logo = () => {
   const LogoRaj = styled.img`
     margin: auto;
-    height: 130px;
-    width: 130px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
   `;
   return (

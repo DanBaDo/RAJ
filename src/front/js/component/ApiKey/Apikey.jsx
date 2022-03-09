@@ -31,6 +31,7 @@ const ApiKey = (props) => {
             <FaTrash />
           </Col>
           <Row>{props.installed === "0" ? "Pendiente" : "Instalado"}</Row>
+          <hr/>
         </Row>
       </Container> 
 
