@@ -15,7 +15,7 @@ const ApiKey = (props) => {
   return (
     <>
      <Container className="bg-white ">
-        <Row>
+        <Row >
           <Col xs={6} md={6} lg={6} className="text-left">
             {props.description}
           </Col>

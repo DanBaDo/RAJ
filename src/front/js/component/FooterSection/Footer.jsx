@@ -17,6 +17,7 @@ const Footer = () => {
           <p>Numero de registro legal : 123456789</p>
           <h5>Siguenos en nuestras redes</h5>
           <BsFacebook/>
+          <div className="vr mx-3 "></div>
           <BsInstagram/>
           <h6>Proudly created by Adrian, DanBoDo, Bigbitdev, 2022</h6>
       </ContainerFooterSection>

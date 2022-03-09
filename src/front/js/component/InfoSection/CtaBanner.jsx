@@ -1,7 +1,9 @@
 import React from "react";
-import { Container, Row, Col, Button} from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import family from "../../../img/family.jpg";
 import styled from "styled-components";
+import {Link} from "react-router-dom"
+
 
 const Rajinfo = () => {
   const StyledSpan = styled.span`
@@ -33,13 +35,12 @@ const Rajinfo = () => {
                 problemas en las relaciones familiares. Si quieres ponerle fin
                 pincha aqui:
               </p>
-              <Button className="button">Registro</Button>
+              <Link className="text-white" to="/FormAffected"><Button className="button">Registro</Button></Link>
             </StyledSpan>
           </Col>
           <Col md={4} xs={12}>
             <ImgAuto src={family} alt="a picture of a family with a baby" />
           </Col>
-          
         </Row>
       </Container>
     </>

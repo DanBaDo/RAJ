@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import QRCode from "qrcode.react";
-
+import "./bigQR.scss";
+import { Container } from "react-bootstrap";
 
 const BigQR = (props) => {
-    const BigQR = styled.div` 
-        width: 100%;
-        height: 80vh;   
-    `
-    return (
-        <BigQR>
-            <QRCode value={props.url} />
-        </BigQR>
-    )
-}
+  return (
+    <Container>
+      <QRCode style={{height:250, width:250, marginTop:20, marginBottom:20}} value={props.url} />
+    </Container>
+  );
+};
 
-export default BigQR
+export default BigQR;

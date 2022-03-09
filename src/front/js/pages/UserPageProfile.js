@@ -30,9 +30,9 @@ const UserPageProfile = () => {
                Modificar usuario
               </Button>
               <Button variant="outline-secondary">Cancel</Button>
-              <Link to="/DropOutRequest/">
-                <Button variant="danger">Darme de Baja</Button>
-              </Link>
+              
+                <Button variant="danger"><Link to="/DropOutRequest/">Darme de Baja</Link></Button>
+              
             </Stack>
           </Card.Body>
         </Card>
