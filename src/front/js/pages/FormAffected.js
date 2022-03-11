@@ -4,7 +4,6 @@ import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
-import "./FormAffected.scss";
 import { signup } from "../libraries/request/APIRequests.js";
 
 export const FormAffected = () => {
@@ -42,8 +41,8 @@ export const FormAffected = () => {
 
   return (
     <>
-      <Container className="container">
-      <Container className="justify-content-center">
+      <style>{'body{background-color:#1f2b5b}'}</style>
+      <Container className="bg-white rounded py-3 my-4">
         <Form  onChange={handleChange} noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3">
             <Col>
@@ -153,9 +152,6 @@ export const FormAffected = () => {
             
           </Row>
         </Form>
-        
-        
-      </Container>
       </Container>
     </>
   );

@@ -80,9 +80,9 @@ const GetApiKey = () => {
 
   return (
     <>
-      <Container className="my-5">
+      <Container className="my-5 mx-auto">
 
-        <StyledContainer>
+ 
             <Col>
                 <StyledTitleApi>Claves API</StyledTitleApi>
                 <Button className="buttonlogin" onClick={handleShow}>
@@ -90,7 +90,7 @@ const GetApiKey = () => {
                 </Button>
               <KeyList>{keysComponents()}</KeyList>
             </Col>
-        </StyledContainer>
+
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -153,7 +153,7 @@ const StyledContainer = styled.div`
 const StyledTitleApi = styled.h1`
   text-align: center;
   font-size: 60px;
-  color: white;
+  color: #000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;

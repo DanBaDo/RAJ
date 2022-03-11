@@ -7,16 +7,12 @@
 
 body{
   font-family: 'Oswald', sans-serif;
+  background-color:#1f2b5b;  
 }
 
 p{
 font-weight: 300;
 }
-.container{
-    display: flex;
-    justify-content: center;
-  };
-
 
 svg{margin: 3px;
 font-size: 14px;

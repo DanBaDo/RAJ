@@ -8,7 +8,7 @@ const UserPageProfile = () => {
   const { store, actions } = useContext(Context);
   const [open, setOpen] = useState(false);
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 bg-white">
         <Row>
       <Col md={6} xs={12}>
         <Card>

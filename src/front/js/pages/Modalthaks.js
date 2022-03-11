@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Container, Modal } from "react-bootstrap";
-import "./Modalthaks.scss"
 import { useHistory } from "react-router-dom";
 
 const ModalThanks = () =>{

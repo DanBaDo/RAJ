@@ -5,8 +5,7 @@ const DropOutRequest = () => {
   return (
     <>
       {" "}
-      <Container className="container">
-        <Container className="justify-content-center">
+        <Container>
           <Row>
           <Col>
             <h1>Baja </h1>
@@ -52,7 +51,6 @@ const DropOutRequest = () => {
           </Col>
           </Row>
         </Container>
-      </Container>
     </>
   );
 };
