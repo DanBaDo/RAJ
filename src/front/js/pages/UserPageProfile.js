@@ -7,8 +7,13 @@ import { ModDataUserForm } from "../component/IndexComponents";
 const UserPageProfile = () => {
   const { store, actions } = useContext(Context);
   const [open, setOpen] = useState(false);
+  const logout = (ev) => {
+    actions.setLoggedOut();
+  };
   return (
-    <Container className="mt-5 bg-white">
+    <>
+    <style>{'body{background-color:#1f2b5b}'}</style>
+      <Container className="bg-white rounded py-3 my-4">
         <Row>
       <Col md={6} xs={12}>
         <Card>
@@ -29,10 +34,24 @@ const UserPageProfile = () => {
               >
                Modificar usuario
               </Button>
-              <Button variant="outline-secondary">Cancel</Button>
-              
-                <Button variant="danger"><Link to="/DropOutRequest/">Darme de Baja</Link></Button>
-              
+              <Button onClick={logout} variant="primary">
+              Cerrar Sesion
+            </Button>
+            <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
+            <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-fade-text-3"
+                aria-expanded={open}
+              >
+               Registros
+              </Button>
+              <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-fade-text-3"
+                aria-expanded={open}
+              >
+               Logros
+              </Button>
             </Stack>
           </Card.Body>
         </Card>
@@ -42,10 +61,11 @@ const UserPageProfile = () => {
           <div id="example-fade-text">
            Aqui va el formulario
           </div>
-        </Fade>
+       </Fade>
       </Col>
       </Row>
     </Container>
+  </>
   );
 };
 
