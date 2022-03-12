@@ -9,6 +9,7 @@ export const Tests = () => {
   return (
     <>
       <div className="text-center mt-5">
+        <h1>BotonClave</h1>
         <BotonClave src={trash} handler={()=>{alert("Click!")}}/>
         <BotonClave src={trash} handler={()=>{alert("Click!")}} size="2.5em" padding="1.25em"/>
       </div>
