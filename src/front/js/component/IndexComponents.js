@@ -29,6 +29,7 @@ export { default as Login } from "./Login/Login.jsx";
 
 export { default as ApiKey } from "./ApiKey/Apikey.jsx";
 
-// PanelClavesAPI
+// Users pannels ------------------------
 
 export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx"
+export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx"
