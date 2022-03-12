@@ -1,27 +1,16 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import {
-  Gallery,
-  Rajinfo,
-  Footer,
-  ButtonGradients,
-  Message,
-  Login
-} from "../component/IndexComponents";
+
+import trash from "../../img/trash.svg";
+
+import { BotonClave } from "../component/IndexComponents";
 export const Tests = () => {
   const { store, actions } = useContext(Context);
   return (
     <>
       <div className="text-center mt-5">
-        <Login/>
-        <ButtonGradients name="click me" />
-        <Message content="Hola, como estamos?" />
-        <Message content="Hola, como estamos?" type="warning" />
-        <Message content="Hola, como estamos?" type="error" />        
-        <Gallery />
-        <Rajinfo />
-        <InfoSection />
-        <Footer />
+        <BotonClave src={trash} handler={()=>{alert("Click!")}}/>
+        <BotonClave src={trash} handler={()=>{alert("Click!")}} size="2.5em" padding="1.25em"/>
       </div>
     </>
   );

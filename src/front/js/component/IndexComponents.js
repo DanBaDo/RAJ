@@ -28,3 +28,7 @@ export { default as Footer } from "./FooterSection/Footer.jsx";
 export { default as Login } from "./Login/Login.jsx";
 
 export { default as ApiKey } from "./ApiKey/Apikey.jsx";
+
+// PanelClavesAPI
+
+export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx"
