@@ -26,7 +26,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				{ store.errors.length === 0 ? <TopMenulilNav/> : null }
-				{ store.errors.length === 0 ? <NavbarTop/> : null }
+				{ store.errors.length === 0 && ! store.logged ? <NavbarTop/> : null }
 					{ store.errors.length === 0 ?
 						<>
 						{ store.redirection ?
