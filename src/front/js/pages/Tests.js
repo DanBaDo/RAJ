@@ -4,13 +4,18 @@ import { Context } from "../store/appContext";
 import trash from "../../img/trash.svg";
 import casino from "../../img/casino.svg";
 import online from "../../img/online.svg";
+import user from "../../img/user.svg";
 
-import { BotonClave, ElementData } from "../component/IndexComponents";
+import {
+  BotonClave,
+  ElementData,
+  PanelEventos,
+} from "../component/IndexComponents";
 
-const logrosMocup = [
+const logrosMockup = [
   {
     icon: "user",
-    title: "Tú misma",
+    title: "Tú",
     description: "editar perfil",
     time: "12:45",
     alert: "false",
@@ -38,14 +43,14 @@ const logrosMocup = [
   },
   {
     icon: "user",
-    title: "Tú misma",
+    title: "Tú",
     description: "editar perfil",
     time: "30/12/2021",
     alert: "false",
   },
   {
     icon: "user",
-    title: "Tú misma",
+    title: "Tú",
     description: "inicio de sesión",
     time: "30/12/2021",
     alert: "false",
@@ -63,6 +68,8 @@ export const Tests = () => {
         <h1>ElementData</h1>
           <ElementData icon={casino} title="Casino Royal" description="editar perfil" time="mie" alert="false"/>
           <ElementData icon={online} title="Poker Fight" description="intento de acceso" time="2 May" alert="true"/>
+        <h1>PanelEventos</h1>
+          <PanelEventos arrayEventos={logrosMockup}/>
       </div>
     </>
   );

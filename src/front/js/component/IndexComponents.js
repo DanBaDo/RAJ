@@ -33,3 +33,4 @@ export { default as ApiKey } from "./ApiKey/Apikey.jsx";
 
 export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx"
 export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx"
+export { default as PanelEventos } from "./Commoncomponents/PanelEventos/PanelEventos.jsx"
