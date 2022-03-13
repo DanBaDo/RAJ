@@ -97,5 +97,5 @@ PAGE_SIZE = 5
 def get_events(page):
     return jsonify({
       "data": LOGS_MOCKUP[page*PAGE_SIZE:(page+1)*PAGE_SIZE],
-      "pages": ceil(len(LOGS_MOCKUP))
+      "pages": ceil(len(LOGS_MOCKUP)/PAGE_SIZE)
     }), 200
