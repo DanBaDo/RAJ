@@ -9,28 +9,28 @@ import { BotonClave, ElementData } from "../component/IndexComponents";
 
 const logrosMocup = [
   {
-    icon: "user.svg",
+    icon: "user",
     title: "Tú misma",
     description: "editar perfil",
     time: "12:45",
     alert: "false",
   },
   {
-    icon: "casino.svg",
+    icon: "casino",
     title: "Casino Royal",
     description: "intento de acceso",
     time: "mie",
     alert: "true",
   },
   {
-    icon: "online.svg",
+    icon: "online",
     title: "Poker Figth",
     description: "intento de acceso",
     time: "7 May",
     alert: "true",
   },
   {
-    icon: "online.svg",
+    icon: "online",
     title: "Bet Hero",
     description: "intento de acceso",
     time: "2 May",
