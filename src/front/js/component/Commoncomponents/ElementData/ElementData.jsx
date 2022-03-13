@@ -26,7 +26,7 @@ const ElementData = ({icon, title, description, time, alert="false"}) => {
             font-size: 1rem;
         }
         & > p.elemenTdata > span {
-            color: ${alert === "true" ? "#ff0000" : "#1f7e83"};
+            color: var(${alert === "true" ? "--warning-color" : "--info-color"});
         }
     `
     return (

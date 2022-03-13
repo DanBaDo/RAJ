@@ -5,7 +5,7 @@ const BotonClave = ({src, handler, size="2em", padding="1em"}) => {
     const Boton = styled.button`
         border: none;
         padding: ${padding};
-        background-color: #1f2b5b;
+        background-color: var(--main-blue);
         & > img {
             width: ${size};
         }
