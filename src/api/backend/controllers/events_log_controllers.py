@@ -1,3 +1,4 @@
+from math import ceil
 from flask import jsonify
 
 LOGS_MOCKUP = [
@@ -94,5 +95,7 @@ LOGS_MOCKUP = [
 PAGE_SIZE = 5
 
 def get_events(page):
-    #return jsonify(LOGS_MOCKUP[page*PAGE_SIZE:page*(PAGE_SIZE+1)]), 200
-    return jsonify(LOGS_MOCKUP[page*PAGE_SIZE:(page+1)*PAGE_SIZE]), 200
+    return jsonify({
+      "data": LOGS_MOCKUP[page*PAGE_SIZE:(page+1)*PAGE_SIZE],
+      "pages": ceil(len(LOGS_MOCKUP))
+    }), 200
