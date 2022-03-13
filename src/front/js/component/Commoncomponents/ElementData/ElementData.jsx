@@ -8,7 +8,6 @@ const ElementData = ({icon, title, description, time, alert="false"}) => {
         padding: 0.5rem;
         list-style: none;
         margin: 0.5rem;
-        width: 25rem;
         & > img {
             height: 4rem;
             float: left;
