@@ -7,6 +7,51 @@ import online from "../../img/online.svg";
 
 import { BotonClave, ElementData } from "../component/IndexComponents";
 
+const logrosMocup = [
+  {
+    icon: "user.svg",
+    title: "Tú misma",
+    description: "editar perfil",
+    time: "12:45",
+    alert: "false",
+  },
+  {
+    icon: "casino.svg",
+    title: "Casino Royal",
+    description: "intento de acceso",
+    time: "mie",
+    alert: "true",
+  },
+  {
+    icon: "online.svg",
+    title: "Poker Figth",
+    description: "intento de acceso",
+    time: "7 May",
+    alert: "true",
+  },
+  {
+    icon: "online.svg",
+    title: "Bet Hero",
+    description: "intento de acceso",
+    time: "2 May",
+    alert: "true",
+  },
+  {
+    icon: "user",
+    title: "Tú misma",
+    description: "editar perfil",
+    time: "30/12/2021",
+    alert: "false",
+  },
+  {
+    icon: "user",
+    title: "Tú misma",
+    description: "inicio de sesión",
+    time: "30/12/2021",
+    alert: "false",
+  },
+]
+
 export const Tests = () => {
   const { store, actions } = useContext(Context);
   return (
