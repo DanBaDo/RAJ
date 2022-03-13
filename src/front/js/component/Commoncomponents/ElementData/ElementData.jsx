@@ -16,7 +16,7 @@ const ElementData = ({icon, title, description, time, alert="false"}) => {
         }
         & > p {
             text-align: left;
-            margin-left: 4rem;
+            margin-left: 5.5rem;
             margin-bottom: 0rem;
         }
         & > p.elemenTtitle {
