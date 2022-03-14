@@ -20,6 +20,7 @@ export { default as ButtonAuto } from "./InfoSection/CtaBanner.jsx";
 export { default as Rajinfo } from "./InfoSection/CtaBanner.jsx";
 export { default as ModDataUserForm} from "./Commoncomponents/ModDataUserForm.jsx";
 export { default as RestrictedAccess } from "./Commoncomponents/RestrictedAccess/RestrictedAccess.jsx";
+export { default as Avatar } from "./Commoncomponents/Avatar.jsx";
 
 // Footer------------
 export { default as Footer } from "./FooterSection/Footer.jsx";
@@ -30,7 +31,7 @@ export { default as Login } from "./Login/Login.jsx";
 export { default as ApiKey } from "./ApiKey/Apikey.jsx";
 
 // Users pannels ------------------------
-
-export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx"
-export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx"
-export { default as PanelEventos } from "./Commoncomponents/PanelEventos/PanelEventos.jsx"
+export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx";
+export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx";
+export { default as ClaveAPI } from "./Commoncomponents/ClaveAPI/ClaveAPI.jsx";
+export { default as PanelEventos } from "./Commoncomponents/PanelEventos/PanelEventos.jsx";
