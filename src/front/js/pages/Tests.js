@@ -60,7 +60,7 @@ export const Tests = () => {
           <ElementData icon={casino} title="Casino Royal" description="editar perfil" time="mie" alert="false"/>
           <ElementData icon={online} title="Poker Fight" description="intento de acceso" time="2 May" alert="true"/>
         <h1>PanelEventos</h1>
-          <PanelEventos arrayEventos={logsMockup} getPageHandler={logsQuery}/>
+          <PanelEventos arrayEventos={logsMockup} getPageHandler={logsQuery} currentPage={currentPage === 0 && "start" || currentPage === totalPages-1 && "end"}/>
       </div>
     </>
   );

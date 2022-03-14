@@ -8,17 +8,24 @@ import online from "../../../../img/online.svg";
 import user from "../../../../img/user.svg";
 
 import { ElementData } from "../../IndexComponents.js";
+import createUtilityClassName from "react-bootstrap/esm/createUtilityClasses";
 
 const PanelEventos = ({arrayEventos, getPageHandler, currentPage}) => {
 
-    const Block = styled.ol`
+    const Block = styled.div`
             border: none;
             background: none;
             padding: 0.5rem;
-            list-style: none;
             margin: 0.5rem;
+            & > ol {
+                list-style: none;
+                min-height: 30rem;
+            }
             & > p {
                 font-size: 3rem;
+            }
+            & > .noButton {
+                visibility: hidden;
             }
         `
 
@@ -49,9 +56,20 @@ const PanelEventos = ({arrayEventos, getPageHandler, currentPage}) => {
     return (
         <Block>
             <p>Panel de eventos</p>
-            <img src={up} alt="Previous page" onClick={ prevPage }/>
-            {events}
-            <img src={down} alt="Next page" onClick={ nextPage }/>
+            <img src={up}
+                alt="Previous page"
+                onClick={ prevPage }
+                className={currentPage === "start" ? "noButton" : ""}
+            />
+            <ol>
+                {events}
+            </ol>
+            <img src={down}
+                alt="Next page"
+                onClick={ nextPage }
+                className={currentPage === "end" ? "noButton" : ""}
+            />
+            
         </Block>
     );
 };
