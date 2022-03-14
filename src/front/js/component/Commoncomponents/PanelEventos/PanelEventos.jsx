@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import styled from 'styled-components';
 
+import up from "../../../../img/up.svg";
+import down from "../../../../img/down.svg";
 import casino from "../../../../img/casino.svg";
 import online from "../../../../img/online.svg";
 import user from "../../../../img/user.svg";
 
 import { ElementData } from "../../IndexComponents.js";
 
-const PanelEventos = ({arrayEventos, getPageHandler}) => {
+const PanelEventos = ({arrayEventos, getPageHandler, currentPage}) => {
 
     const Block = styled.ol`
             border: none;
@@ -29,7 +31,7 @@ const PanelEventos = ({arrayEventos, getPageHandler}) => {
     }
 
     const events = arrayEventos.map(
-        eventData => {
+        (eventData, idx) => {
             switch (eventData.icon) {
                 case "casino":
                     eventData.icon = casino;
@@ -41,15 +43,15 @@ const PanelEventos = ({arrayEventos, getPageHandler}) => {
                     eventData.icon = user;
                     break;
             } 
-            return <ElementData {...eventData}/>
+            return <ElementData key={idx} {...eventData}/>
         }
     )
     return (
         <Block>
             <p>Panel de eventos</p>
-            <button onClick={ prevPage }>Anterior</button>
+            <img src={up} alt="Previous page" onClick={ prevPage }/>
             {events}
-            <button onClick={ nextPage }>Siguiente</button>
+            <img src={down} alt="Next page" onClick={ nextPage }/>
         </Block>
     );
 };

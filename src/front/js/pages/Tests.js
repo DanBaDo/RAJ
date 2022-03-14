@@ -20,40 +20,34 @@ export const Tests = () => {
   const { store, actions } = useContext(Context);
   const [ logsMockup, setLogrosMockup ] = useState([]);
   const [ currentPage, setCurrentPage ] = useState(0);
-  const [ totalPages, setTotlaPages ] = useState(0);
+  const [ totalPages, setTotalPages ] = useState(Infinity);
 
   useEffect (
-    ()=> logsQuery(),
-    []
+    ()=> {
+      getLogs.query = currentPage;
+      getLogs.onError = (error) => console.error(error)
+      getLogs.onResponse = (response) => {
+        setLogrosMockup(response.contents.data);
+        setTotalPages(response.contents.pages);
+      }
+      getLogs.call()
+    },
+    [currentPage]
   )
 
   function logsQuery (action) {
     switch (action) {
       case "next":
-        if ( currentPage < totalPages ) {
-          setCurrentPage(currentPage+1);
-        } else {
-          return;
+        if ( currentPage < totalPages-1 ) {
+          setCurrentPage(prevCurrentPage => prevCurrentPage+1);
         }
         break;
       case "prev":
-        if ( page > 0 ) {
-          setCurrentPage(currentPage-1);
-        } else {
-          return
+        if ( currentPage > 0 ) {
+          setCurrentPage(prevCurrentPage => prevCurrentPage-1);
         }
         break;
-      default:
-        setCurrentPage(0);
     }
-    getLogs.query = currentPage;
-    getLogs.onError = (error) => console.error(error)
-    getLogs.onResponse = (response) => {
-      console.log(response);
-      setLogrosMockup(response.data);
-      setMaxPages(response.pages);
-    }
-    getLogs.call()
   }
 
   return (
