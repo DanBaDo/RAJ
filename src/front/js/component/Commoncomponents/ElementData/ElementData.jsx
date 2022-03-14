@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from 'styled-components';
 
-const ElementData = ({icon, title, description, time, alert="false"}) => {
+const ElementData = ({icon, title, description, time, alert="false", showText=true}) => {
     const Block = styled.li`
         border: none;
         background: none;
@@ -28,13 +28,18 @@ const ElementData = ({icon, title, description, time, alert="false"}) => {
             color: var(${alert === "true" ? "--warning-color" : "--info-color"});
         }
     `
+
     return (
         <Block>
             <img src={icon} alt="Icon" />
+            { showText &&
+            <>
             <p className="elemenTtitle">{title}</p>
             <p className="elemenTdata">
                 <span>{description}</span> - {time}
             </p>
+            </>
+            }
         </Block>
     );
 };
