@@ -28,3 +28,6 @@ export { default as Footer } from "./FooterSection/Footer.jsx";
 export { default as Login } from "./Login/Login.jsx";
 
 export { default as ApiKey } from "./ApiKey/Apikey.jsx";
+
+//User page---------
+export {default as Avatar} from "./Commoncomponents/Avatar.jsx";

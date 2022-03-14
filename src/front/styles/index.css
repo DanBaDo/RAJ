@@ -7,58 +7,6 @@
 
 body{
   font-family: 'Oswald', sans-serif;
-  background-color:#1f2b5b;  
+  height: 100%;
 }
 
-p{
-font-weight: 300;
-}
-
-svg{margin: 3px;
-font-size: 14px;
-};
-
-.button {
-    display: inline-block;
-    background: #4285f4;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 0px 0px;
-    border-radius: 5px;
-    box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    -webkit-transition: all ease-in-out 300ms;
-    transition: all ease-in-out 300ms;
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    margin: 30px 30px 60px 50px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 600;
-    
-  }
-.button:hover {
-    box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: translate(0px, -10px) scale(1.2);
-            transform: translate(0px, -10px) scale(1.2);
-  }
-
-  .buttonlogin{
-    width: 60%;
-    height: 40px;
-    margin: 10px auto;
-    justify-content: center;
-    display: block;
-    color: #fff;
-    background: #22aa99;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    transition: .2s ease-in;
-    cursor: pointer;
-  }
-  
-  

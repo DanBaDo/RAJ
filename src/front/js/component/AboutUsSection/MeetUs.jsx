@@ -13,7 +13,7 @@ const MeetUs = () => {
     <>
       <Container fluid className="py-5 slantedDivA bg-color_color">
         <Row>
-          <Col md={{ order: "last" }} xs={{ order: "first" }} className="my-3 text-center">
+          <Col md={{ order: "last" }} xs={{ order: "last" }} className="my-3 text-center">
             <Logo />
             <TextMeet>
               Raj se caracteriza por se un modelo diferente y mas eficiente de

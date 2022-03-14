@@ -9,8 +9,6 @@ import {
   Rajinfo,
   ModDataUserForm,
 } from "../component/IndexComponents";
-
-
 export const Home = () => {
   const { store, actions } = useContext(Context);
   return (
@@ -21,7 +19,7 @@ export const Home = () => {
       <Rajinfo />
       <Testimonials />
       <Footer />
-
+     
     
     </>
   );

@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ModDataUserForm } from "../component/IndexComponents";
+import { ModDataUserForm, Avatar } from "../component/IndexComponents";
+
 
 const UserPageProfile = () => {
   const { store, actions } = useContext(Context);
@@ -13,12 +14,16 @@ const UserPageProfile = () => {
   return (
     <>
     <style>{'body{background-color:#1f2b5b}'}</style>
-      <Container className="bg-white rounded py-3 my-4">
+      <Container className="py-3 my-4">
         <Row>
-      <Col md={6} xs={12}>
+      <Col md={3} xs={12} className="bg-white">
         <Card>
           <Card.Header as="h5">
-            Bienvenido: {store.user.name}
+            <Row>
+              <Col> <Avatar/></Col>
+              <Col> Bienvenido: {store.user.name}</Col>
+           
+            </Row>
           </Card.Header>
           <Card.Body>
             <Card.Title>Este es tu perfil</Card.Title>
@@ -38,32 +43,36 @@ const UserPageProfile = () => {
               Cerrar Sesion
             </Button>
             <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
-            <Button
-                onClick={() => setOpen(!open)}
-                aria-controls="example-fade-text-3"
-                aria-expanded={open}
-              >
-               Registros
-              </Button>
-              <Button
-                onClick={() => setOpen(!open)}
-                aria-controls="example-fade-text-3"
-                aria-expanded={open}
-              >
-               Logros
-              </Button>
             </Stack>
           </Card.Body>
         </Card>
       </Col>
-      <Col md={6} xs={12}>
-        <Fade in={open}>
+      <Col md={3} xs={12} className="bg-white mx-2">
+       
+      
+      </Col>
+      <Col md={3} xs={12} className="bg-white mx-2">
+      
+      hola mundo
+      
+      </Col>
+      <Col md={3} xs={12} className="bg-white mx-2">
+      <Fade in={open} className="bg-white">
           <div id="example-fade-text">
            Aqui va el formulario
           </div>
        </Fade>
+      
+      
       </Col>
-      </Row>
+
+
+
+    </Row>
+    
+    
+
+  
     </Container>
   </>
   );
