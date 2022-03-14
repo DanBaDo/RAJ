@@ -20,6 +20,7 @@ export function Request(path, method, requireAuthentication = true) {
   return {
     // Optional reques body data, onResponse callback and onError callback
     data: null,
+    query: "",
     onResponse: () => {},
     onError: () => {},
     requesOptions: {
@@ -37,7 +38,7 @@ export function Request(path, method, requireAuthentication = true) {
           throw "Authentication: lack of JWT and authentication required.";
         this.requesOptions.headers.Authorization = "Bearer " + token;
       }
-      fetch(`${baseURL}${path}`, this.requesOptions)
+      fetch(`${baseURL}${path}${this.query}`, this.requesOptions)
         .then((response) => {
           response.json().then((data) => {
             this.onResponse({
