@@ -1,5 +1,5 @@
 from math import ceil
-from flask import jsonify
+from flask import jsonify, request
 
 LOGS_MOCKUP = [
   {
