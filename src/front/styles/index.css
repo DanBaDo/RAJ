@@ -5,6 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 
+:root {
+  --warning-color: #ff0000;
+  --info-color: #1f7e83;
+  --main-blue: #1f2b5b;
+}
+
 body{
   font-family: 'Oswald', sans-serif;
   height: 100%;
