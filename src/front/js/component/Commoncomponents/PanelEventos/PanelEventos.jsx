@@ -7,7 +7,7 @@ import user from "../../../../img/user.svg";
 
 import { ElementData } from "../../IndexComponents.js";
 
-const PanelEventos = ({arrayEventos}) => {
+const PanelEventos = ({arrayEventos, getPageHandler}) => {
 
     const Block = styled.ol`
             border: none;
@@ -20,14 +20,12 @@ const PanelEventos = ({arrayEventos}) => {
             }
         `
 
-    const [ page, setPage ] = useState(0);
-
     const nextPage = () => {
-        setPage(page+1);
+        getPageHandler("next");
     }
 
     const prevPage = () => {
-        if (page > 0) setPage(page-1) 
+        getPageHandler("prev");
     }
 
     const events = arrayEventos.map(

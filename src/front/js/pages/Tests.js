@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
+
+import { getLogs } from "../libraries/request/APIRequests.js";
 
 import trash from "../../img/trash.svg";
 import casino from "../../img/casino.svg";
@@ -12,53 +14,48 @@ import {
   PanelEventos,
 } from "../component/IndexComponents";
 
-const logrosMockup = [
-  {
-    icon: "user",
-    title: "Tú",
-    description: "editar perfil",
-    time: "12:45",
-    alert: "false",
-  },
-  {
-    icon: "casino",
-    title: "Casino Royal",
-    description: "intento de acceso",
-    time: "mie",
-    alert: "true",
-  },
-  {
-    icon: "online",
-    title: "Poker Figth",
-    description: "intento de acceso",
-    time: "7 May",
-    alert: "true",
-  },
-  {
-    icon: "online",
-    title: "Bet Hero",
-    description: "intento de acceso",
-    time: "2 May",
-    alert: "true",
-  },
-  {
-    icon: "user",
-    title: "Tú",
-    description: "editar perfil",
-    time: "30/12/2021",
-    alert: "false",
-  },
-  {
-    icon: "user",
-    title: "Tú",
-    description: "inicio de sesión",
-    time: "30/12/2021",
-    alert: "false",
-  },
-]
 
 export const Tests = () => {
+
   const { store, actions } = useContext(Context);
+  const [ logsMockup, setLogrosMockup ] = useState([]);
+  const [ currentPage, setCurrentPage ] = useState(0);
+  const [ totalPages, setTotlaPages ] = useState(0);
+
+  useEffect (
+    ()=> logsQuery(),
+    []
+  )
+
+  function logsQuery (action) {
+    switch (action) {
+      case "next":
+        if ( currentPage < totalPages ) {
+          setCurrentPage(currentPage+1);
+        } else {
+          return;
+        }
+        break;
+      case "prev":
+        if ( page > 0 ) {
+          setCurrentPage(currentPage-1);
+        } else {
+          return
+        }
+        break;
+      default:
+        setCurrentPage(0);
+    }
+    getLogs.query = currentPage;
+    getLogs.onError = (error) => console.error(error)
+    getLogs.onResponse = (response) => {
+      console.log(response);
+      setLogrosMockup(response.data);
+      setMaxPages(response.pages);
+    }
+    getLogs.call()
+  }
+
   return (
     <>
       <div className="text-center mt-5">
@@ -69,7 +66,7 @@ export const Tests = () => {
           <ElementData icon={casino} title="Casino Royal" description="editar perfil" time="mie" alert="false"/>
           <ElementData icon={online} title="Poker Fight" description="intento de acceso" time="2 May" alert="true"/>
         <h1>PanelEventos</h1>
-          <PanelEventos arrayEventos={logrosMockup}/>
+          <PanelEventos arrayEventos={logsMockup} getPageHandler={logsQuery}/>
       </div>
     </>
   );
