@@ -18,7 +18,7 @@ LOGS_MOCKUP = [
   },
   {
     "icon": "online",
-    "title": "Poker Figth",
+    "title": "Poker Fight",
     "description": "intento de acceso",
     "time": "7 May",
     "alert": "true",
@@ -44,50 +44,46 @@ LOGS_MOCKUP = [
     "time": "30/12/2021",
     "alert": "false",
   },
-  
-
-
-
-    {
+  {
     "icon": "user",
     "title": "Tú",
     "description": "editar perfil",
-    "time": "12:45",
+    "time": "11/10/2021",
     "alert": "false",
   },
   {
     "icon": "casino",
     "title": "Casino Royal",
     "description": "intento de acceso",
-    "time": "mie",
+    "time": "01/08/2021",
     "alert": "true",
   },
   {
     "icon": "online",
-    "title": "Poker Figth",
+    "title": "Poker Fight",
     "description": "intento de acceso",
-    "time": "7 May",
+    "time": "04/01/2020",
     "alert": "true",
   },
   {
     "icon": "online",
     "title": "Bet Hero",
     "description": "intento de acceso",
-    "time": "2 May",
+    "time": "13/12/2019",
     "alert": "true",
   },
   {
     "icon": "user",
     "title": "Tú",
     "description": "editar perfil",
-    "time": "30/12/2021",
+    "time": "30/12/2019",
     "alert": "false",
   },
   {
     "icon": "user",
     "title": "Tú",
     "description": "inicio de sesión",
-    "time": "30/12/2021",
+    "time": "30/12/2019",
     "alert": "false",
   },
 ]
