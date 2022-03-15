@@ -23,7 +23,7 @@ const Gallery = () => {
 const ContainerImg = styled.div`
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   height: 100%;
 `;
 const JumboImg = styled.div`

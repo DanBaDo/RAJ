@@ -7,11 +7,13 @@ import {Link} from "react-router-dom"
 
 const Rajinfo = () => {
   const StyledSpan = styled.span`
-    font-size: 20px;
+    & > p {
+      font-size: 1.5rem;
+    }
   `;
   const ImgAuto = styled.img`
     width: 100%;
-    heigth: auto;
+    height: auto;
     max-width: 100%;
   `;
 
@@ -24,11 +26,11 @@ const Rajinfo = () => {
           </h2>
           <Col className="Textauto">
             <StyledSpan>
-              La Autoexclusión es una forma de que cualquier persona que crea
+              <p>La Autoexclusión es una forma de que cualquier persona que crea
               tener problemas con el juego pueda autoexcluirse de todas las webs
               de apuestas y casinos online de España. De esta manera, una vez
               solicitada esta autoexclusión, el usuario no podrá volver acceder
-              a estos locales.
+              a estos locales.</p>
               <p>
                 La ludopatía, la adicción a los juegos de azar lleva a la
                 pérdida de trabajo, problemas de dinero, fraude, crimen o
