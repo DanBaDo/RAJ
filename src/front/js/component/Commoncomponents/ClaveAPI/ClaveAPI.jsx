@@ -1,7 +1,11 @@
 import React, {useState} from "react";
 import styled from 'styled-components';
 
-import { ElementData, BotonClave } from "../../IndexComponents.js";
+import {
+    ElementData,
+    BotonClave,
+    BigQR,
+ } from "../../IndexComponents.js";
 
 import trash from "../../../../img/trash.svg";
 import copy from "../../../../img/copy.svg"
@@ -14,8 +18,7 @@ const ClaveAPI = ({
     title,
     description,
     time,
-    qrClickHandler=()=>{},
-    copyClickHandler=()=>{},
+    url,
     trashClickHandler=()=>{},
     alert="false",
     showText=true
@@ -33,9 +36,13 @@ const ClaveAPI = ({
     `
 
     const [ hideButtons, setHideButtons] = useState(true);
+    const [ showQR, setShowQR ] = useState(false);
 
     const toggleButtons = () => {
         setHideButtons(! hideButtons)
+    }
+    const toggleQR = () => {
+        setShowQR( ! showQR )
     }
 
     const ElementDataProps = {icon, title, description, time, alert, showText}
@@ -44,9 +51,10 @@ const ClaveAPI = ({
         <Block>
             <ElementData {...ElementDataProps} showText={ hideButtons }/>
             <div>
-                { ! hideButtons && <BotonClave src={qr} handler={qrClickHandler}/>}
-                { ! hideButtons && <BotonClave src={copy} handler={copyClickHandler}/>}
+                { ! hideButtons && <BotonClave src={qr} handler={toggleQR}/>}
+                { ! hideButtons && <BotonClave src={copy} handler={()=>navigator.clipboard.writeText(url)}/>}
                 { ! hideButtons && <BotonClave src={trash} handler={trashClickHandler}/>}
+                { showQR && <BigQR url={url} clickHandler={toggleQR}/> }
                 <BotonClave src={ hideButtons ? menu : close } handler={toggleButtons}/>
             </div>
         </Block>
