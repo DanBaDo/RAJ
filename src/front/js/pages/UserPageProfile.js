@@ -2,15 +2,73 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ModDataUserForm, Avatar} from "../component/IndexComponents";
+import {
+  ModDataUserForm,
+  Avatar,
+  PanelEventos,
+} from "../component/IndexComponents";
 
 
 const UserPageProfile = () => {
   const { store, actions } = useContext(Context);
+
+  // Show profile form  hook.
   const [open, setOpen] = useState(false);
+
+  // Logout handller.
   const logout = (ev) => {
     actions.setLoggedOut();
   };
+
+
+  /**
+   * Start event handler logic
+   */
+
+  // Store data form backend mocked data.
+  const [ logsMockup, setLogrosMockup ] = useState([]);
+  // Store current page. Change page hook.
+  const [ currentPage, setCurrentPage ] = useState(0);
+  // Store total data pages in backend mocked data.
+  const [ totalPages, setTotalPages ] = useState(Infinity);
+  
+  // Call for new data page on currentPage changes
+  useEffect (
+    ()=> {
+      getLogs.query = currentPage;
+      getLogs.onError = (error) => console.error(error)
+      getLogs.onResponse = (response) => {
+        setLogrosMockup(response.contents.data);
+        setTotalPages(response.contents.pages);
+      }
+      getLogs.call()
+    },
+    [currentPage]
+  )
+  
+  // Next/previous page handler
+  function changePage (action) {
+    switch (action) {
+      case "next":
+        if ( currentPage < totalPages-1 ) {
+          setCurrentPage(prevCurrentPage => prevCurrentPage+1);
+        }
+        break;
+      case "prev":
+        if ( currentPage > 0 ) {
+          setCurrentPage(prevCurrentPage => prevCurrentPage-1);
+        }
+        break;
+    }
+  }
+
+  /**
+   * End event handler logic
+   */
+
+
+
+
   return (
     <>
     <style>{'body{background-color:#1f2b5b}'}</style>
@@ -49,7 +107,11 @@ const UserPageProfile = () => {
         </Card>
       </Col>
       <Col md={3} xs={12} className="bg-white mx-2">
-       
+        <PanelEventos
+          arrayEventos={logsMockup}
+          getPageHandler={changePage}
+          currentPage={currentPage === 0 && "start" || currentPage === totalPages-1 && "end"}
+        />
       
       </Col>
       <Col md={3} xs={12} className="bg-white mx-2">
