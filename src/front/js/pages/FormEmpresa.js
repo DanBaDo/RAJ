@@ -173,7 +173,7 @@ export const FormEmpresa = () => {
                 />
               </Form.Group>
 
-              <Button className="button" type="submit">Registrar empresa</Button>
+              <Button className="buttonlogin" type="submit">Registrar empresa</Button>
             </Col>
             
           </Row>

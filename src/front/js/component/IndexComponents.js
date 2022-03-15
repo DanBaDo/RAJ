@@ -26,11 +26,11 @@ export { default as Footer } from "./FooterSection/Footer.jsx";
 
 // Outside home -------------------
 export { default as Login } from "./Login/Login.jsx";
-
+export { default as Avatar} from "./Commoncomponents/Avatar.jsx";
 export { default as ApiKey } from "./ApiKey/Apikey.jsx";
 
 // Users pannels ------------------------
-
-export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx"
-export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx"
-export { default as PanelEventos } from "./Commoncomponents/PanelEventos/PanelEventos.jsx"
+export { default as Boton} from "./Commoncomponents/Boton/Boton.jsx";
+export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx";
+export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx";
+export { default as PanelEventos } from "./Commoncomponents/PanelEventos/PanelEventos.jsx";

@@ -13,7 +13,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
   return (
     <>
-    
+      
       <Gallery />
       <MeetUs />
       <Rajinfo />

@@ -147,7 +147,7 @@ export const FormAffected = () => {
                 />
               </Form.Group>
 
-              <Button className="button" type="submit">Registrarme</Button>
+              <Button className="buttonlogin" type="submit">Registrarme</Button>
             </Col>
             
           </Row>

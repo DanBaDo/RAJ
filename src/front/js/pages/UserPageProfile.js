@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ModDataUserForm, Avatar } from "../component/IndexComponents";
+import { ModDataUserForm, Avatar} from "../component/IndexComponents";
 
 
 const UserPageProfile = () => {
@@ -43,6 +43,7 @@ const UserPageProfile = () => {
               Cerrar Sesion
             </Button>
             <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
+            <Boton>Prueba</Boton>
             </Stack>
           </Card.Body>
         </Card>
