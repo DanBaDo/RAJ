@@ -18,6 +18,7 @@ import {
   ClaveAPI,
   PanelCalvesAPI,
   PanelLogros,
+  Boton,
 } from "../component/IndexComponents";
 
 
@@ -59,6 +60,8 @@ export const Tests = () => {
   return (
     <>
       <div className="text-center mt-5">
+        <h1>Boton</h1>
+          <Boton text="Cosas"></Boton>
         <h1>BotonClave</h1>
           <BotonClave src={trash} handler={()=>{alert("Click!")}}/>
           <BotonClave src={trash} handler={()=>{alert("Click!")}} size="5em" padding="1.25em"/>
