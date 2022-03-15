@@ -20,6 +20,8 @@ export { default as ButtonAuto } from "./InfoSection/CtaBanner.jsx";
 export { default as Rajinfo } from "./InfoSection/CtaBanner.jsx";
 export { default as ModDataUserForm} from "./Commoncomponents/ModDataUserForm.jsx";
 export { default as RestrictedAccess } from "./Commoncomponents/RestrictedAccess/RestrictedAccess.jsx";
+export { default as Avatar } from "./Commoncomponents/Avatar.jsx";
+export { default as BigQR } from "./Commoncomponents/bigQR.jsx";
 
 // Footer------------
 export { default as Footer } from "./FooterSection/Footer.jsx";
