@@ -106,13 +106,6 @@ COMPANY_LOGS_MOCKUP = [
   {
     "icon": "casino",
     "title": "Casino Ferrolano",
-    "description": "instalación de llave API",
-    "time": "7 May",
-    "alert": "true",
-  },
-  {
-    "icon": "casino",
-    "title": "Casino Ferrolano",
     "description": "creación de llave API",
     "time": "7 May",
     "alert": "true",
