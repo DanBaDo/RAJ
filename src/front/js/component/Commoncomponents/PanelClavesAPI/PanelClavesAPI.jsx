@@ -9,9 +9,7 @@ import user from "../../../../img/user.svg";
 
 import { ClaveAPI } from "../../IndexComponents.js";
 
-import { getAPIKeys, createAPIKeys } from "../../../libraries/request/APIRequests";
-
-const PanelClavesAPI = () => {
+const PanelClavesAPI = ({keys}) => {
 
     const Block = styled.div`
             border: none;
@@ -32,19 +30,12 @@ const PanelClavesAPI = () => {
             }
         `
 
-    const [keys, setKeys] = useState([]);
-
-    const nextPage = () => {
-        getPageHandler("next");
-    }
-
-    const prevPage = () => {
-        getPageHandler("prev");
-    }
+    //const [keys, setKeys] = useState([]);
 
     const keysComponents = () => {
-        return keys.map((key, idx) => (
+        return keys.map((key) => (
           <ClaveAPI
+            key={key.key}
             icon={key.icon === "casino" ? casino : online}
             title={key.title}
             description={key.description}
@@ -55,33 +46,6 @@ const PanelClavesAPI = () => {
           />
         ));
     };
-
-    useEffect(() => {
-        getAPIKeys.onError = (error) => {
-          actions.addError(error);
-        };
-        getAPIKeys.onResponse = (response) => {
-          try {
-            switch (response.code) {
-              case 200:
-                const keys = response.contents.data.map((key, idx) => {
-                  key.show = false;
-                  return key;
-                });
-                setKeys(keys);
-                break;
-              case 403:
-                actions.addError("Autentication error getting API keys list", "/");
-                break;
-              default:
-                actions.addError("Unexpected error getting API keys list", "/");
-            }
-          } catch (error) {
-            actions.addError(error);
-          }
-        };
-        getAPIKeys.call();
-      }, []);
 
     return (
         <Block>

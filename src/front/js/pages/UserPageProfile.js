@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
+import { Button, Container, Card, Stack, Col, Row, Modal, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import {
   ModDataUserForm,
@@ -10,13 +10,26 @@ import {
   PanelLogros,
   Boton
 } from "../component/IndexComponents";
+import styled from 'styled-components';
 
-import { getLogs } from "../libraries/request/APIRequests.js";
+import { getLogs, getAPIKeys, createAPIKeys } from "../libraries/request/APIRequests.js";
 
+const Block = styled.div`
+	text-align: center;
+  &:last-child {
+    position: relative;
+    top: 1rem;
+  }
+`
 
 const UserPageProfile = () => {
   const history = useHistory()
   const { store, actions } = useContext(Context);
+
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({ purpose: "APPLICATION" });
+  const [validated, setValidated] = useState(false);
+  const [keys, setKeys] = useState([]);
 
   // Show profile form  hook.
   const [open, setOpen] = useState(false);
@@ -25,8 +38,26 @@ const UserPageProfile = () => {
   const logout = (ev) => {
     actions.setLoggedOut();
   };
-
-
+  const handleChange = (event) => {
+    const currentFormData = { ...formData };
+    currentFormData[event.target.name] = event.target.value;
+    setFormData(currentFormData);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    }
+    setValidated(true);
+    createAPIKeys.onError = (error) => actions.addError(error);
+    createAPIKeys.onResponse = (resp) => {
+      setShowForm(false);
+      setKeys([resp.contents.data.newApiKey, ...keys]);
+    };
+    createAPIKeys.data = formData;
+    createAPIKeys.call();
+  };
   /**
    * Start event handler logic
    */
@@ -51,6 +82,33 @@ const UserPageProfile = () => {
     [currentPage]
   )
   
+  useEffect(() => {
+    getAPIKeys.onError = (error) => {
+      actions.addError(error);
+    };
+    getAPIKeys.onResponse = (response) => {
+      try {
+        switch (response.code) {
+          case 200:
+            const keys = response.contents.data.map((key, idx) => {
+              key.show = false;
+              return key;
+            });
+            setKeys(keys);
+            break;
+          case 403:
+            actions.addError("Autentication error getting API keys list", "/");
+            break;
+          default:
+            actions.addError("Unexpected error getting API keys list", "/");
+        }
+      } catch (error) {
+        actions.addError(error);
+      }
+    };
+    getAPIKeys.call();
+  }, []);
+
   // Next/previous page handler
   function changePage (action) {
     switch (action) {
@@ -71,7 +129,7 @@ const UserPageProfile = () => {
    */
 
   return (
-    <>
+    <Block>
     <Container className="py-3 my-4">
       <style>{'body{background-color:#1f2b5b}'}</style>
       <Row>
@@ -107,11 +165,65 @@ const UserPageProfile = () => {
           />
         </Col>
         <Col md={4} xs={12} className="bg-white mx-2">
-          { store.user.role === "RPR" ? <PanelCalvesAPI/> : <PanelLogros/> }
+          {
+            store.user.role === "RPR" ? 
+            <>
+              <PanelCalvesAPI keys={keys}/>
+              <Boton onClick={()=>setShowForm(true)}>Nueva llave</Boton>
+            </> :
+            <PanelLogros/>
+          }
         </Col>
-      </Row>      
+      </Row>
+      <Modal show={showForm} onHide={()=>setShowForm(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Nueva clave API</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form
+              onChange={handleChange}
+              noValidate
+              validated={validated}
+              onSubmit={handleSubmit}
+            >
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Nombre descriptivo</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="description"
+                  placeholder="Diferencie sus claves API"
+                  maxLength={12}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Uso de la llave</Form.Label>
+                <Form.Check
+                  type="radio"
+                  name="purpose"
+                  label="Servicio on-line"
+                  value="APPLICATION"
+                  defaultChecked
+                />
+                <Form.Check
+                  type="radio"
+                  name="purpose"
+                  label="Lector de control de acceso"
+                  value="IOT"
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={()=>setShowForm(false)}>
+              Cancelar
+            </Button>
+          </Modal.Footer>
+        </Modal>
     </Container>
-    </>
+    </Block>
   );
 };
 
