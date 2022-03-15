@@ -107,14 +107,14 @@ COMPANY_LOGS_MOCKUP = [
     "icon": "casino",
     "title": "Casino Ferrolano",
     "description": "creación de llave API",
-    "time": "7 May",
+    "time": "30/12/2021",
     "alert": "true",
   },
   {
     "icon": "user",
     "title": "Juan Peláez",
     "description": "inicio de sesión",
-    "time": "12:43",
+    "time": "30/12/2021",
     "alert": "false",
   },
   {
@@ -135,7 +135,7 @@ COMPANY_LOGS_MOCKUP = [
     "icon": "user",
     "title": "Tú",
     "description": "inicio de sesión",
-    "time": "12:43",
+    "time": "01/08/2020",
     "alert": "false",
   },
 ]
