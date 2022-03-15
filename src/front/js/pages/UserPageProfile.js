@@ -1,19 +1,21 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   ModDataUserForm,
   Avatar,
   PanelEventos,
   PanelCalvesAPI,
-  PanelLogros
+  PanelLogros,
+  Boton
 } from "../component/IndexComponents";
 
 import { getLogs } from "../libraries/request/APIRequests.js";
 
 
 const UserPageProfile = () => {
+  const history = useHistory()
   const { store, actions } = useContext(Context);
 
   // Show profile form  hook.
@@ -89,21 +91,13 @@ const UserPageProfile = () => {
                 necesites:
               </Card.Text>
               <Stack gap={3} className="col-md-10 mx-auto">
-                <Button
-                  onClick={() => setOpen(!open)}
-                  aria-controls="example-fade-text"
-                  aria-expanded={open}
-                >
-                Modificar usuario
-                </Button>
-                <Button onClick={logout} variant="primary">
-                Cerrar Sesion
-              </Button>
-              <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
-              <Button>Prueba</Button>
+              <Boton onClick={() => setOpen(!open)}>Modificar usuario</Boton>
+              <Boton onClick={logout}>Cerrar sesión</Boton>
+              <Boton onClick={()=>history.push("/DropOutRequest/")}>Solicitar Baja</Boton>
               </Stack>
             </Card.Body>
           </Card>
+
         </Col>
         <Col md={4} xs={12} className="bg-white mx-2">
           <PanelEventos
