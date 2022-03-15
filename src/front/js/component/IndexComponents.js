@@ -28,9 +28,8 @@ export { default as Footer } from "./FooterSection/Footer.jsx";
 
 // Outside home -------------------
 export { default as Login } from "./Login/Login.jsx";
-export { default as Avatar} from "./Commoncomponents/Avatar.jsx";
 export { default as ApiKey } from "./ApiKey/Apikey.jsx";
-
+export { default as ClaveAPI} from "./Commoncomponents/ClaveAPI/ClaveAPI.jsx";
 // Users pannels ------------------------
 export { default as Boton} from "./Commoncomponents/Boton/Boton.jsx";
 export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx";
