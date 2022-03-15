@@ -6,6 +6,8 @@ import {
   ModDataUserForm,
   Avatar,
   PanelEventos,
+  PanelCalvesAPI,
+  PanelLogros
 } from "../component/IndexComponents";
 
 import { getLogs } from "../libraries/request/APIRequests.js";
@@ -26,7 +28,6 @@ const UserPageProfile = () => {
   /**
    * Start event handler logic
    */
-
   // Store data form backend mocked data.
   const [ logsMockup, setLogrosMockup ] = useState([]);
   // Store current page. Change page hook.
@@ -63,84 +64,70 @@ const UserPageProfile = () => {
         break;
     }
   }
-
   /**
    * End event handler logic
    */
 
-
-
-
   return (
     <>
-    <style>{'body{background-color:#1f2b5b}'}</style>
-      <Container className="py-3 my-4">
-        <Row>
-      <Col md={3} xs={12} className="bg-white">
-        <Card>
-          <Card.Header as="h5">
-            <Row>
-              <Col> <Avatar/></Col>
-              <Col> Bienvenido: {store.user.name}</Col>
-           
-            </Row>
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>Este es tu perfil</Card.Title>
-            <Card.Text>
-              Desde aqui podras interactuar con todas las opciones que
-              necesites:
-            </Card.Text>
-            <Stack gap={3} className="col-md-10 mx-auto">
-              <Button
-                onClick={() => setOpen(!open)}
-                aria-controls="example-fade-text"
-                aria-expanded={open}
-              >
-               Modificar usuario
+    <Container className="py-3 my-4">
+      <style>{'body{background-color:#1f2b5b}'}</style>
+      <Row>
+        <Col md={3} xs={12} className="bg-white">
+          <Card>
+            <Card.Header as="h5">
+              <Row>
+                <Col> <Avatar/></Col>
+                <Col> Bienvenido: {store.user.name}</Col>
+            
+              </Row>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>Este es tu perfil</Card.Title>
+              <Card.Text>
+                Desde aqui podras interactuar con todas las opciones que
+                necesites:
+              </Card.Text>
+              <Stack gap={3} className="col-md-10 mx-auto">
+                <Button
+                  onClick={() => setOpen(!open)}
+                  aria-controls="example-fade-text"
+                  aria-expanded={open}
+                >
+                Modificar usuario
+                </Button>
+                <Button onClick={logout} variant="primary">
+                Cerrar Sesion
               </Button>
-              <Button onClick={logout} variant="primary">
-              Cerrar Sesion
-            </Button>
-            <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
-            <Button>Prueba</Button>
-            </Stack>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col md={3} xs={12} className="bg-white mx-2">
-        <PanelEventos
-          arrayEventos={logsMockup}
-          getPageHandler={changePage}
-          currentPage={currentPage === 0 && "start" || currentPage === totalPages-1 && "end"}
-        />
-      
-      </Col>
-      <Col md={3} xs={12} className="bg-white mx-2">
-      
-      hola mundo
-      
-      </Col>
-      <Col md={3} xs={12} className="bg-white mx-2">
-      <Fade in={open} className="bg-white">
-          <div id="example-fade-text">
-           Aqui va el formulario
-          </div>
-       </Fade>
-      
-      
-      </Col>
-
-
-
-    </Row>
-    
-    
-
-  
+              <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
+              <Button>Prueba</Button>
+              </Stack>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={4} xs={12} className="bg-white mx-2">
+          <PanelEventos
+            arrayEventos={logsMockup}
+            getPageHandler={changePage}
+            currentPage={currentPage === 0 && "start" || currentPage === totalPages-1 && "end"}
+          />
+        </Col>
+        <Col md={4} xs={12} className="bg-white mx-2">
+          { store.user.role === "RPR" ? <PanelCalvesAPI/> : <PanelLogros/> }
+        </Col>
+      </Row>      
     </Container>
-  </>
+    </>
   );
 };
 
 export default UserPageProfile;
+/*
+        <Col md={3} xs={12} className="bg-white mx-2">
+          <Fade in={open} className="bg-white">
+            <div id="example-fade-text">
+            Aqui va el formulario
+            </div>
+          </Fade>
+        </Col>
+*/

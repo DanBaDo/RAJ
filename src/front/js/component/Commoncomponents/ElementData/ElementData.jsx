@@ -5,7 +5,7 @@ const ElementData = ({icon, title, description, time, alert="false", showText=tr
     const Block = styled.li`
         border: none;
         background: none;
-        padding: 0.5rem;
+        padding: 0px;
         list-style: none;
         margin: 0.5rem;
         & > img {
@@ -36,7 +36,7 @@ const ElementData = ({icon, title, description, time, alert="false", showText=tr
             <>
             <p className="elemenTtitle">{title}</p>
             <p className="elemenTdata">
-                <span>{description}</span> - {time}
+                {time} - <span>{description}</span>
             </p>
             </>
             }

@@ -35,3 +35,5 @@ export { default as Boton} from "./Commoncomponents/Boton/Boton.jsx";
 export { default as BotonClave } from "./Commoncomponents/BotonClave/BotonClave.jsx";
 export { default as ElementData } from "./Commoncomponents/ElementData/ElementData.jsx";
 export { default as PanelEventos } from "./Commoncomponents/PanelEventos/PanelEventos.jsx";
+export { default as PanelCalvesAPI } from "./Commoncomponents/PanelClavesAPI/PanelClavesAPI.jsx"
+export { default as PanelLogros } from "./Commoncomponents/PanelLogros/PanelLogros.jsx"

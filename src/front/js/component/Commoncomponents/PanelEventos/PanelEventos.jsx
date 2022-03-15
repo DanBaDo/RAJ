@@ -17,9 +17,11 @@ const PanelEventos = ({arrayEventos, getPageHandler, currentPage}) => {
             background: none;
             padding: 0.5rem;
             margin: 0.5rem;
+            text-align: center;
             & > ol {
                 list-style: none;
                 min-height: 30rem;
+                padding: 0px;
             }
             & > p {
                 font-size: 3rem;

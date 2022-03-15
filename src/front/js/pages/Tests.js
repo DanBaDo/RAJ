@@ -16,6 +16,8 @@ import {
   ElementData,
   PanelEventos,
   ClaveAPI,
+  PanelCalvesAPI,
+  PanelLogros,
 } from "../component/IndexComponents";
 
 
@@ -78,6 +80,10 @@ export const Tests = () => {
           />
         <h1>PanelEventos</h1>
           <PanelEventos arrayEventos={logsMockup} getPageHandler={logsQuery} currentPage={currentPage === 0 && "start" || currentPage === totalPages-1 && "end"}/>
+        <h1>PanelClavesAPI</h1>
+          <PanelCalvesAPI/>
+        <h1>PanelLogros</h1>
+          <PanelLogros/>
       </div>
     </>
   );

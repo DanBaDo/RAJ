@@ -14,7 +14,24 @@ def get_api_keys():
         # TODO: Change for implements multiple representant for company
         company = current_user.companies[0]
         resp.message = "Your API keys"
-        resp.data = [{**key.serialize(), "url": request.base_url + key.key } for key in company.api_keys]
+        # resp.data = [{**key.serialize(), "url": request.base_url + key.key } for key in company.api_keys]
+        # Mocked API keys
+        resp.data = [
+            {
+                "icon": "casino",
+                "title": "Poker Fight",
+                "description": "instalada",
+                "time": "ayer",
+                "url": "http://bit.ly/jd73kdu"
+            },
+            {
+                "icon": "online",
+                "title": "Gambling Warrior",
+                "description": "pendiente",
+                "time": "30/12/2021",
+                "url": "http://bit.ly/jd5Ekdu"
+            },
+        ]
         return resp.json(), 200
     except Exception as err:
         resp.message = "Internal server error: %s" % err

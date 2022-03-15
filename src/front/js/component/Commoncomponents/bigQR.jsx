@@ -7,7 +7,7 @@ const BigQR = ({url, clickHandler}) => {
   const Block = styled.div`
     position: fixed;
     top: 0px;
-    rigth: 0px;
+    right: 0px;
     width: 100vw;
     height: 100vh;
     display: flex;
