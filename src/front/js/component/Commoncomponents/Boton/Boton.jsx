@@ -1,31 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Boton = () => {
-  return (
-    <ButtonUser></ButtonUser>
-  )
-}
-const ButtonUser = styled.a`
-	background-color:#1f2b5b;
-	border:1px solid #314179;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:'Ubuntu Condensed', sans-serif !important;
-	font-size:18px;
-	font-weight:bold;
-	padding:9px 31px;
-	text-decoration:none;
-
-    &:hover{
-        background:linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
-	    background-color:#5972a7;
-    }
+const ButtonUser = styled.button`
+	background-color: var(--main-blue);
+	border: none;
+	display: inline-block;
+	color: white;
+	font-size: 1.5rem;
+	padding: 11px 0px 11px 0px;
+	width: 14rem;
     &:active{
         position:relative;
 	    top:1px;
     }
-
 `
+	const Boton = ({children, onClick}) => {
+		return (
+			<ButtonUser onClick={onClick}>
+				{children}
+			</ButtonUser>
+		)
+	}
+
 export default Boton
