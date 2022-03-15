@@ -40,7 +40,7 @@ const UserPageProfile = () => {
   // Call for new data page on currentPage changes
   useEffect (
     ()=> {
-      getLogs.query = currentPage;
+      getLogs.query = `${store.user.role}/${currentPage}`;
       getLogs.onError = (error) => console.error(error)
       getLogs.onResponse = (response) => {
         setLogrosMockup(response.contents.data);
