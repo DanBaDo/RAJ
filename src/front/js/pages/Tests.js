@@ -69,12 +69,12 @@ export const Tests = () => {
           <ElementData icon={online} title="Poker Fight" description="intento de acceso" time="2 May" showText={false}/>
         <h1>ClaveAPI</h1>
           <ClaveAPI
-            icon={casino} title="Poker Fight" description="pendiente" time="ayer" alert="true"
-            qrClickHandler={()=>alert("QR")} copyClickHandler={()=>alert("COPY")} trashClickHandler={()=>alert("TRASH")}
+            icon={casino} title="Entrada principal" description="pendiente" time="ayer" alert="true"
+            url="https://bit.ly/3fTg56" trashClickHandler={()=>alert("TRASH")}
           />
           <ClaveAPI
             icon={casino} title="Gamblign Warrior" description="instalada" time="30/12/2021"
-            qrClickHandler={()=>alert("QR")} copyClickHandler={()=>alert("COPY")} trashClickHandler={()=>alert("TRASH")}
+            url="https://bit.ly/3fTg56" trashClickHandler={()=>alert("TRASH")}
           />
         <h1>PanelEventos</h1>
           <PanelEventos arrayEventos={logsMockup} getPageHandler={logsQuery} currentPage={currentPage === 0 && "start" || currentPage === totalPages-1 && "end"}/>
