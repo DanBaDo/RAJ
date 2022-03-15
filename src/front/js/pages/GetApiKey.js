@@ -154,8 +154,9 @@ const StyledTitleApi = styled.h1`
   text-align: center;
   font-size: 60px;
   color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /*font-family: "Ubuntu Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen
+    , Cantarell, "Open Sans", "Helvetica Neue", sans-serif;*/
+  font-family: 'Ubuntu Condensed', sans-serif !important;
 `;
 
 const KeyList = styled.ul`

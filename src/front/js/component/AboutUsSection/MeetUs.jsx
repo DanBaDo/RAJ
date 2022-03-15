@@ -33,7 +33,7 @@ const MeetUs = () => {
 };
 
 const TextMeet = styled.p`
-font-size:1em;
+font-size:2em;
 `
 
 export default MeetUs;

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Button, Container, Card, Stack, Fade, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -7,6 +7,8 @@ import {
   Avatar,
   PanelEventos,
 } from "../component/IndexComponents";
+
+import { getLogs } from "../libraries/request/APIRequests.js";
 
 
 const UserPageProfile = () => {
@@ -101,7 +103,7 @@ const UserPageProfile = () => {
               Cerrar Sesion
             </Button>
             <Button variant="secondary"><Link to="/DropOutRequest/">Solicitar Baja</Link></Button>
-            <Boton>Prueba</Boton>
+            <Button>Prueba</Button>
             </Stack>
           </Card.Body>
         </Card>

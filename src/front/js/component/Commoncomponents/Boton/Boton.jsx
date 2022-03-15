@@ -12,7 +12,7 @@ const ButtonUser = styled.a`
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:'Ubuntu', sans-serif;;
+	font-family:'Ubuntu Condensed', sans-serif !important;
 	font-size:18px;
 	font-weight:bold;
 	padding:9px 31px;

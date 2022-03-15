@@ -2,9 +2,11 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 
+/*
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 
 :root {
   --warning-color: #ff0000;
@@ -13,8 +15,7 @@
 }
 
 body{
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu Condensed", sans-serif !important;
   height: 100%;
-  
 }
 
