@@ -33,7 +33,7 @@ def get_api_keys():
         resp.message = "Your API keys"
         # resp.data = [{**key.serialize(), "url": request.base_url + key.key } for key in company.api_keys]
         # Mocked API keys
-        resp.data = [{"key": index, **api_key} for index, api_key in API_KEYS]
+        resp.data = [{"key": index, **api_key} for index, api_key in enumerate(API_KEYS)]
         return resp.json(), 200
     except Exception as err:
         resp.message = "Internal server error: %s" % err
@@ -84,7 +84,7 @@ def new_api_key():
         API_KEYS.append(new_key)
         resp.data = {
             "newApiKey": new_key,
-            "apiKeys": [{"key": index, **api_key} for index, api_key in API_KEYS]
+            "apiKeys": [{"key": index, **api_key} for index, api_key in enumerate(API_KEYS)]
         }
         return resp.json(), 200
     except Exception as err:
