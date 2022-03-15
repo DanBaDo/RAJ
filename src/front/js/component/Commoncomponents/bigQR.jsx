@@ -1,12 +1,25 @@
 import React, { useState } from "react";
-import QRCode from "qrcode.react";
-import { Container } from "react-bootstrap";
+import styled from 'styled-components';
 
-const BigQR = (props) => {
+import QRCode from "qrcode.react";
+
+const BigQR = ({url, clickHandler}) => {
+  const Block = styled.div`
+    position: fixed;
+    top: 0px;
+    rigth: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: white;
+  `
   return (
-    <Container>
-      <QRCode style={{height:250, width:250, marginTop:20, marginBottom:20}} value={props.url} />
-    </Container>
+    <Block onClick={clickHandler}>
+      <QRCode style={{height:250, width:250, marginTop:20, marginBottom:20}} value={url} />
+    </Block>
   );
 };
 
