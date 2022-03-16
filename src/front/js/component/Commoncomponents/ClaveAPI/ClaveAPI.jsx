@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from 'styled-components';
+import { Modal } from "react-bootstrap";
 
 import {
     ElementData,
@@ -46,6 +47,7 @@ const ClaveAPI = ({
     }
 
     const ElementDataProps = {icon, title, description, time, alert, showText}
+//                { showQR && <BigQR url={url} clickHandler={toggleQR}/> }
 
     return (
         <Block>
@@ -54,9 +56,15 @@ const ClaveAPI = ({
                 { ! hideButtons && <BotonClave src={qr} handler={toggleQR}/>}
                 { ! hideButtons && <BotonClave src={copy} handler={()=>navigator.clipboard.writeText(url)}/>}
                 { ! hideButtons && <BotonClave src={trash} handler={trashClickHandler}/>}
-                { showQR && <BigQR url={url} clickHandler={toggleQR}/> }
                 <BotonClave src={ hideButtons ? menu : close } handler={toggleButtons}/>
             </div>
+            <Modal show={showQR} onHide={toggleQR}>
+                <Modal.Header closeButton>
+                </Modal.Header>
+                <Modal.Body>
+                    <BigQR url={url} clickHandler={toggleQR}/>
+                </Modal.Body>
+            </Modal>
         </Block>
     );
 };

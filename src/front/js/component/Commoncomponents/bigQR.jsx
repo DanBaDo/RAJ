@@ -5,11 +5,9 @@ import QRCode from "qrcode.react";
 
 const BigQR = ({url, clickHandler}) => {
   const Block = styled.div`
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    margin: 5rem 0px;
     display: flex;
     justify-content: center;
     align-items: center;
