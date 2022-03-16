@@ -16,10 +16,6 @@ import { getLogs, getAPIKeys, createAPIKeys } from "../libraries/request/APIRequ
 
 const Block = styled.div`
 	text-align: center;
-  &:last-child {
-    position: relative;
-    top: 1rem;
-  }
 `
 
 const UserPageProfile = () => {
@@ -170,58 +166,59 @@ const UserPageProfile = () => {
             <>
               <PanelCalvesAPI keys={keys}/>
               <Boton onClick={()=>setShowForm(true)}>Nueva llave</Boton>
+              <p></p>
             </> :
             <PanelLogros/>
           }
         </Col>
       </Row>
       <Modal show={showForm} onHide={()=>setShowForm(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>Nueva clave API</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form
-              onChange={handleChange}
-              noValidate
-              validated={validated}
-              onSubmit={handleSubmit}
-            >
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Nombre descriptivo</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="description"
-                  placeholder="Diferencie sus claves API"
-                  maxLength={12}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Uso de la llave</Form.Label>
-                <Form.Check
-                  type="radio"
-                  name="purpose"
-                  label="Servicio on-line"
-                  value="APPLICATION"
-                  defaultChecked
-                />
-                <Form.Check
-                  type="radio"
-                  name="purpose"
-                  label="Lector de control de acceso"
-                  value="IOT"
-                />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={()=>setShowForm(false)}>
-              Cancelar
+        <Modal.Header closeButton>
+          <Modal.Title>Nueva clave API</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form
+            onChange={handleChange}
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+          >
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Nombre descriptivo</Form.Label>
+              <Form.Control
+                type="text"
+                name="description"
+                placeholder="Diferencie sus claves API"
+                maxLength={12}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Uso de la llave</Form.Label>
+              <Form.Check
+                type="radio"
+                name="purpose"
+                label="Servicio on-line"
+                value="APPLICATION"
+                defaultChecked
+              />
+              <Form.Check
+                type="radio"
+                name="purpose"
+                label="Lector de control de acceso"
+                value="IOT"
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
             </Button>
-          </Modal.Footer>
-        </Modal>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={()=>setShowForm(false)}>
+            Cancelar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
     </Block>
   );
