@@ -102,7 +102,7 @@ const UserPageProfile = () => {
         actions.addError(error);
       }
     };
-    getAPIKeys.call();
+    if (store.user.role === "RPR") getAPIKeys.call();
   }, []);
 
   // Next/previous page handler
