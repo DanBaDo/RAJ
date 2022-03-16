@@ -4,7 +4,7 @@ import { Button, Modal, Form, Col, Container } from "react-bootstrap";
 import { login } from "../../libraries/request/APIRequests";
 import logo from "../../../img/logo.png";
 import "./Login.scss";
-import { FaUserAlt } from "react-icons/fa";
+import { FaSignInAlt,FaSignOutAlt} from "react-icons/fa";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
@@ -55,9 +55,9 @@ const Login = () => {
     <>
       <StyledContainer onClick={handleShow}>
         {store.logged === true ?
-          <p>Cerrar sesión</p>
+          <span> <FaSignOutAlt className="mx-1"/>Cerrar Sesión</span>
         :
-          <p>Iniciar sesión</p>
+          <span> <FaSignInAlt className="mx-1"/> Iniciar Sesión</span>
         }
       </StyledContainer>
 
@@ -65,16 +65,16 @@ const Login = () => {
         <Modal.Header closeButton>
           <Modal.Title>
           {store.logged === true ?
-            <p>Cerrar sesión</p>
+            <span> <FaSignOutAlt className="mx-1"/>Cerrar Sesión</span>
           :
-            <p>Iniciar sesión</p>
+            <span> <FaSignInAlt className="mx-1"/> Iniciar Sesión</span>
           }
           </Modal.Title>
         </Modal.Header>
         {store.logged === true ? (
           <Modal.Footer>
             <Button onClick={logout} variant="primary">
-              Cerrar sesión
+              Cerrar Sesion
             </Button>
           </Modal.Footer>
         ) : (
@@ -129,13 +129,24 @@ const Login = () => {
     </>
   );
 };
-const StyledContainer = styled.div`
-  margin: 0 auto;
-  cursor:pointer;
-  width:10%;
-  height:2%;
-
-
+const StyledContainer = styled.a`
+box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+background-color:transparent;
+border:1px solid #f7f9ff;
+display:inline-block;
+cursor:pointer;
+padding:1%;
+color:#ffffff;
+font-family:Arial;
+font-size:13px;
+font-weight:bold;
+text-decoration:none;
+&:hover{
+  color:#fff;
+}
+&:active{
+  position:relative;
+top:1px;
 `
 
 export default Login;
