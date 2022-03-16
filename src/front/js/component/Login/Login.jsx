@@ -146,7 +146,7 @@ text-decoration:none;
 }
 &:active{
   position:relative;
-top:1px;
+top:1px;}
 `
 
 export default Login;
