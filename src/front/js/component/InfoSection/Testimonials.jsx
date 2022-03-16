@@ -12,40 +12,37 @@ export default function Testimonials() {
         <div className="testimonials">
           <div className="testimonial">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-              asperiores eaque.
+              "Desde que empece con Raj mi vida cambio"
             </p>
             <div className="info">
-              <img src="https://via.placeholder.com/150" alt="" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
               <div className="details">
-                <h4>asda</h4>
-                <span>asda</span>
+                <h4>Pedro Luis</h4>
+                <span>reseña de google</span>
               </div>
             </div>
           </div>
           <div className="testimonial">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-              asperiores eaque.
+              "No tenia fe en ella me sorprendio gratamente"
             </p>
             <div className="info">
-              <img src="https://via.placeholder.com/150" alt="" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
               <div className="details">
-                <h4>asdasd</h4>
-                <span>asds</span>
+                <h4>teresa perez</h4>
+                <span>reseña de google</span>
               </div>
             </div>
           </div>
           <div className="testimonial">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-              asperiores eaque.
+              "Asusta el cambio, pero es necesario"
             </p>
             <div className="info">
-              <img src="https://via.placeholder.com/150" alt="" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" />
               <div className="details">
-                <h4>asdasd</h4>
-                <span>adad</span>
+              <h4>Miguel Luis</h4>
+                <span>reseña de google</span>
               </div>
             </div>
           </div>
