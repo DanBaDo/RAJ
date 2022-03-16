@@ -55,9 +55,9 @@ const Login = () => {
     <>
       <StyledContainer onClick={handleShow}>
         {store.logged === true ?
-          <span> <FaSignOutAlt className="mx-1"/>Cerrar Sesión</span>
+          <span> <FaSignOutAlt className="mx-1"/>Cerrar sesión</span>
         :
-          <span> <FaSignInAlt className="mx-1"/> Iniciar Sesión</span>
+          <span> <FaSignInAlt className="mx-1"/> Iniciar sesión</span>
         }
       </StyledContainer>
 
@@ -65,16 +65,16 @@ const Login = () => {
         <Modal.Header closeButton>
           <Modal.Title>
           {store.logged === true ?
-            <span> <FaSignOutAlt className="mx-1"/>Cerrar Sesión</span>
+            <span> <FaSignOutAlt className="mx-1"/>Cerrar sesión</span>
           :
-            <span> <FaSignInAlt className="mx-1"/> Iniciar Sesión</span>
+            <span> <FaSignInAlt className="mx-1"/> Iniciar sesión</span>
           }
           </Modal.Title>
         </Modal.Header>
         {store.logged === true ? (
           <Modal.Footer>
             <Button onClick={logout} variant="primary">
-              Cerrar Sesion
+              Cerrar sesión
             </Button>
           </Modal.Footer>
         ) : (
