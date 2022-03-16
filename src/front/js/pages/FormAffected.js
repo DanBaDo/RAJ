@@ -5,9 +5,11 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import es from "react-phone-input-2/lang/es.json";
 import { signup } from "../libraries/request/APIRequests.js";
+import { useHistory } from "react-router-dom";
 
 export const FormAffected = () => {
 
+  const history = useHistory()
   const { store, actions } = useContext(Context);
   const [validated, setValidated] = useState(false);
   // Provides a object for storing form data and
@@ -34,7 +36,7 @@ export const FormAffected = () => {
     setValidated(true);
     console.log(event)
     signup.onError = (error) => actions.addError(error);
-    signup.onResponse = (resp)=>{location.href="/thanks/"}
+    signup.onResponse = (resp)=>{history.push("/thanks/")}
     signup.data = formData;
     signup.call();
   };

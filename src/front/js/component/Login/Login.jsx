@@ -6,8 +6,10 @@ import logo from "../../../img/logo.png";
 import "./Login.scss";
 import { FaUserAlt } from "react-icons/fa";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory()
   const { store, actions } = useContext(Context);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +30,7 @@ const Login = () => {
         switch (response.code) {
           case 200:
             actions.setLoggedIn(response.contents.data);
+            history.push("/")
             break;
           case 401:
             actions.setLoggedOut();
