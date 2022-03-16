@@ -13,13 +13,13 @@ const Footer = () => {
   return (
     <>
       <ContainerFooterSection>
-          <h4>Informacion legal</h4>
+          <h4>Información legal</h4>
           <p>Numero de registro legal : 123456789</p>
-          <h5>Siguenos en nuestras redes</h5>
+          <h5>Síguenos en las redes</h5>
           <BsFacebook/>
           <div className="vr mx-3 "></div>
           <BsInstagram/>
-          <h6>Proudly created by Adrian, DanBoDo, Bigbitdev, 2022</h6>
+          <h6>Proudly created by Adrián, DanBaDo, Bigbitdev, 2022</h6>
       </ContainerFooterSection>
     </>
   );

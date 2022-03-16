@@ -8,12 +8,13 @@ const Gallery = () => {
       <JumboImg>
         <ContainerImg style={{ backgroundImage: `url(${background})` }}>
           <HeadingContent>
-            <HeadingTitle>Registro de autoexclucion</HeadingTitle>
+            <HeadingTitle>Registro de autoexclusión</HeadingTitle>
             <p>
-              Por que estamos preocupados por ti, la adicion al juego es menos
-              popular que las drogas sin embargo ahi esta presente en la vida de
-              muchos con tu desicion puedes cambiar las cosas
-            </p>
+              Porque estamos preocupados por tí. </p>
+            <p>La adicción al juego es un problema menos
+              conocido que las drogas, sin embargo, está presente en la vida de
+              muchos.</p>
+              <p>Con tu decisión puedes cambiar las cosas.</p>
           </HeadingContent>
         </ContainerImg>
       </JumboImg>

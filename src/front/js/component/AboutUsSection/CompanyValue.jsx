@@ -7,8 +7,8 @@ const CompanyValue = () => {
       <Container className="py-5 mt-4 .color-color">
         <p>Por que elegirnos:</p>
         <ul>
-          <li>Somos una empresa innovadora que implenta nuevas tecnologias de autoexcluicon</li>
-          <li>Nuestro metodo es mas directo sin necesidad de intermediarios</li>
+          <li>Somos una empresa innovadora que implementa nuevas tecnologías en el ámbito social.</li>
+          <li>Nuestro método es más directo sin necesidad de intermediarios</li>
         </ul>
       </Container>
     </>

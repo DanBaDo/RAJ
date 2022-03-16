@@ -141,7 +141,7 @@ const UserPageProfile = () => {
             <Card.Body>
               <Card.Title>Este es tu perfil</Card.Title>
               <Card.Text>
-                Desde aqui podras interactuar con todas las opciones que
+                Desde aquí podrás interactuar con todas las opciones que
                 necesites:
               </Card.Text>
               <Stack gap={3} className="col-md-10 mx-auto">

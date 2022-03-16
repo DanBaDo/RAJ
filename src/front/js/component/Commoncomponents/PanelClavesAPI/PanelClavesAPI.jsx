@@ -49,7 +49,7 @@ const PanelClavesAPI = ({keys}) => {
 
     return (
         <Block>
-            <p>Panel de claves API</p>
+            <p>Claves API</p>
             <ol>
                 {keysComponents()}
             </ol>          

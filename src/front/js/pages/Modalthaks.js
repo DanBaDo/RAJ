@@ -20,7 +20,7 @@ const ModalThanks = () =>{
   </Modal.Header>
       
   <Modal.Body >
-    <p>¡Gracias! por Ayudarnos Ayudar.
+    <p>¡Gracias! por ayudarnos a ayudar.
     &nbsp;
        <strong>RAJ</strong></p>
   </Modal.Body>

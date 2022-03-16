@@ -49,9 +49,9 @@ export const FormEmpresa = () => {
             <Col >
             <h2 className="stylempresa">Registra tu empresa </h2>
             
-            <p className="stylempresatext">Con el registro de tu empresa nos ayudas a tener  controlados a todos los registrados en <strong>RAJ</strong> para coloborar con su recuperacion.
-            <p>¡Ayudanos a Ayudar!</p>
-            <p>GRACIAS!</p>
+            <p className="stylempresatext">Con el registro de tu empresa nos ayudas a tener  controlados a todos los registrados en <strong>RAJ</strong> para cloborar con su recuperación.
+            <p>¡Ayúdanos a ayudar!</p>
+            <p>¡GRACIAS!</p>
             </p>
             </Col>
             <Col md={1} xs={1}></Col>

@@ -16,12 +16,12 @@ const MeetUs = () => {
           <Col md={{ order: "last" }} xs={{ order: "last" }} className="my-3 text-center">
             <Logo />
             <TextMeet>
-              Raj se caracteriza por se un modelo diferente y mas eficiente de
-              autoexclucion, mediante el cual se emplean las nuevas tecnologias,
-              de la web, si quieres conocer mas acerca de nuestro trabajo pincha
-              el boton de leer mas.
+              Raj ofrece un modelo más eficiente de solución para la
+              autoexclusión del juego.
+              Si quieres conocer más acerca de nuestro trabajo pincha
+              el botón.
             </TextMeet>
-            <Link className="text-white" to="/AboutUsPage"><Button className="buttonlogin"> Leer mas</Button></Link>
+            <Link className="text-white" to="/AboutUsPage"><Button className="buttonlogin"> Leer más</Button></Link>
           </Col>
           <Col xs={12} md={6}>
             <CompanyValue />

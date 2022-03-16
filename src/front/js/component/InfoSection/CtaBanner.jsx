@@ -22,18 +22,18 @@ const Rajinfo = () => {
       <Container className="my-3">
         <Row>
           <h2>
-            <strong>Toma un respiro y pasalo en Familia</strong>
+            <strong>Tómate un respiro en familia.</strong>
           </h2>
           <Col className="Textauto">
             <StyledSpan>
-              <p>La Autoexclusión es una forma de que cualquier persona que crea
-              tener problemas con el juego pueda autoexcluirse de todas las webs
-              de apuestas y casinos online de España. De esta manera, una vez
-              solicitada esta autoexclusión, el usuario no podrá volver acceder
+              <p>La autoexclusión permite que cualquier persona con
+              problemas con el juego pueda cerrar su acceso a todas las webs
+              de apuestas y salas de juego. De esta manera, una vez
+              solicitada la autoexclusión, el usuario no podrá volver a acceder
               a estos locales.</p>
               <p>
                 La ludopatía, la adicción a los juegos de azar lleva a la
-                pérdida de trabajo, problemas de dinero, fraude, crimen o
+                pérdida de trabajo, problemas económicos, crimen o
                 problemas en las relaciones familiares. Si quieres ponerle fin
                 pincha aqui:
               </p>

@@ -74,7 +74,7 @@ const Login = () => {
         {store.logged === true ? (
           <Modal.Footer>
             <Button onClick={logout} variant="primary">
-              Cerrar Sesion
+              Cerrar sesión
             </Button>
           </Modal.Footer>
         ) : (

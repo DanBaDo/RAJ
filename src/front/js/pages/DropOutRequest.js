@@ -10,33 +10,15 @@ const DropOutRequest = () => {
         <Row>
           <Col className="text-center">
             <h1>Solicitud de Baja de RAJ</h1>
-            <p>
-              Estas apunto de darte de baja! Aunque darse de baja de  
-              RAJ no es tan facil.<br/> 
-              Nuestro equipo se pondra en
-              contacto contigo despues de <strong>72h</strong>.
-              <br/> La Ludopatia no
-              se cura , solo se trata y por eso queremos estar seguros de que
+              <p>Darse de baja de  
+              RAJ no es tan fácil.<br/> 
+              Nuestro equipo se pondrá en
+              contacto contigo después de <strong>72h</strong>.
+              <br/> La Ludopatía no
+              se cura, por eso queremos estar seguros de que
               tomas la decisión correcta.
             </p>
-            <span className="pl-1">¿Estas seguro que quieres darte de baja?</span>
-            <input
-              className="form-check-input"
-              type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio1"
-              value="option1"
-            ></input>
-            <label className="form-check-label">Si</label>
-            &nbsp;&nbsp;&nbsp;
-            <input
-              className="form-check-input"
-              type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio2"
-              value="option2"
-            ></input>
-            <label className="form-check-label">NO</label>
+            <span className="pl-1">¿Estás seguro que quieres solicitar la baja?</span>
             <Button className="buttonlogin">Darme de baja</Button>
           </Col>
         </Row>
