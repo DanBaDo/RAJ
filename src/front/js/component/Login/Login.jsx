@@ -55,9 +55,9 @@ const Login = () => {
     <>
       <StyledContainer onClick={handleShow}>
         {store.logged === true ?
-          <p>Cerrar Sesión</p>
+          <p>Cerrar sesión</p>
         :
-          <p>Iniciar Sesión</p>
+          <p>Iniciar sesión</p>
         }
       </StyledContainer>
 
@@ -65,9 +65,9 @@ const Login = () => {
         <Modal.Header closeButton>
           <Modal.Title>
           {store.logged === true ?
-            <p>Cerrar Sesión</p>
+            <p>Cerrar sesión</p>
           :
-            <p>Iniciar Sesión</p>
+            <p>Iniciar sesión</p>
           }
           </Modal.Title>
         </Modal.Header>
